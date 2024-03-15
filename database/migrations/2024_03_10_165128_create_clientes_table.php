@@ -17,7 +17,7 @@ class CreateClientesTable extends Migration
             $table->id();
             $table->string('nombre');
             $table->string('cedula');
-            $table->email('email')->unique();
+            $table->string('email')->unique();
             $table->string('telefono');
             $table->string('fecha_nacimiento');
             $table->string('provincia');
