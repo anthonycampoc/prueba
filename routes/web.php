@@ -23,6 +23,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 use App\Http\Controllers\AdminGeneralController;
 use App\Http\Controllers\AdminVendedoresController;
 use App\Http\Controllers\VendedoresController;
+use App\Http\Controllers\ClienteController;
 
 // Ruta para adminGeneral
 Route::get('/adminGeneral', [AdminGeneralController::class, 'index'])->name('adminGeneral');
@@ -34,5 +35,5 @@ Route::get('/adminVendedores', [AdminVendedoresController::class, 'index'])->nam
 Route::get('/vendedores', [VendedoresController::class, 'index'])->name('vendedores');
 
 
-Route::resource('clientes', ClienteController::class);
+Route::resource('clientes', ClienteController::class)->names('cliente');
 

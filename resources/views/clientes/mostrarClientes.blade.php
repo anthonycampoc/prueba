@@ -26,9 +26,9 @@
                 <td>{{ $cliente->canton }}</td>
                 <td>{{ $cliente->parroquia }}</td>
                 <td>
-                    <a href="{{ route('clientes.show', $cliente) }}">Ver</a>
-                    <a href="{{ route('clientes.edit', $cliente) }}">Editar</a>
-                    <form action="{{ route('clientes.destroy', $cliente) }}" method="POST">
+                    <a href="{{ route('cliente.show', $cliente) }}">Ver</a>
+                    <a href="{{ route('cliente.edit', $cliente) }}">Editar</a>
+                    <form action="{{ route('cliente.destroy', $cliente) }}" method="POST">
                         @csrf
                         @method('DELETE')
                         <button type="submit">Eliminar</button>
@@ -38,4 +38,4 @@
         @endforeach
     </tbody>
 </table>
-<a href="{{ route('clientes.create') }}">Crear nuevo cliente</a>
+<a href="{{ route('cliente.create') }}">Crear nuevo cliente</a>

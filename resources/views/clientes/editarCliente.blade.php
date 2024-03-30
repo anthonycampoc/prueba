@@ -1,6 +1,6 @@
 <!-- resources/views/clientes/edit.blade.php -->
 <h1>Editar Cliente</h1>
-<form action="{{ route('clientes.update', $cliente) }}" method="POST">
+<form action="{{ route('cliente.update', $cliente) }}" method="POST">
     @csrf
     @method('PUT')
     <input type="text" name="nombre" value="{{ $cliente->nombre }}" required>

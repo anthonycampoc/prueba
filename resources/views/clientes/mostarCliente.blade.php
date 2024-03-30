@@ -3,4 +3,4 @@
 <p>Nombre: {{ $cliente->nombre }}</p>
 <p>Cédula: {{ $cliente->cedula }}</p>
 <!-- Agrega los campos restantes según tus necesidades -->
-<a href="{{ route('clientes.edit', $cliente) }}">Editar</a>
+<a href="{{ route('cliente.edit', $cliente) }}">Editar</a>

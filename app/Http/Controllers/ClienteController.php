@@ -28,14 +28,14 @@ class ClienteController extends Controller
             'cedula' => 'required|unique:clientes,cedula',
             'email' => 'required|email|unique:clientes,email',
             'telefono' => 'required',
-            'fecha_nacimiento' => 'required|date',
+            /*'fecha_nacimiento' => 'required|date',
             'provincia' => 'required',
             'canton' => 'required',
-            'parroquia' => 'required',
+            'parroquia' => 'required',*/
         ]);
 
         Cliente::create($request->all());
-        return redirect()->route('clientes.index')
+        return redirect()->route('cliente.index')
                         ->with('success', 'Cliente creado con éxito.');
     }
 
