@@ -20,3 +20,16 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+use App\Http\Controllers\AdminGeneralController;
+use App\Http\Controllers\AdminVendedoresController;
+use App\Http\Controllers\VendedoresController;
+
+// Ruta para adminGeneral
+Route::get('/adminGeneral', [AdminGeneralController::class, 'index'])->name('adminGeneral');
+
+// Ruta para adminVendedores
+Route::get('/adminVendedores', [AdminVendedoresController::class, 'index'])->name('adminVendedores');
+
+// Ruta para vendedores
+Route::get('/vendedores', [VendedoresController::class, 'index'])->name('vendedores');
+
