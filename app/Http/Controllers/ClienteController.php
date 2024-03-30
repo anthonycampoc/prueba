@@ -11,13 +11,13 @@ class ClienteController extends Controller
     public function index()
     {
         $clientes = Cliente::all();
-        return view('clientes.index', compact('clientes'));
+        return view('clientes.mostrarClientes', compact('clientes'));
     }
 
     // Mostrar el formulario para crear un nuevo cliente
     public function create()
     {
-        return view('clientes.create');
+        return view('clientes.crearClientes');
     }
 
     // Almacenar un nuevo cliente en la base de datos
