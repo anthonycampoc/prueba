@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Cliente;
+use App\Models\Cliente; // Asegúrate de importar el modelo Cliente
 
 class ClienteController extends Controller
 {
@@ -25,12 +25,18 @@ class ClienteController extends Controller
     {
         $request->validate([
             'nombre' => 'required',
+            'cedula' => 'required|unique:clientes,cedula',
             'email' => 'required|email|unique:clientes,email',
+            'telefono' => 'required',
+            'fecha_nacimiento' => 'required|date',
+            'provincia' => 'required',
+            'canton' => 'required',
+            'parroquia' => 'required',
         ]);
 
         Cliente::create($request->all());
         return redirect()->route('clientes.index')
-                        ->with('success','Cliente creado con éxito.');
+                        ->with('success', 'Cliente creado con éxito.');
     }
 
     // Mostrar un cliente específico
@@ -50,12 +56,18 @@ class ClienteController extends Controller
     {
         $request->validate([
             'nombre' => 'required',
-            'email' => 'required|email|unique:clientes,email,'.$cliente->id,
+            'cedula' => 'required|unique:clientes,cedula,' . $cliente->id,
+            'email' => 'required|email|unique:clientes,email,' . $cliente->id,
+            'telefono' => 'required',
+            'fecha_nacimiento' => 'required|date',
+            'provincia' => 'required',
+            'canton' => 'required',
+            'parroquia' => 'required',
         ]);
 
         $cliente->update($request->all());
         return redirect()->route('clientes.index')
-                        ->with('success','Cliente actualizado con éxito.');
+                        ->with('success', 'Cliente actualizado con éxito.');
     }
 
     // Eliminar un cliente de la base de datos
@@ -63,7 +75,7 @@ class ClienteController extends Controller
     {
         $cliente->delete();
         return redirect()->route('clientes.index')
-                        ->with('success','Cliente eliminado con éxito.');
+                        ->with('success', 'Cliente eliminado con éxito.');
     }
 }
 
