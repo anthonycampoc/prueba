@@ -48,7 +48,7 @@ class ClienteController extends Controller
     // Mostrar el formulario para editar un cliente existente
     public function edit(Cliente $cliente)
     {
-        return view('clientes.edit', compact('cliente'));
+        return view('clientes.editarCliente', compact('cliente'));
     }
 
     // Actualizar un cliente en la base de datos
@@ -59,14 +59,14 @@ class ClienteController extends Controller
             'cedula' => 'required|unique:clientes,cedula,' . $cliente->id,
             'email' => 'required|email|unique:clientes,email,' . $cliente->id,
             'telefono' => 'required',
-            'fecha_nacimiento' => 'required|date',
-            'provincia' => 'required',
-            'canton' => 'required',
-            'parroquia' => 'required',
+            /*'fecha_nacimiento',
+            'provincia',
+            'canton',
+            'parroquia',*/
         ]);
 
         $cliente->update($request->all());
-        return redirect()->route('clientes.index')
+        return redirect()->route('clientes.mostrarClientes')
                         ->with('success', 'Cliente actualizado con éxito.');
     }
 
@@ -74,7 +74,7 @@ class ClienteController extends Controller
     public function destroy(Cliente $cliente)
     {
         $cliente->delete();
-        return redirect()->route('clientes.index')
+        return redirect()->route('clientes.mostrarClientes')
                         ->with('success', 'Cliente eliminado con éxito.');
     }
 }

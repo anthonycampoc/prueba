@@ -35,5 +35,6 @@ Route::get('/adminVendedores', [AdminVendedoresController::class, 'index'])->nam
 Route::get('/vendedores', [VendedoresController::class, 'index'])->name('vendedores');
 
 
-Route::resource('clientes', ClienteController::class)->names('cliente');
+Route::resource('clientes', ClienteController::class)->names('clientes');
+
 

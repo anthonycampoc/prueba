@@ -206,17 +206,17 @@
                                     <i class="zmdi zmdi-account"></i>
                                 </div>
                                 <div class="navLateral-body-cr hide-on-tablet">
-                                    ADMINISTRATORS
+                                    ADMINISTRADOR
                                 </div>
                             </a>
                         </li>
                         <li class="full-width">
-                            <a href="{{route('cliente.index')}}" class="full-width">
+                            <a href="{{route('clientes.mostrarClientes')}}" class="full-width">
                                 <div class="navLateral-body-cl">
                                     <i class="zmdi zmdi-accounts"></i>
                                 </div>
                                 <div class="navLateral-body-cr hide-on-tablet">
-                                    CLIENT
+                                    CLIENTES
                                 </div>
                             </a>
                         </li>
