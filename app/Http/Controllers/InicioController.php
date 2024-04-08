@@ -10,7 +10,7 @@ class InicioController extends Controller
     public function index(){
 
         $inicio = Inicio::all();
-        $titulo = titulo::all()
+        $titulo = titulo::all();
        // dd($inicio);
         return view('layouts.page', compact('inicio','titulo'));
     }
