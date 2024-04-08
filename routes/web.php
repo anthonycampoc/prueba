@@ -1,6 +1,10 @@
 <?php
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminGeneralController;
+use App\Http\Controllers\AdminVendedoresController;
+use App\Http\Controllers\VendedoresController;
+use App\Http\Controllers\ClienteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,16 +18,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('auth.login');
+    return view('layouts.page');
 });
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-use App\Http\Controllers\AdminGeneralController;
-use App\Http\Controllers\AdminVendedoresController;
-use App\Http\Controllers\VendedoresController;
-use App\Http\Controllers\ClienteController;
+
 
 // Ruta para adminGeneral
 Route::get('/adminGeneral', [AdminGeneralController::class, 'index'])->name('adminGeneral');
