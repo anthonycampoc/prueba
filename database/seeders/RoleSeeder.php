@@ -9,10 +9,21 @@ use Spatie\Permission\Models\Permission;
 
     // Permisos para el CRUD de usuarios
     $permisos = [
-        'crear usuarios',
-        'ver usuarios',
-        'actualizar usuarios',
-        'eliminar usuarios'
+
+        'crear.admin.vendedores',
+        'ver.admin.vendedores',
+        'actualizar.admin.vendedores',
+        'eliminar.admin.vendedores',
+
+        'crear.vendedores',
+        'ver.vendedores',
+        'actualizar.vendedores',
+        'eliminar.vendedores',
+
+        'crear.clientes',
+        'ver.clientes',
+        'actualizar.clientes',
+        'eliminar.clientes'
     ];
 
     foreach ($permisos as $permiso) {
@@ -39,16 +50,16 @@ class RoleSeeder extends Seeder
         $roleAdminGeneral->givePermissionTo(Permission::all());
 
         // Asignar permisos relacionados con vendedores y clientes al rol adminVendedores
-        $roleAdminVendedores->givePermissionTo('crear usuarios');
-        $roleAdminVendedores->givePermissionTo('ver usuarios');
-        $roleAdminVendedores->givePermissionTo('actualizar usuarios');
-        $roleAdminVendedores->givePermissionTo('eliminar usuarios');
+        $roleAdminVendedores->givePermissionTo('crear.vendedores');
+        $roleAdminVendedores->givePermissionTo('ver.vendedores');
+        $roleAdminVendedores->givePermissionTo('actualizar.vendedores');
+        $roleAdminVendedores->givePermissionTo('eliminar.vendedores');
 
         // Asignar permisos relacionados solo con clientes al rol vendedor
-        $roleVendedor->givePermissionTo('crear usuarios');
-        $roleVendedor->givePermissionTo('ver usuarios');
-        $roleVendedor->givePermissionTo('actualizar usuarios');
-        $roleVendedor->givePermissionTo('eliminar usuarios');
+        $roleVendedores->givePermissionTo('crear.clientes');
+        $roleVendedores->givePermissionTo('ver.clientes');
+        $roleVendedores->givePermissionTo('actualizar.clientes');
+        $roleVendedores->givePermissionTo('eliminar.clientes');
 
     }
 }

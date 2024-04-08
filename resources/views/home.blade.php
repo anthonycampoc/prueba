@@ -211,7 +211,7 @@
                             </a>
                         </li>
                         <li class="full-width">
-                            <a href="{{route('clientes.index')}}" class="full-width">
+                            <a href="{{route('cliente.index')}}" class="full-width">
                                 <div class="navLateral-body-cl">
                                     <i class="zmdi zmdi-accounts"></i>
                                 </div>

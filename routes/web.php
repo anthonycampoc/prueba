@@ -2,16 +2,7 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+
 
 Route::get('/', function () {
     return view('auth.login');
@@ -24,9 +15,11 @@ use App\Http\Controllers\AdminGeneralController;
 use App\Http\Controllers\AdminVendedoresController;
 use App\Http\Controllers\VendedoresController;
 use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\UserController;
 
 // Ruta para adminGeneral
 Route::get('/adminGeneral', [AdminGeneralController::class, 'index'])->name('adminGeneral');
+Route::resource('users', UserController::class)->names('adminGeneral.users');
 
 // Ruta para adminVendedores
 Route::get('/adminVendedores', [AdminVendedoresController::class, 'index'])->name('adminVendedores');
@@ -35,6 +28,6 @@ Route::get('/adminVendedores', [AdminVendedoresController::class, 'index'])->nam
 Route::get('/vendedores', [VendedoresController::class, 'index'])->name('vendedores');
 
 
-Route::resource('clientes', ClienteController::class)->names('clientes');
+Route::resource('clientes', ClienteController::class)->names('cliente');
 
 
