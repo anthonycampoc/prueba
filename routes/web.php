@@ -5,6 +5,7 @@ use App\Http\Controllers\AdminGeneralController;
 use App\Http\Controllers\AdminVendedoresController;
 use App\Http\Controllers\VendedoresController;
 use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\InicioController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,8 +19,12 @@ use App\Http\Controllers\ClienteController;
 */
 
 Route::get('/', function () {
-    return view('layouts.page');
+    return redirect()->route('inicio.index');
 });
+
+//Route::get('/', function () {return redirect()->route('login');});
+
+Route::resource('inicio', InicioController::class)->names('inicio');
 
 Auth::routes();
 
