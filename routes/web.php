@@ -1,12 +1,21 @@
 <?php
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminGeneralController;
+use App\Http\Controllers\AdminVendedoresController;
+use App\Http\Controllers\VendedoresController;
+use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\InicioController;
 
 
 
 Route::get('/', function () {
-    return view('auth.login');
+    return redirect()->route('inicio.index');
 });
+
+//Route::get('/', function () {return redirect()->route('login');});
+
+Route::resource('inicio', InicioController::class)->names('inicio');
 
 Auth::routes();
 
@@ -15,7 +24,6 @@ use App\Http\Controllers\AdminGeneralController;
 use App\Http\Controllers\AdminVendedoresController;
 use App\Http\Controllers\VendedoresController;
 use App\Http\Controllers\ClienteController;
-use App\Http\Controllers\UserController;
 
 // Ruta para adminGeneral
 Route::get('/adminGeneral', [AdminGeneralController::class, 'index'])->name('adminGeneral');
