@@ -11,7 +11,7 @@ class ClienteController extends Controller
     public function index()
     {
         $clientes = Cliente::all();
-        return view('clientes.mostrarClientes', compact('clientes'));
+        return view('adminPC.clientes.mostrarClientes', compact('clientes'));
     }
 
     // Mostrar el formulario para crear un nuevo cliente
@@ -35,7 +35,7 @@ class ClienteController extends Controller
         ]);
 
         Cliente::create($request->all());
-        return redirect()->route('cliente.index')
+        return redirect()->back()
                         ->with('success', 'Cliente creado con éxito.');
     }
 
