@@ -65,12 +65,12 @@
                                 </a>
                             </li>
                             <li class="full-width">
-                                <a href="payments.html" class="full-width">
+                                <a href="{{route('cualidad.create')}}" class="full-width">
                                     <div class="navLateral-body-cl">
                                         <i class="zmdi zmdi-card"></i>
                                     </div>
                                     <div class="navLateral-body-cr hide-on-tablet">
-                                        PAYMENTS
+                                        CUALIDADES
                                     </div>
                                 </a>
                             </li>
