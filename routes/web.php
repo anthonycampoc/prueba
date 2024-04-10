@@ -7,12 +7,14 @@ use App\Http\Controllers\VendedoresController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\InicioController;
 use App\Http\Controllers\HomeController; // Añadido aquí para evitar la ruta completa más adelante
+use App\Http\Controllers\SobreController;
 
 Route::get('/', function () {
     return redirect()->route('inicio.index');
 });
-
+//RUTAS PANEL DE CONTROL PAGINA WEB
 Route::resource('inicio', InicioController::class)->names('inicio');
+Route::resource('sobre', SobreController::class)->names('sobre');
 
 Auth::routes();
 
