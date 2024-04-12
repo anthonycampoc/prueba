@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminVendedoresController;
 use App\Http\Controllers\VendedoresController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\CualidadesController;
+use App\Http\Controllers\FacultadController;
 use App\Http\Controllers\InicioController;
 use App\Http\Controllers\HomeController; // Añadido aquí para evitar la ruta completa más adelante
 use App\Http\Controllers\SobreController;
@@ -17,6 +18,7 @@ Route::get('/', function () {
 Route::resource('inicio', InicioController::class)->names('inicio');
 Route::resource('sobre', SobreController::class)->names('sobre');
 Route::resource('cualidad', CualidadesController::class)->names('cualidad');
+Route::resource('facultad', FacultadController::class)->names('facultad');
 
 Auth::routes();
 

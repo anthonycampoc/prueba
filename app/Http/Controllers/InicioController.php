@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\cualidades;
+use App\Models\Facultad;
 use App\Models\Inicio;
 use App\Models\Sobre;
 use Illuminate\Http\Request;
@@ -13,8 +14,9 @@ class InicioController extends Controller
         $inicio = Inicio::all();
         $sobre = Sobre::where('id', 1)->firstOrFail();
         $cualidad = cualidades::all();
+        $facultad = Facultad::all();
        // dd($inicio);
-        return view('layouts.page', compact('inicio','sobre','cualidad'));
+        return view('layouts.page', compact('inicio','sobre','cualidad','facultad'));
     }
     
     public function create(){

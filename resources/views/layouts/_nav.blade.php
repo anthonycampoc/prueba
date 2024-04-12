@@ -75,12 +75,12 @@
                                 </a>
                             </li>
                             <li class="full-width">
-                                <a href="categories.html" class="full-width">
+                                <a href="{{route('facultad.create')}}" class="full-width">
                                     <div class="navLateral-body-cl">
                                         <i class="zmdi zmdi-label"></i>
                                     </div>
                                     <div class="navLateral-body-cr hide-on-tablet">
-                                        CATEGORIES
+                                        FACULTAD
                                     </div>
                                 </a>
                             </li>
