@@ -15,8 +15,9 @@ class InicioController extends Controller
         $sobre = Sobre::where('id', 1)->firstOrFail();
         $cualidad = cualidades::all();
         $facultad = Facultad::all();
+        $contacto = Contacto::all();
        // dd($inicio);
-        return view('layouts.page', compact('inicio','sobre','cualidad','facultad'));
+        return view('layouts.page', compact('inicio','sobre','cualidad','facultad', 'contacto'));
     }
     
     public function create(){

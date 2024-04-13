@@ -73,6 +73,8 @@
                                     </button>
                                     <div class="mdl-tooltip" for="btn-addClient">Guardar</div>
                                 </p>
+
+                                
                             </form>
                         </div>
                     </div>
@@ -86,7 +88,7 @@
                 <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--8-col-desktop mdl-cell--2-offset-desktop">
                     <div class="full-width panel mdl-shadow--2dp">
                         <div class="full-width panel-tittle bg-success text-center tittles">
-                            Lista Cliente
+                            Lista Inicio
                         </div>
                         <div class="full-width panel-content">
                             <form action="#">
