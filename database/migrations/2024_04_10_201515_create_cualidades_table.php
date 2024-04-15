@@ -15,8 +15,8 @@ class CreateCualidadesTable extends Migration
     {
         Schema::create('cualidades', function (Blueprint $table) {
             $table->id();
-            $table->string("titulo");
-            $table->string("parrafo1");
+            $table->text("titulo");
+            $table->text("parrafo1");
             $table->string("imagen");
             $table->timestamps();
         });

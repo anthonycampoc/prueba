@@ -19,6 +19,9 @@ Route::resource('inicio', InicioController::class)->names('inicio');
 Route::resource('sobre', SobreController::class)->names('sobre');
 Route::resource('cualidad', CualidadesController::class)->names('cualidad');
 Route::resource('facultad', FacultadController::class)->names('facultad');
+//CONTACT
+Route::resource('contact', ContactController::class)->names('contact');
+
 
 Auth::routes();
 

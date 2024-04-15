@@ -15,9 +15,9 @@ class CreateIniciosTable extends Migration
     {
         Schema::create('inicios', function (Blueprint $table) {
             $table->id();
-            $table->string("titulo");
-            $table->string("subtitulo");
-            $table->string("parrafo");
+            $table->text("titulo");
+            $table->text("subtitulo");
+            $table->text("parrafo");
             $table->string("nombreLink");
             $table->string("link");
             $table->string("imagen");
