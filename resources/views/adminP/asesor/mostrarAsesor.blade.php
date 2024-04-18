@@ -15,49 +15,48 @@
     </section>
     <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
         <div class="mdl-tabs__tab-bar">
-            <a href="#tabNewClient" class="mdl-tabs__tab is-active">Actualizar</a>
-           
+            <a href="#tabNewClient" class="mdl-tabs__tab is-active">Nuevo</a>
+            <a href="#tabListClient" class="mdl-tabs__tab">Lista</a>
         </div>
         <div class="mdl-tabs__panel is-active" id="tabNewClient">
             <div class="mdl-grid">
                 <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--8-col-desktop mdl-cell--2-offset-desktop">
                     <div class="full-width panel mdl-shadow--2dp">
                         <div class="full-width panel-tittle bg-primary text-center tittles">
-                            Contacto
+                            Asesor
                         </div>
                         <div class="full-width panel-content">
-                            <form action="{{route('contacto.update',$contacto->id)}}" method="POST">
+                            <form action="{{route('asesor.store')}}" method="POST">
                                 @csrf
-                                @method('PUT')
-                                <h5 class="text-condensedLight">Datos Contacto</h5>
-                                <input value="{{$contacto->id}}" type="hidden" name="id">
+                                <h5 class="text-condensedLight">Datos Asesor</h5>
+
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                    <input value="{{$contacto->direccion}}" name="direccion" class="mdl-textfield__input" type="text"  id="NameClient">
-                                    <label class="mdl-textfield__label" for="NameClient">Ingrese su direccion</label>
-                                    
+                                    <input name="nombres" class="mdl-textfield__input" type="text" pattern="-?[A-Za-záéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="NameClient">
+                                    <label class="mdl-textfield__label" for="NameClient">Ingrese su nombre</label>
+                                    <span class="mdl-textfield__error">Invalid name</span>
                                 </div>
 
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                    <input value="{{$contacto->telefono}}" name="telefono" class="mdl-textfield__input" type="text"  id="NameClient">
-                                    <label class="mdl-textfield__label" for="NameClient">Ingrese el telefono</label>
-                     
+                                    <input name="apellidos" class="mdl-textfield__input" type="text" pattern="-?[A-Za-záéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="NameClient">
+                                    <label class="mdl-textfield__label" for="NameClient">Ingrese su apellido</label>
+                                    <span class="mdl-textfield__error">Invalid name</span>
                                 </div>
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                    <input value="{{$contacto->correo}}" name="correo" class="mdl-textfield__input" type="text"  id="NameClient">
-                                    <label class="mdl-textfield__label" for="NameClient">Ingrese un correo</label>
-                                    
+                                    <input name="imagen" class="mdl-textfield__input" type="text" pattern="-?[A-Za-záéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="NameClient">
+                                    <label class="mdl-textfield__label" for="NameClient">Inserta una imagen</label>
+                                    <span class="mdl-textfield__error">Invalid name</span>
                                 </div>
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                    <input value="{{$contacto->imagen}}" name="imagen" class="mdl-textfield__input" type="text"  id="NameClient">
-                                    <label class="mdl-textfield__label" for="NameClient">Inserte un imagen</label>
-                                
+                                    <input name="link" class="mdl-textfield__input" type="text" pattern="-?[A-Za-záéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="NameClient">
+                                    <label class="mdl-textfield__label" for="NameClient">Ingrese el link</label>
+                                    <span class="mdl-textfield__error">Invalid name</span>
                                 </div>
 
                                 <p class="text-center">
                                     <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" id="btn-addClient">
                                         <i class="zmdi zmdi-plus"></i>
                                     </button>
-                                    <div class="mdl-tooltip" for="btn-addClient">Actualizar</div>
+                                    <div class="mdl-tooltip" for="btn-addClient">Guardar</div>
                                 </p>
                             </form>
                         </div>
@@ -86,7 +85,20 @@
                                     </div>
                                 </div>
                             </form>
-                    
+                            <div class="mdl-list">
+                                @foreach ($asesor as $item)
+                                    <div class="mdl-list__item mdl-list__item--two-line">
+                                        <span class="mdl-list__item-primary-content">
+                                            <i class="zmdi zmdi-account mdl-list__item-avatar"></i>
+                                            <span>{{$item->nombres}}</span>
+                                            <span class="mdl-list__item-sub-title">{{$item->apellidos}}</span>
+                                        </span>
+                                        <a class="mdl-list__item-secondary-action" href="#!"><i class="zmdi zmdi-more"></i></a>
+                                    </div>
+                                    <li class="full-width divider-menu-h"></li>
+                                @endforeach
+                              
+                            </div>
                         </div>
                     </div>
                 </div>

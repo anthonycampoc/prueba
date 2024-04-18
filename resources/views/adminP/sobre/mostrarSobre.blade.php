@@ -110,6 +110,4 @@
     </div>
 </section>
 
-
-
 @endsection

@@ -17,4 +17,6 @@ class FacultadController extends Controller
         Facultad::create($request->all());
         return redirect()->back();
     }
+
+    
 }

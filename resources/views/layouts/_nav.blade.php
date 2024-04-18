@@ -84,6 +84,47 @@
                                     </div>
                                 </a>
                             </li>
+                            <li class="full-width">
+                                <a href="{{route('asesor.create')}}" class="full-width">
+                                    <div class="navLateral-body-cl">
+                                        <i class="zmdi zmdi-label"></i>
+                                    </div>
+                                    <div class="navLateral-body-cr hide-on-tablet">
+                                        ASESORES
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="full-width">
+                                <a href="{{route('redes.create')}}" class="full-width">
+                                    <div class="navLateral-body-cl">
+                                        <i class="zmdi zmdi-label"></i>
+                                    </div>
+                                    <div class="navLateral-body-cr hide-on-tablet">
+                                        Redes Sociales
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li class="full-width">
+                                <a href="{{route('contacto.create')}}" class="full-width">
+                                    <div class="navLateral-body-cl">
+                                        <i class="zmdi zmdi-label"></i>
+                                    </div>
+                                    <div class="navLateral-body-cr hide-on-tablet">
+                                        Contacto
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="full-width">
+                                <a href="{{route('carrera.create')}}" class="full-width">
+                                    <div class="navLateral-body-cl">
+                                        <i class="zmdi zmdi-accounts"></i>
+                                    </div>
+                                    <div class="navLateral-body-cr hide-on-tablet">
+                                        Curso
+                                    </div>
+                                </a>
+                            </li>
                         </ul>
                     </li>
                     <li class="full-width divider-menu-h"></li>
@@ -128,6 +169,9 @@
                                     </div>
                                 </a>
                             </li>
+
+
+                            
                         </ul>
                     </li>
                    

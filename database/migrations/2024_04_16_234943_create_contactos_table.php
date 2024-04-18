@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSobresTable extends Migration
+class CreateContactosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class CreateSobresTable extends Migration
      */
     public function up()
     {
-        Schema::create('sobres', function (Blueprint $table) {
+        Schema::create('contactos', function (Blueprint $table) {
             $table->id();
-            $table->text("parrafo1");
-            $table->text("parrafo2");
-            $table->string("tituloLink");
-            $table->string("link");
+            $table->string("direccion");
+            $table->string("telefono");
+            $table->string("correo");
             $table->string("imagen");
             $table->timestamps();
         });
@@ -31,6 +30,6 @@ class CreateSobresTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sobres');
+        Schema::dropIfExists('contactos');
     }
 }
