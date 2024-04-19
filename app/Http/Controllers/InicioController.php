@@ -6,6 +6,7 @@ use App\Models\cualidades;
 use App\Models\Facultad;
 use App\Models\Inicio;
 use App\Models\Sobre;
+use App\Models\Contacto;
 use Illuminate\Http\Request;
 
 class InicioController extends Controller
