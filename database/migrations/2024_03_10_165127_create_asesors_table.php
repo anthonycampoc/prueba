@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateClientesTable extends Migration
+class CreateAsesorsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class CreateClientesTable extends Migration
      */
     public function up()
     {
-        Schema::create('clientes', function (Blueprint $table) {
+        Schema::create('asesors', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre');
+            $table->string("nombres");
+            $table->string("apellidos");
             $table->string('cedula');
             $table->string('email')->unique();
             $table->string('telefono');
@@ -23,10 +24,11 @@ class CreateClientesTable extends Migration
             $table->string('provincia');
             $table->string('canton');
             $table->string('parroquia');
-            $table->unsignedBigInteger('asesor_id');
-            $table->foreign('asesor_id')->references('id')->on('asesors');
-            $table->unsignedBigInteger('carrera_id');
-            $table->foreign('carrera_id')->references('id')->on('cursos');
+            $table->string("imagen");
+            $table->string("link");
+            $table->unsignedBigInteger('empresa_id');
+            $table->foreign('empresa_id')->references('id')->on('empresas');
+
             $table->timestamps();
         });
     }
@@ -38,6 +40,6 @@ class CreateClientesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('clientes');
+        Schema::dropIfExists('asesors');
     }
 }

@@ -23,46 +23,23 @@
                 <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--8-col-desktop mdl-cell--2-offset-desktop">
                     <div class="full-width panel mdl-shadow--2dp">
                         <div class="full-width panel-tittle bg-primary text-center tittles">
-                            Crear Cliente
+                            Empresas
                         </div>
                         <div class="full-width panel-content">
-                            <form action="{{ route('cliente.store') }}" method="POST">
+                            <form action="{{route('empresa.store')}}" method="POST">
                                 @csrf
-                                <h5 class="text-condensedLight">Datos Cliente</h5>
+                                <h5 class="text-condensedLight">Empresa</h5>
 
-                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                    <input name="nombre" class="mdl-textfield__input" type="text" pattern="-?[A-Za-záéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="NameClient">
-                                    <label class="mdl-textfield__label" for="NameClient">Nombre</label>
+                               <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                    <input name="nombre" class="mdl-textfield__input" type="text" id="NameClient">
+                                    <label class="mdl-textfield__label" for="NameClient">Nombre empresa</label>
                                     <span class="mdl-textfield__error">Invalid name</span>
                                 </div>
 
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                    <input name="cedula" class="mdl-textfield__input" type="number" pattern="-?[0-9]*(\.[0-9]+)?" id="DNIClient">
-                                    <label class="mdl-textfield__label" for="DNIClient">Cedula</label>
-                                    <span class="mdl-textfield__error">Invalid number</span>
-                                </div>
-                             
-                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                    <input name="telefono" class="mdl-textfield__input" type="tel" pattern="-?[0-9+()- ]*(\.[0-9]+)?" id="phoneClient">
-                                    <label class="mdl-textfield__label" for="phoneClient">Telefono</label>
-                                    <span class="mdl-textfield__error">Invalid phone number</span>
-                                </div>
-
-                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                    <input name="email" class="mdl-textfield__input" type="email" id="emailClient">
-                                    <label class="mdl-textfield__label" for="emailClient">Correo</label>
-                                    <span class="mdl-textfield__error">Invalid E-mail</span>
-                                </div>
-
-                                <div class="mdl-textfield mdl-js-textfield">
-                                    <select name="asesor_id" class="mdl-textfield__input">
-                                        <option value="" disabled="" selected="">Asesor</option>
-
-                                        @foreach ($asesores as $item)
-                                                <option value="{{$item->id}}">{{$item->nombres}}</option>
-                                        @endforeach
-                                       
-                                    </select>
+                                    <input name="ruc" class="mdl-textfield__input" type="text" id="NameClient">
+                                    <label class="mdl-textfield__label" for="NameClient">RUC</label>
+                                    <span class="mdl-textfield__error">Invalid name</span>
                                 </div>
 
                                 <p class="text-center">
@@ -84,7 +61,7 @@
                 <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--8-col-desktop mdl-cell--2-offset-desktop">
                     <div class="full-width panel mdl-shadow--2dp">
                         <div class="full-width panel-tittle bg-success text-center tittles">
-                            Lista Cliente
+                            Lista Sobre
                         </div>
                         <div class="full-width panel-content">
                             <form action="#">
@@ -99,17 +76,18 @@
                                 </div>
                             </form>
                             <div class="mdl-list">
-                                @foreach ($clientes as $item)
+                                @foreach ($empresa as $item)
                                     <div class="mdl-list__item mdl-list__item--two-line">
                                         <span class="mdl-list__item-primary-content">
                                             <i class="zmdi zmdi-account mdl-list__item-avatar"></i>
                                             <span>{{$item->nombre}}</span>
-                                            <span class="mdl-list__item-sub-title">{{$item->cedula}}</span>
+                                            <span class="mdl-list__item-sub-title">{{$item->ruc}}</span>
                                         </span>
                                         <a class="mdl-list__item-secondary-action" href="#!"><i class="zmdi zmdi-more"></i></a>
                                     </div>
                                     <li class="full-width divider-menu-h"></li>
                                 @endforeach
+                              
                             </div>
                         </div>
                     </div>
@@ -119,7 +97,5 @@
             <!-- fin lista cliente -->
     </div>
 </section>
-
-
 
 @endsection

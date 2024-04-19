@@ -16,10 +16,9 @@ class ContactoSeeder extends Seeder
     {
         //
         Contacto::create([
-            'direccion' => 'Calle',
-            'telefono' => '0991746106',
-            'correo' => 'renteria@gmail.com',
-            'imagen' => 'link'
+            'direccion' => 'Calle 1 y Calle 2',
+            'telefono' => '+593969510399',
+            'correo' => 'renteria.krt@gmail.com',
         ]);
     }
 }

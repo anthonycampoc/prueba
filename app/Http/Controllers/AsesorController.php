@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Asesor;
+use App\Models\Empresa;
 use Illuminate\Http\Request;
 
 class AsesorController extends Controller
@@ -11,7 +12,8 @@ class AsesorController extends Controller
 
     public function create(){
         $asesor = Asesor::all();
-        return view("adminP.asesor.mostrarAsesor", compact('asesor'));
+        $empresa = Empresa::all();
+        return view("adminP.asesor.mostrarAsesor", compact('asesor', 'empresa'));
     }
 
     public function store(Request $request){

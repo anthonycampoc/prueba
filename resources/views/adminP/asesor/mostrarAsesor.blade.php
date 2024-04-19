@@ -41,15 +41,46 @@
                                     <label class="mdl-textfield__label" for="NameClient">Ingrese su apellido</label>
                                     <span class="mdl-textfield__error">Invalid name</span>
                                 </div>
+
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                    <input name="imagen" class="mdl-textfield__input" type="text" pattern="-?[A-Za-záéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="NameClient">
+                                    <input name="cedula" class="mdl-textfield__input" type="text" id="NameClient">
+                                    <label class="mdl-textfield__label" for="NameClient">Ingrese su cedula</label>
+                                    <span class="mdl-textfield__error">Invalid name</span>
+                        
+                                </div>
+
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                    <input name="email" class="mdl-textfield__input" type="text" id="NameClient">
+                                    <label class="mdl-textfield__label" for="NameClient">Ingrese su correo</label>
+                                    <span class="mdl-textfield__error">Invalid name</span>
+                                </div>
+
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                    <input name="telefono" class="mdl-textfield__input" type="text" id="NameClient">
+                                    <label class="mdl-textfield__label" for="NameClient">Ingrese su telefono</label>
+                                    <span class="mdl-textfield__error">Invalid name</span>
+                                </div>
+
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                    <input name="imagen" class="mdl-textfield__input" type="text" id="NameClient">
                                     <label class="mdl-textfield__label" for="NameClient">Inserta una imagen</label>
                                     <span class="mdl-textfield__error">Invalid name</span>
                                 </div>
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                    <input name="link" class="mdl-textfield__input" type="text" pattern="-?[A-Za-záéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="NameClient">
+                                    <input name="link" class="mdl-textfield__input" type="text" id="NameClient">
                                     <label class="mdl-textfield__label" for="NameClient">Ingrese el link</label>
                                     <span class="mdl-textfield__error">Invalid name</span>
+                                </div>
+
+                                <div class="mdl-textfield mdl-js-textfield">
+                                    <select name="empresa_id" class="mdl-textfield__input">
+                                        <option value="" disabled="" selected="">Empresa</option>
+
+                                        @foreach ($empresa as $item)
+                                                <option value="{{$item->id}}">{{$item->nombre}}</option>
+                                        @endforeach
+                                       
+                                    </select>
                                 </div>
 
                                 <p class="text-center">
