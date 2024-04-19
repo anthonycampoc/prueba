@@ -26,7 +26,7 @@
                             Inicio
                         </div>
                         <div class="full-width panel-content">
-                            <form action="{{route('inicio.store')}}" method="POST">
+                            <form action="{{route('inicio.store')}}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <h5 class="text-condensedLight">Datos Inicio</h5>
 
@@ -61,9 +61,9 @@
                                 </div>
 
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                    <input name="imagen" class="mdl-textfield__input" type="text" pattern="-?[A-Za-záéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="NameClient">
+                                    <input name="imagen" class="mdl-textfield__input" type="file"  id="NameClient">
                                     <label class="mdl-textfield__label" for="NameClient">imagen</label>
-                                    <span class="mdl-textfield__error">Invalid name</span>
+                                    
                                 </div>
 
                               

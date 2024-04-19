@@ -25,11 +25,6 @@ class InicioController extends Controller
         return view('layouts.page', compact('inicio','sobre','cualidad','facultad','asesor','contacto'));
     }
 
-    public function footer($footer){
-            return view('layouts.footer', compact('footer'));
-    }
-
-
     public function nosotros(){
         $sobre = Sobre::where('id', 1)->firstOrFail();
         $contacto = Contacto::where('id', 1)->firstOrFail();
@@ -69,12 +64,24 @@ class InicioController extends Controller
         return view('layouts.contacto', compact('contacto'));
     }
     public function create(){
+        
         $inicio = Inicio::all();
         return view('adminP.inicio.mostrarInicio',compact('inicio') );
     }
 
     public function store(Request $request){
-            Inicio::create($request->all());
+        
+        
+            $inicio = $request->all();
+
+            if($imagen = $request->file('imagen')){
+                $ruta = 'imagen/';
+                $nombreI = date('YmdHis').".".$imagen->getClientOriginalExtension();
+                $imagen->move($ruta, $nombreI);
+                $inicio['imagen'] = "$nombreI";
+            }
+
+            Inicio::create($inicio);
             return redirect()->back();
     }
 

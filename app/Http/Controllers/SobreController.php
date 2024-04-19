@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Models\Sobre;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Schema;
@@ -11,12 +12,23 @@ class SobreController extends Controller
     //
 
     public function create(){
-        $sobre = Sobre::all();
+        $sobre = Sobre::where('id', 1)->firstOrFail();
         return view('adminP.sobre.mostrarSobre',compact('sobre') );
     }
 
-    public function store(Request $request){
-        Sobre::create($request->all());
+    public function update(Request $request, Sobre $sobre){
+        $sobre1 = $request->all();
+
+        if($imagen = $request->file('imagen')){
+            $ruta = 'imagen/';
+            $nombreI = date('YmdHis').".".$imagen->getClientOriginalExtension();
+            $imagen->move($ruta, $nombreI);
+            $sobre1['imagen'] = "$nombreI";
+        }else{
+            $nombreI = $sobre1['imagen'];
+        }
+
+        $sobre->update($sobre1);
         return redirect()->back();
     }
 

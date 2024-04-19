@@ -26,32 +26,38 @@
                             Sobre Nosotros
                         </div>
                         <div class="full-width panel-content">
-                            <form action="{{route('sobre.store')}}" method="POST">
+                            <form action="{{route('sobre.update', $sobre->id)}}" method="POST" enctype="multipart/form-data">
                                 @csrf
-                                <h5 class="text-condensedLight">Datos Sobre Nosotros</h5>
+                                @method('PUT')
+                                <h5 class="text-condensedLight">Actualizar Sobre Nosotros</h5>
 
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                    <textarea name="parrafo1" class="mdl-textfield__input" pattern="-?[A-Za-záéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="NameClient" cols="30" rows="10"></textarea>
+                                    <textarea name="parrafo1" class="mdl-textfield__input" pattern="-?[A-Za-záéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="NameClient" cols="30" rows="10">{{$sobre->parrafo1}}</textarea>
                                     <label class="mdl-textfield__label" for="NameClient">Parrafo 2</label>
                                     <span class="mdl-textfield__error">Invalid name</span>
                                 </div>
 
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                    <textarea name="parrafo2" class="mdl-textfield__input" pattern="-?[A-Za-záéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="NameClient" cols="30" rows="10"></textarea>
+                                    <textarea name="parrafo2" class="mdl-textfield__input" pattern="-?[A-Za-záéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="NameClient" cols="30" rows="10">{{$sobre->parrafo2}}</textarea>
                                     <label class="mdl-textfield__label" for="NameClient">Parrafo 2</label>
                                     <span class="mdl-textfield__error">Invalid name</span>
                                 </div>
 
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                    <input name="tituloLink" class="mdl-textfield__input" type="text" pattern="-?[A-Za-záéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="NameClient">
+                                    <input value="{{$sobre->tituloLink}}" name="tituloLink" class="mdl-textfield__input" type="text" pattern="-?[A-Za-záéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="NameClient">
                                     <label class="mdl-textfield__label" for="NameClient">Nombre Boton</label>
                                     <span class="mdl-textfield__error">Invalid name</span>
                                 </div>
 
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                    <input name="link" class="mdl-textfield__input" type="text" pattern="-?[A-Za-záéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="NameClient">
+                                    <input value="{{$sobre->link}}"name="link" class="mdl-textfield__input" type="text" pattern="-?[A-Za-záéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="NameClient">
                                     <label class="mdl-textfield__label" for="NameClient">Link</label>
                                     <span class="mdl-textfield__error">Invalid name</span>
+                                </div>
+
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                    <input value="{{$sobre->imagen}}" name="imagen" class="mdl-textfield__input" type="file"  id="NameClient">
+                                    <label class="mdl-textfield__label" for="NameClient">imagen</label> 
                                 </div>
 
                                 <p class="text-center">
@@ -67,46 +73,7 @@
             </div>
         </div>
 
-            <!-- inicio lista cliente -->
-        <div class="mdl-tabs__panel" id="tabListClient">
-            <div class="mdl-grid">
-                <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--8-col-desktop mdl-cell--2-offset-desktop">
-                    <div class="full-width panel mdl-shadow--2dp">
-                        <div class="full-width panel-tittle bg-success text-center tittles">
-                            Lista Sobre
-                        </div>
-                        <div class="full-width panel-content">
-                            <form action="#">
-                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
-                                    <label class="mdl-button mdl-js-button mdl-button--icon" for="searchClient">
-                                        <i class="zmdi zmdi-search"></i>
-                                    </label>
-                                    <div class="mdl-textfield__expandable-holder">
-                                        <input class="mdl-textfield__input" type="text" id="searchClient">
-                                        <label class="mdl-textfield__label"></label>
-                                    </div>
-                                </div>
-                            </form>
-                            <div class="mdl-list">
-                                @foreach ($sobre as $item)
-                                    <div class="mdl-list__item mdl-list__item--two-line">
-                                        <span class="mdl-list__item-primary-content">
-                                            <i class="zmdi zmdi-account mdl-list__item-avatar"></i>
-                                            <span>{{$item->parrafo1}}</span>
-                                            <span class="mdl-list__item-sub-title">{{$item->parrafo2}}</span>
-                                        </span>
-                                        <a class="mdl-list__item-secondary-action" href="#!"><i class="zmdi zmdi-more"></i></a>
-                                    </div>
-                                    <li class="full-width divider-menu-h"></li>
-                                @endforeach
-                              
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-            <!-- fin lista cliente -->
+        
     </div>
 </section>
 
