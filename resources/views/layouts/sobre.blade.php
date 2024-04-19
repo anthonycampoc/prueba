@@ -46,30 +46,24 @@
     <!-- Navbar End -->
 
 
-    <!-- Carousel Start -->
-    <div class="container-fluid p-0 mb-5">
-        <div class="owl-carousel header-carousel position-relative">
-            @foreach ($inicio as $item)
-            <div class="owl-carousel-item position-relative">
-                <img class="img-fluid" src="{{asset('page/img/carousel-1.jpg')}}" alt="">
-                <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(24, 29, 56, .7);">
-                    <div class="container">
-                        <div class="row justify-content-start">
-                            <div class="col-sm-10 col-lg-8">
-                                <h5 class="text-primary text-uppercase mb-3 animated slideInDown">{{$item->titulo}}</h5>
-                                <h1 class="display-3 text-white animated slideInDown">{{$item->subtitulo}}</h1>
-                                <p class="fs-5 text-white mb-4 pb-2">{{$item->parrafo}}</p>
-                                <a href="" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">{{$item->nombreLink}}</a>
-                                <a href="" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Join Now</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+   <!-- Header Start -->
+   <div class="container-fluid bg-primary py-5 mb-5 page-header">
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-10 text-center">
+                <h1 class="display-3 text-white animated slideInDown">About Us</h1>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-center">
+                        <li class="breadcrumb-item"><a class="text-white" href="#">Home</a></li>
+                        <li class="breadcrumb-item"><a class="text-white" href="#">Pages</a></li>
+                        <li class="breadcrumb-item text-white active" aria-current="page">About</li>
+                    </ol>
+                </nav>
             </div>
-            @endforeach 
         </div>
     </div>
-    <!-- Carousel End -->
+</div>
+<!-- Header End -->
 
 
     <!-- Service Start -->
@@ -116,44 +110,6 @@
     <!-- About End -->
 
 
-    <!-- Courses Start -->
-    <div class="container-xxl py-5">
-        <div class="container">
-            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                <h6 class="section-title bg-white text-center text-primary px-3">Courses</h6>
-                <h1 class="mb-5">Popular Courses</h1>
-            </div>
-            <div class="row g-4 justify-content-center">
-                @foreach ($facultad as $item)
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="course-item bg-light">
-                        <div class="position-relative overflow-hidden">
-                            <img class="img-fluid" src="{{asset('page/img/course-1.jpg')}}" alt="">
-                            <div class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4">
-                                <a href="#" class="flex-shrink-0 btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 0 0 30px;">{{$item->nombreLink}}</a>
-                                <a href="{{ route('facultad',$item->id) }}" class="flex-shrink-0 btn btn-sm btn-primary px-3" style="border-radius: 0 30px 30px 0;">Carreras</a>
-                            </div>
-                        </div>
-                        <div class="text-center p-4 pb-0">
-                            <h5 class="mb-4">{{$item->titulo}}</h5>
-                        </div>
-
-                        <div class="d-flex border-top">
-                            
-                        </div>
-                      
-                    </div>
-                </div>
-                @endforeach
-              
-                
-                
-            </div>
-        </div>
-    </div>
-    <!-- Courses End -->
-
-
     <!-- Team Start -->
     <div class="container-xxl py-5">
         <div class="container">
@@ -180,8 +136,6 @@
                     </div>
                 </div>
                 @endforeach
-                
-               
             </div>
         </div>
     </div>
@@ -252,7 +206,7 @@
             </div>
         </div>
     </div>
-
+    
     <!-- Footer End -->
 
 
