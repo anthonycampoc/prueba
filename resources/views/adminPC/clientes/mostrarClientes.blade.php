@@ -57,11 +57,19 @@
                                 <div class="mdl-textfield mdl-js-textfield">
                                     <select name="asesor_id" class="mdl-textfield__input">
                                         <option value="" disabled="" selected="">Asesor</option>
-
                                         @foreach ($asesores as $item)
-                                                <option value="{{$item->id}}">{{$item->nombres}}</option>
+                                            <option value="{{$item->id}}">{{$item->nombres}}</option>
                                         @endforeach
-                                       
+                                    </select>
+                                </div>
+
+                                
+                                <div class="mdl-textfield mdl-js-textfield">
+                                    <select name="carrera_id" class="mdl-textfield__input">
+                                        <option value="" disabled="" selected="">Carrera</option>
+                                                @foreach ($carrera as $item)
+                                                    <option value="{{$item->id}}">{{$item->nombre}}</option>
+                                                @endforeach
                                     </select>
                                 </div>
 

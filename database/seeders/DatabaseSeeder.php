@@ -20,6 +20,8 @@ class DatabaseSeeder extends Seeder
         $this->call(SobreSeeder::class);
         $this->call(CualidadesSeeder::class);
         $this->call(ContactoSeeder::class);
+        $this->call(ProvinciaSeeder::class);
+        $this->call(CantonSeeder::class);
 
     }
 }

@@ -42,7 +42,6 @@
 
                                 <div class="mdl-textfield mdl-js-textfield">
                                     <select name="asesor_id" id="asesor_select" class="mdl-textfield__input">
-                                      
                                     </select>
                                 </div>
                                 

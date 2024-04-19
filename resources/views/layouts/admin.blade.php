@@ -124,8 +124,6 @@
 
 @yield('content')
 
-
-
 <script type="text/javascript">
 
      $(document).ready(function(){
@@ -133,9 +131,8 @@
             $(document).on('change','#empresa_select', function(){
                     var empresa_id = $(this).val();
                     const miSelect = document.getElementById('asesor_select');
-                    const run = document.getElementById('ruc');
-                  
-
+                    //const run = document.getElementById('ruc');
+                
                     $.ajax({
                         type: 'get',
                         url:'{!!URL::to('EmpresaAsesor')!!}',

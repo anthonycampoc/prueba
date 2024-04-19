@@ -21,5 +21,7 @@ class Cliente extends Model
         'provincia',
         'canton',
         'parroquia',
+        'asesor_id',
+        'carrera_id'
     ];
 }
