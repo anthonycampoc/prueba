@@ -17,6 +17,7 @@
 	<script src="{{asset('SFI/js/sweetalert2.min.js')}}" ></script>
 	<script src="{{asset('SFI/js/jquery.mCustomScrollbar.concat.min.js')}}" ></script>
 	<script src="{{asset('SFI/js/main.js')}}" ></script>
+    <script src="{{asset('SFI/js/validacion.js')}}" ></script>
 	
 </head>
 <body>
@@ -122,5 +123,41 @@
 <!-- pageContent -->
 
 @yield('content')
+
+
+
+<script type="text/javascript">
+
+     $(document).ready(function(){
+
+            $(document).on('change','#empresa_select', function(){
+                    var empresa_id = $(this).val();
+                    const miSelect = document.getElementById('asesor_select');
+                    const run = document.getElementById('ruc');
+                  
+
+                    $.ajax({
+                        type: 'get',
+                        url:'{!!URL::to('EmpresaAsesor')!!}',
+                        data:{'id':empresa_id},
+                             success:function(data){
+                                console.log(data);
+                                    miSelect.innerHTML = '';
+                                    for (let i = 0; i < data.length; i++) {
+                                      const nuevaOpcion = document.createElement('option');
+                                      nuevaOpcion.value = data[i].id;
+                                      nuevaOpcion.textContent = data[i].nombres;
+                                      miSelect.appendChild(nuevaOpcion);
+                                    }    
+                             },
+                             error:function(){
+
+                             }
+                    });
+            })
+     });
+
+</script>
+
 </body>
 </html>

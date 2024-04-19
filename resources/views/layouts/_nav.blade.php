@@ -180,6 +180,16 @@
                                     </div>
                                 </a>
                             </li>
+                            <li class="full-width">
+                                <a href="{{route('matricula.index')}}" class="full-width">
+                                    <div class="navLateral-body-cl">
+                                        <i class="zmdi zmdi-accounts"></i>
+                                    </div>
+                                    <div class="navLateral-body-cr hide-on-tablet">
+                                        Matricula
+                                    </div>
+                                </a>
+                            </li>
 
 
                             

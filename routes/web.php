@@ -14,6 +14,7 @@ use App\Http\Controllers\HomeController; // Añadido aquí para evitar la ruta c
 use App\Http\Controllers\RedesController;
 use App\Http\Controllers\SobreController;
 use App\Http\Controllers\EmpresaController;
+use App\Http\Controllers\MatriculaController;
 
 Route::get('/', function () {
     return redirect()->route('inicio.index');
@@ -24,14 +25,19 @@ Route::get('/', function () {
 Route::resource('inicio', InicioController::class)->names('inicio');
 Route::resource('sobre', SobreController::class)->names('sobre');
 Route::resource('cualidad', CualidadesController::class)->names('cualidad');
-Route::resource('facultad', FacultadController::class)->names('facultad');
-Route::resource('empresa', EmpresaController::class)->names('empresa');
-//CONTACT
-
-Route::resource('asesor', AsesorController::class)->names('asesor');
 Route::resource('contacto', ContactoController::class)->names('contacto');
 Route::resource('redes', RedesController::class)->names('redes');
+
+//RUTAS ADMINISTRATIVAS
+Route::resource('clientes', ClienteController::class)->names('cliente');
+Route::resource('facultad', FacultadController::class)->names('facultad');
 Route::resource('carrera', CursosController::class)->names('carrera');
+Route::resource('asesor', AsesorController::class)->names('asesor');
+Route::resource('empresa', EmpresaController::class)->names('empresa');
+Route::resource('matricula', MatriculaController::class)->names('matricula');
+Route::get('EmpresaAsesor', [App\Http\Controllers\MatriculaController::class, 'EmpresaAsesor'])->name('EmpresaAsesor');
+
+//RUTAS PAGINA WEB
 Route::get('nosotros', [App\Http\Controllers\InicioController::class, 'nosotros'])->name('nosotros');
 Route::get('cursos', [App\Http\Controllers\InicioController::class, 'cursos'])->name('cursos');
 Route::get('comunicate', [App\Http\Controllers\InicioController::class, 'comunicate'])->name('comunicate');
@@ -49,6 +55,6 @@ Route::resource('users', UserController::class)->names('adminGeneral.users');
 Route::get('/adminVendedores', [AdminVendedoresController::class, 'index'])->name('adminVendedores');
 
 
-Route::resource('clientes', ClienteController::class)->names('cliente');
+
 
 
