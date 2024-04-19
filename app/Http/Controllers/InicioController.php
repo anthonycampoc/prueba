@@ -8,11 +8,7 @@ use App\Models\cualidades;
 use App\Models\Facultad;
 use App\Models\Inicio;
 use App\Models\Sobre;
-<<<<<<< HEAD
-use App\Models\Contacto;
-=======
 use Illuminate\Cache\RateLimiting\Limit;
->>>>>>> 0637721038f59771c48f2ce2cde90ad314143236
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 

@@ -159,16 +159,7 @@
                                     </div>
                                 </a>
                             </li>
-                            <li class="full-width">
-                                <a href="{{route('cliente.index')}}" class="full-width">
-                                    <div class="navLateral-body-cl">
-                                        <i class="zmdi zmdi-accounts"></i>
-                                    </div>
-                                    <div class="navLateral-body-cr hide-on-tablet">
-                                        Vendedores
-                                    </div>
-                                </a>
-                            </li>
+                    
                             <li class="full-width">
                                 <a href="{{route('cliente.index')}}" class="full-width">
                                     <div class="navLateral-body-cl">
@@ -176,6 +167,16 @@
                                     </div>
                                     <div class="navLateral-body-cr hide-on-tablet">
                                         Clientes
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="full-width">
+                                <a href="{{route('empresa.create')}}" class="full-width">
+                                    <div class="navLateral-body-cl">
+                                        <i class="zmdi zmdi-accounts"></i>
+                                    </div>
+                                    <div class="navLateral-body-cr hide-on-tablet">
+                                        Empresas
                                     </div>
                                 </a>
                             </li>

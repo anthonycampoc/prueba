@@ -23,6 +23,10 @@ class CreateClientesTable extends Migration
             $table->string('provincia');
             $table->string('canton');
             $table->string('parroquia');
+            $table->unsignedBigInteger('asesor_id');
+            $table->foreign('asesor_id')->references('id')->on('asesors');
+            $table->unsignedBigInteger('carrera_id');
+            $table->foreign('carrera_id')->references('id')->on('cursos');
             $table->timestamps();
         });
     }

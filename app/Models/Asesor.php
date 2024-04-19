@@ -12,7 +12,15 @@ class Asesor extends Model
     protected $fillable = [
         'nombres',
         'apellidos',
+        'cedula',
+        'email',
+        'telefono',
+        'fecha_nacimiento',
+        'provincia',
+        'canton',
+        'parroquia',
         'imagen',
         'link',
+        'empresa_id'
     ];
 }

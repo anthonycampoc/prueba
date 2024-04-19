@@ -17,9 +17,17 @@ class CreateAsesorsTable extends Migration
             $table->id();
             $table->string("nombres");
             $table->string("apellidos");
+            $table->string('cedula');
+            $table->string('email')->unique();
+            $table->string('telefono');
+            $table->string('fecha_nacimiento');
+            $table->string('provincia');
+            $table->string('canton');
+            $table->string('parroquia');
             $table->string("imagen");
             $table->string("link");
-       
+            $table->unsignedBigInteger('empresa_id');
+            $table->foreign('empresa_id')->references('id')->on('empresas');
 
             $table->timestamps();
         });

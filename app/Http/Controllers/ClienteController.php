@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Cliente; // Asegúrate de importar el modelo Cliente
+use App\Models\Asesor;
 
 class ClienteController extends Controller
 {
@@ -11,7 +12,8 @@ class ClienteController extends Controller
     public function index()
     {
         $clientes = Cliente::all();
-        return view('adminPC.clientes.mostrarClientes', compact('clientes'));
+        $asesores = Asesor::all();
+        return view('adminPC.clientes.mostrarClientes', compact('clientes', 'asesores'));
     }
 
     // Mostrar el formulario para crear un nuevo cliente
