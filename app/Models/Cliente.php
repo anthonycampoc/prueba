@@ -18,9 +18,8 @@ class Cliente extends Model
         'email',
         'telefono',
         'fecha_nacimiento',
-        'provincia',
-        'canton',
-        'parroquia',
+        'provincia_id',
+        'canton_id',
         'asesor_id',
         'carrera_id'
     ];

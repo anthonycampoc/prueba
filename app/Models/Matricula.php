@@ -11,6 +11,10 @@ class Matricula extends Model
 
     protected $fillable =[
         'empresa_id',
-        'asesor_id'
+        'asesor_id',
+        'cliente_id',
+        'carrera_id',
+        'fecha_matricula',
+        'pdf'
     ];
 }

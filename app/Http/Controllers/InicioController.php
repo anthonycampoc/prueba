@@ -34,7 +34,7 @@ class InicioController extends Controller
     }
     
     public function cursos(){
-        $carrera = DB::select('SELECT f.titulo AS nombref, c.cantEstudiante,c.duracion, c.nombre 
+        $carrera = DB::select('SELECT f.titulo AS nombref, c.cantEstudiante,c.duracion, c.nombre, c.imagen 
         FROM cursos c 
         INNER JOIN facultads f on f.id = c.facultad_id');
         $facultad = Facultad::all();
@@ -44,7 +44,7 @@ class InicioController extends Controller
 
     public function facultadC($id){
 
-        $facultadc = DB::select(DB::raw('SELECT f.titulo AS nombref, 
+        $facultadc = DB::select(DB::raw('SELECT f.titulo AS nombref, c.imagen,
         c.cantEstudiante,c.duracion, c.nombre 
         FROM cursos c 
         INNER JOIN facultads f on f.id = c.facultad_id where f.id = :id'), array('id'=>$id));

@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Cliente; // Asegúrate de importar el modelo Cliente
 use App\Models\Asesor;
+use App\Models\Canton;
 use App\Models\Cursos;
+use App\Models\Provincia;
 
 class ClienteController extends Controller
 {
@@ -15,7 +17,8 @@ class ClienteController extends Controller
         $clientes = Cliente::all();
         $asesores = Asesor::all();
         $carrera = Cursos::all();
-        return view('adminPC.clientes.mostrarClientes', compact('clientes', 'asesores','carrera'));
+        $provincia = Provincia::all();
+        return view('adminPC.clientes.mostrarClientes', compact('clientes', 'asesores','carrera', 'provincia'));
     }
 
     // Mostrar el formulario para crear un nuevo cliente
@@ -80,6 +83,12 @@ class ClienteController extends Controller
         $cliente->delete();
         return redirect()->route('cliente.index')
                         ->with('success', 'Cliente eliminado con éxito.');
+    }
+
+    public function CantonCliente(Request $request){
+        $data = Canton::select('nombre','id')->where('provincia_id', $request->id)->take(100)->get();
+        return response()->json($data);
+
     }
 }
 

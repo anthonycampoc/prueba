@@ -54,16 +54,38 @@
                                     <span class="mdl-textfield__error">Invalid E-mail</span>
                                 </div>
 
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                    <input name="fecha_nacimiento" class="mdl-textfield__input" type="date" id="emailClient">
+                                    <label class="mdl-textfield__label" for="emailClient">Ingrese fecha nacimiento</label>
+                                
+                                    <span class="mdl-textfield__error">Invalid E-mail</span>
+                                </div>
+
                                 <div class="mdl-textfield mdl-js-textfield">
-                                    <select name="asesor_id" class="mdl-textfield__input">
-                                        <option value="" disabled="" selected="">Asesor</option>
-                                        @foreach ($asesores as $item)
-                                            <option value="{{$item->id}}">{{$item->nombres}}</option>
+                                    <select name="provincia_id" id="provincia_select" class="mdl-textfield__input">
+                                        <option value="" disabled="" selected="">Provincia</option>
+                                        @foreach ($provincia as $item)
+                                            <option value="{{$item->id}}">{{$item->nombre}}</option>
                                         @endforeach
                                     </select>
                                 </div>
 
+                                <div class="mdl-textfield mdl-js-textfield">
+                                    <select name="canton_id" id="canton_select"  class="mdl-textfield__input">
                                 
+            
+                                    </select>
+                                </div>
+
+                                <div class="mdl-textfield mdl-js-textfield">
+                                    <select name="asesor_id" class="mdl-textfield__input">
+                                        <option value="" disabled="" selected="">Asesor</option>
+                                        @foreach ($asesores as $item)
+                                            <option value="{{$item->id}}">{{$item->nombre}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                  
                                 <div class="mdl-textfield mdl-js-textfield">
                                     <select name="carrera_id" class="mdl-textfield__input">
                                         <option value="" disabled="" selected="">Carrera</option>

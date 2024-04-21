@@ -16,9 +16,8 @@ class Asesor extends Model
         'email',
         'telefono',
         'fecha_nacimiento',
-        'provincia',
-        'canton',
-        'parroquia',
+        'provincia_id',
+        'canton_id',
         'imagen',
         'link',
         'empresa_id'

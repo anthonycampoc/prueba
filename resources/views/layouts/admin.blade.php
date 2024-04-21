@@ -152,6 +152,82 @@
                              }
                     });
             })
+
+            $(document).on('change','#asesor_select', function(){
+                    var asesor_id = $(this).val();
+                    const miSelect = document.getElementById('cliente_select');
+                    //const run = document.getElementById('ruc');
+                
+                    $.ajax({
+                        type: 'get',
+                        url:'{!!URL::to('AsesorCliente')!!}',
+                        data:{'id':asesor_id},
+                             success:function(data){
+                                console.log(data);
+                                    miSelect.innerHTML = '';
+                                    for (let i = 0; i < data.length; i++) {
+                                      const nuevaOpcion = document.createElement('option');
+                                      nuevaOpcion.value = data[i].id;
+                                      nuevaOpcion.textContent = data[i].nombre;
+                                      miSelect.appendChild(nuevaOpcion);
+                                    }    
+                             },
+                             error:function(){
+
+                             }
+                    });
+            })
+
+            $(document).on('change','#cliente_select', function(){
+                    var asesor_id = $(this).val();
+                    const miSelect = document.getElementById('carrera_select');
+                    const nombreCarrera = document.getElementById('nombreCarrera');
+                    const idCarrera = document.getElementById('carreraid');
+                    //const run = document.getElementById('ruc');
+                
+                    $.ajax({
+                        type: 'get',
+                        url:'{!!URL::to('CarreraCliente')!!}',
+                        data:{'id':asesor_id},
+                             success:function(data){
+                       
+                                console.log(data);
+                          
+                                    for (let i = 0; i < data.length; i++) {
+                                      idCarrera.value = data[i].id;
+                                      nombreCarrera.value = data[i].nombre;
+                                    }    
+                             },
+                             error:function(){
+
+                             }
+                    });
+            })
+
+            $(document).on('change','#provincia_select', function(){
+                    var empresa_id = $(this).val();
+                    const miSelect = document.getElementById('canton_select');
+                    //const run = document.getElementById('ruc');
+                
+                    $.ajax({
+                        type: 'get',
+                        url:'{!!URL::to('CantonCliente')!!}',
+                        data:{'id':empresa_id},
+                             success:function(data){
+                                console.log(data);
+                                    miSelect.innerHTML = '';
+                                    for (let i = 0; i < data.length; i++) {
+                                      const nuevaOpcion = document.createElement('option');
+                                      nuevaOpcion.value = data[i].id;
+                                      nuevaOpcion.textContent = data[i].nombre;
+                                      miSelect.appendChild(nuevaOpcion);
+                                    }    
+                             },
+                             error:function(){
+
+                             }
+                    });
+            })
      });
 
 </script>

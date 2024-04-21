@@ -19,6 +19,13 @@ class CreateMatriculasTable extends Migration
             $table->foreign('empresa_id')->references('id')->on('empresas');
             $table->unsignedBigInteger('asesor_id');
             $table->foreign('asesor_id')->references('id')->on('asesors');
+            $table->unsignedBigInteger('cliente_id');
+            $table->foreign('cliente_id')->references('id')->on('clientes');
+            $table->unsignedBigInteger('carrera_id');
+            $table->foreign('carrera_id')->references('id')->on('cursos');
+            $table->date('fecha_matricula');
+            $table->string('pdf');
+            
             $table->timestamps();
         });
     }

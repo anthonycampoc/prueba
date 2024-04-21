@@ -63,7 +63,6 @@
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                     <input name="imagen" class="mdl-textfield__input" type="file"  id="NameClient">
                                     <label class="mdl-textfield__label" for="NameClient">imagen</label>
-                                    
                                 </div>
 
                               

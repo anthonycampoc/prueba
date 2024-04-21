@@ -19,7 +19,7 @@ class CreateClientesTable extends Migration
             $table->string('cedula');
             $table->string('email')->unique();
             $table->string('telefono');
-            $table->string('fecha_nacimiento');
+            $table->date('fecha_nacimiento');
             $table->unsignedBigInteger('provincia_id');
             $table->foreign('provincia_id')->references('id')->on('provincias');
             $table->unsignedBigInteger('canton_id');

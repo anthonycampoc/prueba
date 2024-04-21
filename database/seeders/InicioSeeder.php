@@ -21,7 +21,7 @@ class InicioSeeder extends Seeder
             'parrafo' => 'Vero elitr justo clita lorem. Ipsum dolor at sed stet sit diam no. Kasd rebum ipsum et diam justo clita et kasd rebum sea sanctus eirmod elitr.',
             'nombreLink' => 'Read More',
             'link' => 'http://127.0.0.1:8000',
-            'imagen' => 'page/img/carousel-1.jpg'
+            'imagen' => 'carousel-1.jpg'
 
         ]);
        

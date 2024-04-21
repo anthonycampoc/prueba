@@ -36,6 +36,9 @@ Route::resource('asesor', AsesorController::class)->names('asesor');
 Route::resource('empresa', EmpresaController::class)->names('empresa');
 Route::resource('matricula', MatriculaController::class)->names('matricula');
 Route::get('EmpresaAsesor', [App\Http\Controllers\MatriculaController::class, 'EmpresaAsesor'])->name('EmpresaAsesor');
+Route::get('AsesorCliente', [App\Http\Controllers\MatriculaController::class, 'AsesorCliente'])->name('AsesorCliente');
+Route::get('CarreraCliente', [App\Http\Controllers\MatriculaController::class, 'CarreraCliente'])->name('CarreraCliente');
+Route::get('CantonCliente', [App\Http\Controllers\ClienteController::class, 'CantonCliente'])->name('CantonCliente');
 
 //RUTAS PAGINA WEB
 Route::get('nosotros', [App\Http\Controllers\InicioController::class, 'nosotros'])->name('nosotros');
