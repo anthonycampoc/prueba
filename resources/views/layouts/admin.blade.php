@@ -127,12 +127,15 @@
 <script type="text/javascript">
 
      $(document).ready(function(){
+                    var nombreCarrera = document.getElementById('nombreCarrera');
+                    var idCarrera = document.getElementById('carreraid');
 
-            $(document).on('change','#empresa_select', function(){
+     
+        //const empresa = document.getElementById('empresa_select');
+
+      /*  empresa.addEventListener('click', function(){
                     var empresa_id = $(this).val();
                     const miSelect = document.getElementById('asesor_select');
-                    //const run = document.getElementById('ruc');
-                
                     $.ajax({
                         type: 'get',
                         url:'{!!URL::to('EmpresaAsesor')!!}',
@@ -140,12 +143,63 @@
                              success:function(data){
                                 console.log(data);
                                     miSelect.innerHTML = '';
+                                    //<option id="asesor" value="1">Ms. Asia Klocko III</option>
+                               
                                     for (let i = 0; i < data.length; i++) {
                                       const nuevaOpcion = document.createElement('option');
+                                      nuevaOpcion.id = "asesor";
                                       nuevaOpcion.value = data[i].id;
                                       nuevaOpcion.textContent = data[i].nombres;
                                       miSelect.appendChild(nuevaOpcion);
-                                    }    
+                                    }
+                                    
+                                    const idAsesor = document.getElementById('asesor');
+                                    idAsesor.textContent = "Seleccione el accesor";
+                                    idAsesor.disabled = true;
+                                    
+                             },
+                             error:function(){}
+                    });
+        })*/
+        $(document).on('change','#empresa_select', function(){
+            var empresa_id = $(this).val();
+                    const miSelect = document.getElementById('asesor_select');
+                    $.ajax({
+                        type: 'get',
+                        url:'{!!URL::to('EmpresaAsesor')!!}',
+                        data:{'id':empresa_id},
+                             success:function(data){
+                                console.log(data);
+                                    miSelect.innerHTML = '';
+                                    nombreCarrera.innerHTML = '';
+                                    idCarrera.innerHTML = '';
+                               
+                                    for (let i = 0; i < data.length; i++) {
+                                      const nuevaOpcion = document.createElement('option');
+                                      nuevaOpcion.value = data[i].id;
+                                      nuevaOpcion.textContent = data[i].nombre_1;
+                                      miSelect.appendChild(nuevaOpcion);
+                                    }
+                   
+                                    
+                             },
+                             error:function(){}
+                    });
+            })
+
+            $(document).on('change','#empresa_select', function(){
+                    var empresa_id = $(this).val();
+                    const miSelect = document.getElementById('ruc');
+                    //const run = document.getElementById('ruc');
+                
+                    $.ajax({
+                        type: 'get',
+                        url:'{!!URL::to('Ruc')!!}',
+                        data:{'id':empresa_id},
+                             success:function(data){
+                                console.log(data);
+                                miSelect.value = data.ruc;
+                            
                              },
                              error:function(){
 
@@ -164,13 +218,20 @@
                         data:{'id':asesor_id},
                              success:function(data){
                                 console.log(data);
+                                //const miSelect = document.getElementById('cliente');
+                                //miSelect.textContent = ""; // Limpiar el contenido previo del select
+
                                     miSelect.innerHTML = '';
+                                    nombreCarrera.innerHTML = '';
+                                    idCarrera.innerHTML = '';
                                     for (let i = 0; i < data.length; i++) {
                                       const nuevaOpcion = document.createElement('option');
                                       nuevaOpcion.value = data[i].id;
-                                      nuevaOpcion.textContent = data[i].nombre;
+                                      nuevaOpcion.textContent = data[i].nombre_1;
                                       miSelect.appendChild(nuevaOpcion);
-                                    }    
+                                    }
+
+                                  
                              },
                              error:function(){
 
@@ -178,21 +239,20 @@
                     });
             })
 
+            
+
             $(document).on('change','#cliente_select', function(){
                     var asesor_id = $(this).val();
-                    const miSelect = document.getElementById('carrera_select');
-                    const nombreCarrera = document.getElementById('nombreCarrera');
-                    const idCarrera = document.getElementById('carreraid');
-                    //const run = document.getElementById('ruc');
+              
+          
                 
                     $.ajax({
                         type: 'get',
                         url:'{!!URL::to('CarreraCliente')!!}',
                         data:{'id':asesor_id},
                              success:function(data){
-                       
-                                console.log(data);
-                          
+                                nombreCarrera.innerHTML = '';
+                                idCarrera.innerHTML = '';
                                     for (let i = 0; i < data.length; i++) {
                                       idCarrera.value = data[i].id;
                                       nombreCarrera.value = data[i].nombre;

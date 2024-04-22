@@ -31,9 +31,11 @@
                                 <h5 class="text-condensedLight">Datos Inicio</h5>
 
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                    <input name="titulo" class="mdl-textfield__input" type="text" pattern="-?[A-Za-záéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="NameClient">
+                                    <input value="{{old('titulo')}}" name="titulo" class="mdl-textfield__input" type="text" pattern="-?[A-Za-záéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="NameClient">
                                     <label class="mdl-textfield__label" for="NameClient">Titulo</label>
-                                    <span class="mdl-textfield__error">Invalid name</span>
+                                    @error('titulo')
+                                        <p style="color: red;">{{$message}}</p>
+                                    @enderror
                                 </div>
 
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">

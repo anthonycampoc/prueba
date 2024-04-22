@@ -29,9 +29,10 @@
                             <form action="{{route('matricula.store')}}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <h5 class="text-condensedLight">Datos Matricula</h5>
+
                                 <div class="mdl-textfield mdl-js-textfield">
                                     <select name="empresa_id" id="empresa_select" class="mdl-textfield__input">
-                                        <option value="" disabled="" selected="">Seleccione la Empresa</option>
+                                        <option  selected >Seleccione la Empresa</option>
 
                                         @foreach ($empresa as $item)
                                                 <option value="{{$item->id}}">{{$item->nombre}}</option>
@@ -40,41 +41,43 @@
                                     </select>
                                 </div>
 
+                                
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                    <input placeholder="Ruc" disabled id="ruc" class="mdl-textfield__input" type="text" id="emailClient" >
+                                    <span class="mdl-textfield__error">Invalid E-mail</span>
+                                </div>
+
                                 <div class="mdl-textfield mdl-js-textfield">
                                     <select name="asesor_id" id="asesor_select" class="mdl-textfield__input">
-                                        <option value="" disabled="" selected="">Seleccione el accesor</option>
+                                        <option selected >Seleccione el accesor</option>
+                                     
                                     </select>
                                 </div>
 
                                 <div class="mdl-textfield mdl-js-textfield">
                                     <select name="cliente_id" id="cliente_select" class="mdl-textfield__input">
-                                        <option value="" disabled="" selected="">Seleccione el estudiante</option>
+                                        <option id="hola" >Seleccione el estudiante</option>
+                                      
                                     </select>
                                 </div>
 
-                              
-
-                                
-                                
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                    <input disabled id="nombreCarrera" class="mdl-textfield__input" type="text" id="emailClient" >
-                                    <span class="mdl-textfield__error">Invalid E-mail</span>
+                                    <input placeholder="Carrera" disabled id="nombreCarrera" class="mdl-textfield__input" type="text" id="emailClient" >
+
+                            
                                 </div>
 
-                                <input type="hidden" id="carreraid" name="carrera_id">
+                                <input type="hidden" disabled id="carreraid" name="carrera_id">
 
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                    <input name="fecha_matricula" class="mdl-textfield__input" type="date" id="emailClient">
-                                    <label class="mdl-textfield__label" for="emailClient">Ingrese fecha matricula</label>
-                                    <span class="mdl-textfield__error">Invalid E-mail</span>
+                                    <label class="text-condensedLight" for="emailClient">Ingrese fecha matricula</label>
+                                    <input  name="fecha_matricula" class="mdl-textfield__input" type="date" id="emailClient">
                                 </div>
 
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                    <label class="text-condensedLight" for="emailClient">Ingrese PDF</label>
                                     <input name="pdf" class="mdl-textfield__input" type="file"  id="NameClient">
-                                    <label class="mdl-textfield__label" for="NameClient">Ingrese PDF</label>
                                 </div>
-
-                                
                                 
                                 <p class="text-center">
                                     <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" id="btn-addClient">
@@ -109,6 +112,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                   
                                     <tr>
                                         <td class="mdl-data-table__cell--non-numeric">Product Name</td>
                                         <td>Product Code</td>

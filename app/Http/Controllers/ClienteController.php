@@ -31,7 +31,7 @@ class ClienteController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nombre' => 'required',
+            'nombres' => 'required',
             'cedula' => 'required|unique:clientes,cedula',
             'email' => 'required|email|unique:clientes,email',
             'telefono' => 'required',

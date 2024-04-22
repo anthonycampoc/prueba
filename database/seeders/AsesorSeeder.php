@@ -23,8 +23,10 @@ class AsesorSeeder extends Seeder
         // Generate 10 users with random data
         for ($i = 0; $i < 10; $i++) {
             $data[] = [
-                'nombres' => $faker->name,
-                'apellidos' => $faker->lastName,
+                'nombre_1' => $faker->name,
+                'nombre_2' => $faker->name,
+                'apellido_1' => $faker->lastName,
+                'apellido_2' => $faker->lastName,
                 'cedula' => $faker->unique()->randomNumber(8),
                 'email' => $faker->safeEmail,
                 'telefono' => $faker->phoneNumber,

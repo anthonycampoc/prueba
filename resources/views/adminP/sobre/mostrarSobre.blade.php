@@ -32,9 +32,11 @@
                                 <h5 class="text-condensedLight">Actualizar Sobre Nosotros</h5>
 
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                    <textarea name="parrafo1" class="mdl-textfield__input" pattern="-?[A-Za-záéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="NameClient" cols="30" rows="10">{{$sobre->parrafo1}}</textarea>
+                                    <textarea name="parrafo1" class="mdl-textfield__input"  id="NameClient" cols="30" rows="10">{{$sobre->parrafo1}}</textarea>
                                     <label class="mdl-textfield__label" for="NameClient">Parrafo 2</label>
-                                    <span class="mdl-textfield__error">Invalid name</span>
+                                    @error('parrafo1')
+                                        <p style="color: red;">{{$message}}</p>
+                                    @enderror
                                 </div>
 
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
@@ -44,9 +46,11 @@
                                 </div>
 
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                    <input value="{{$sobre->tituloLink}}" name="tituloLink" class="mdl-textfield__input" type="text" pattern="-?[A-Za-záéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="NameClient">
+                                    <input value="{{$sobre->tituloLink}}" name="tituloLink" class="mdl-textfield__input" type="text"  id="NameClient">
                                     <label class="mdl-textfield__label" for="NameClient">Nombre Boton</label>
-                                    <span class="mdl-textfield__error">Invalid name</span>
+                                    @error('tituloLink')
+                                        <p style="color: red;">{{$message}}</p>
+                                    @enderror
                                 </div>
 
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">

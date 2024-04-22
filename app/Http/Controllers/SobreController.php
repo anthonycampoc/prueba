@@ -17,6 +17,12 @@ class SobreController extends Controller
     }
 
     public function update(Request $request, Sobre $sobre){
+
+        $request->validate([
+            'parrafo1'=> 'required',
+            'tituloLink'=> 'required',
+        ]);
+
         $sobre1 = $request->all();
 
         if($imagen = $request->file('imagen')){

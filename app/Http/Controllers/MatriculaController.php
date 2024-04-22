@@ -35,12 +35,12 @@ class MatriculaController extends Controller
     }
 
     public function EmpresaAsesor(Request $request){
-        $data = Asesor::select('nombres','apellidos','id')->where('empresa_id', $request->id)->take(100)->get();
+        $data = Asesor::select('nombre_1','apellido_1','id')->where('empresa_id', $request->id)->take(100)->get();
         return response()->json($data);
     }
 
     public function AsesorCliente(Request $request){
-        $data = Cliente::select('nombre','id')->where('asesor_id', $request->id)->take(100)->get();
+        $data = Cliente::select('nombre_1','apellido_1','id')->where('asesor_id', $request->id)->take(100)->get();
         return response()->json($data);
     }
 
@@ -48,4 +48,10 @@ class MatriculaController extends Controller
         $data = DB::select(DB::raw('select cu.id, cu.nombre from clientes cl INNER JOIN cursos cu ON cu.id = cl.carrera_id WHERE cl.id = :id'), array("id"=>$request->id));
         return response()->json($data);
     }
+    public function Ruc(Request $request){
+        $data = Empresa::where('id', $request->id)->firstOrFail();
+        return response()->json($data);
+
+    }
+
 }

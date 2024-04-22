@@ -71,7 +71,9 @@ class InicioController extends Controller
 
     public function store(Request $request){
         
-        
+        $request->validate([
+            'titulo'=>'required',
+        ]);
             $inicio = $request->all();
 
             if($imagen = $request->file('imagen')){

@@ -26,81 +26,116 @@
                             Asesor
                         </div>
                         <div class="full-width panel-content">
-                            <form action="{{route('asesor.store')}}" method="POST">
+                            <form action="{{route('asesor.store')}}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <h5 class="text-condensedLight">Datos Asesor</h5>
 
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                    <input name="nombres" class="mdl-textfield__input" type="text" pattern="-?[A-Za-záéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="NameClient">
-                                    <label class="mdl-textfield__label" for="NameClient">Ingrese su nombre</label>
-                                    <span class="mdl-textfield__error">Invalid name</span>
+                                    <input  value="{{old('nombre_1')}}" name="nombre_1" class="mdl-textfield__input" type="text"  id="NameClient">
+                                    <label class="mdl-textfield__label" for="NameClient">Ingrese su primero nombre</label>
+                                    @error('nombre_1')
+                                        <p style="color: red;">{{$message}}</p>
+                                    @enderror
                                 </div>
 
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                    <input name="apellidos" class="mdl-textfield__input" type="text" pattern="-?[A-Za-záéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="NameClient">
-                                    <label class="mdl-textfield__label" for="NameClient">Ingrese su apellido</label>
-                                    <span class="mdl-textfield__error">Invalid name</span>
+                                    <input  value="{{old('nombre_2')}}" name="nombre_2" class="mdl-textfield__input" type="text"  id="NameClient">
+                                    <label class="mdl-textfield__label" for="NameClient">Ingrese su segundo nombre</label>
+                                    @error('nombre_2')
+                                        <p style="color: red;">{{$message}}</p>
+                                    @enderror
                                 </div>
 
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                    <input name="cedula" class="mdl-textfield__input" type="text" id="NameClient">
+                                    <input value="{{old('apellido_1')}}" name="apellido_1" class="mdl-textfield__input" type="text"  id="NameClient">
+                                    <label class="mdl-textfield__label" for="NameClient">Ingrese su primer apellido</label>
+                                    @error('apellido_1')
+                                        <p style="color: red;">{{$message}}</p>
+                                    @enderror
+                                </div>
+
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                    <input value="{{old('apellido_2')}}" name="apellido_2" class="mdl-textfield__input" type="text"  id="NameClient">
+                                    <label class="mdl-textfield__label" for="NameClient">Ingrese su segundo apellido</label>
+                                    @error('apellido_2')
+                                        <p style="color: red;">{{$message}}</p>
+                                    @enderror
+                                </div>
+
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                    <input value="{{old('cedula')}}" name="cedula" class="mdl-textfield__input" type="text" id="NameClient">
                                     <label class="mdl-textfield__label" for="NameClient">Ingrese su cedula</label>
-                                    <span class="mdl-textfield__error">Invalid name</span>
-                        
+                                    @error('cedula')
+                                        <p style="color: red;">{{$message}}</p>
+                                    @enderror
                                 </div>
 
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                    <input name="email" class="mdl-textfield__input" type="text" id="NameClient">
+                                    <input value="{{old('email')}}" name="email" class="mdl-textfield__input" type="text" id="NameClient">
                                     <label class="mdl-textfield__label" for="NameClient">Ingrese su correo</label>
-                                    <span class="mdl-textfield__error">Invalid name</span>
+                                    @error('email')
+                                     <p style="color: red;">{{$message}}</p>
+                                    @enderror
                                 </div>
 
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                    <input name="telefono" class="mdl-textfield__input" type="text" id="NameClient">
+                                    <input value="{{old('telefono')}}" name="telefono" class="mdl-textfield__input" type="text" id="NameClient">
                                     <label class="mdl-textfield__label" for="NameClient">Ingrese su telefono</label>
-                                    <span class="mdl-textfield__error">Invalid name</span>
+                                    @error('telefono')
+                                        <p style="color: red;">{{$message}}</p>
+                                    @enderror
                                 </div>
 
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                    <input name="imagen" class="mdl-textfield__input" type="text" id="NameClient">
-                                    <label class="mdl-textfield__label" for="NameClient">Inserta una imagen</label>
-                                    <span class="mdl-textfield__error">Invalid name</span>
+                                    <label class="text-condensedLight" for="NameClient">Inserta una imagen</label>
+                                    <input value="{{old('imagen')}}"  name="imagen" class="mdl-textfield__input" type="file" id="NameClient">
+                                    @error('imagen')
+                                        <p style="color: red;">{{$message}}</p>
+                                    @enderror
                                 </div>
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                    <input name="link" class="mdl-textfield__input" type="text" id="NameClient">
-                                    <label class="mdl-textfield__label" for="NameClient">Ingrese el link</label>
-                                    <span class="mdl-textfield__error">Invalid name</span>
+                                    <label class="text-condensedLight" for="emailClient">Ingrese fecha nacimiento</label>
+                                    <input value="{{old('fecha_nacimiento')}}" name="fecha_nacimiento" class="mdl-textfield__input" type="date" id="emailClient">
+                                    @error('fecha_nacimiento')
+                                        <p style="color: red;">{{$message}}</p>
+                                    @enderror
                                 </div>
-                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                    <input name="fecha_nacimiento" class="mdl-textfield__input" type="date" id="emailClient">
-                                    <label class="mdl-textfield__label" for="emailClient">Ingrese fecha nacimiento</label>
                                 
-                                    <span class="mdl-textfield__error">Invalid E-mail</span>
-                                </div>
+                                <input name="link" type="hidden">
 
                                 <div class="mdl-textfield mdl-js-textfield">
                                     <select name="provincia_id" id="provincia_select" class="mdl-textfield__input">
-                                        <option value="" disabled="" selected="">Provincia</option>
+                                        <option value="" disabled="" selected="">Seleccione la Provincia</option>
                                         @foreach ($provincia as $item)
                                             <option value="{{$item->id}}">{{$item->nombre}}</option>
                                         @endforeach
+
+                                        @error('provincia_id')
+                                        <p style="color: red;">{{$message}}</p>
+                                    @enderror
                                     </select>
                                 </div>
 
                                 <div class="mdl-textfield mdl-js-textfield">
                                     <select name="canton_id" id="canton_select"  class="mdl-textfield__input">
-                                
-            
+                                        <option >Seleccione el canton</option>
                                     </select>
+                                    @error('canton_id')
+                                        <p style="color: red;">{{$message}}</p>
+                                    @enderror
                                 </div>
 
                                 <div class="mdl-textfield mdl-js-textfield">
                                     <select name="empresa_id" class="mdl-textfield__input">
-                                        <option value="" disabled="" selected="">Empresa</option>
+                                        <option value="" disabled="" selected="">Seleccione la Empresa</option>
 
                                         @foreach ($empresa as $item)
                                                 <option value="{{$item->id}}">{{$item->nombre}}</option>
                                         @endforeach
+
+                                        @error('empresa_id')
+                                            <p style="color: red;">{{$message}}</p>
+                                        @enderror
                                        
                                     </select>
                                 </div>

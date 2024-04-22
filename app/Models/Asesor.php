@@ -10,8 +10,10 @@ class Asesor extends Model
     use HasFactory;
 
     protected $fillable = [
-        'nombres',
-        'apellidos',
+        'nombre_1',
+        'nombre_2',
+        'apellido_1',
+        'apellido_2',
         'cedula',
         'email',
         'telefono',

@@ -38,6 +38,7 @@ Route::resource('matricula', MatriculaController::class)->names('matricula');
 Route::get('EmpresaAsesor', [App\Http\Controllers\MatriculaController::class, 'EmpresaAsesor'])->name('EmpresaAsesor');
 Route::get('AsesorCliente', [App\Http\Controllers\MatriculaController::class, 'AsesorCliente'])->name('AsesorCliente');
 Route::get('CarreraCliente', [App\Http\Controllers\MatriculaController::class, 'CarreraCliente'])->name('CarreraCliente');
+Route::get('Ruc', [App\Http\Controllers\MatriculaController::class, 'Ruc'])->name('Ruc');
 Route::get('CantonCliente', [App\Http\Controllers\ClienteController::class, 'CantonCliente'])->name('CantonCliente');
 
 //RUTAS PAGINA WEB
