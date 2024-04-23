@@ -18,6 +18,7 @@ class SobreController extends Controller
 
     public function update(Request $request, Sobre $sobre){
 
+        
         $request->validate([
             'parrafo1'=> 'required',
             'tituloLink'=> 'required',
@@ -30,8 +31,6 @@ class SobreController extends Controller
             $nombreI = date('YmdHis').".".$imagen->getClientOriginalExtension();
             $imagen->move($ruta, $nombreI);
             $sobre1['imagen'] = "$nombreI";
-        }else{
-            $nombreI = $sobre1['imagen'];
         }
 
         $sobre->update($sobre1);

@@ -15,6 +15,7 @@ class Inicio extends Model
         'parrafo',
         'nombreLink',
         'link',
+        'status',
         'imagen'
     ];
 }

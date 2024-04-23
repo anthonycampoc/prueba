@@ -18,6 +18,7 @@ class CreateIniciosTable extends Migration
             $table->text("titulo");
             $table->text("subtitulo");
             $table->text("parrafo");
+            $table->enum('status',['ACTIVE','DEACTIVATE'])->default('ACTIVE');
             $table->string("nombreLink");
             $table->string("link");
             $table->string("imagen");

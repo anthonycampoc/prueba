@@ -55,6 +55,7 @@ class ClienteController extends Controller
     // Mostrar el formulario para editar un cliente existente
     public function edit(Cliente $cliente)
     {
+        
         return view('clientes.editarCliente', compact('cliente'));
     }
 
