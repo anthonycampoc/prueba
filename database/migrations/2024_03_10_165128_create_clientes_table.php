@@ -23,6 +23,7 @@ class CreateClientesTable extends Migration
             $table->string('email')->unique();
             $table->string('telefono');
             $table->date('fecha_nacimiento');
+            $table->enum('status',['ACTIVE','DEACTIVATE'])->default('DEACTIVATE');
             $table->unsignedBigInteger('provincia_id');
             $table->foreign('provincia_id')->references('id')->on('provincias');
             $table->unsignedBigInteger('canton_id');

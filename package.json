@@ -22,6 +22,7 @@
         "webpack-cli": "^5.1.4"
     },
     "dependencies": {
-        "bootstrap-icons": "^1.11.3"
+        "bootstrap-icons": "^1.11.3",
+        "datatables.net-dt": "^2.0.5"
     }
 }

@@ -110,9 +110,12 @@ class InicioController extends Controller
 
     public function EstadoIncio($id){
             $estado = DB::select(DB::raw('SELECT i.status from inicios i WHERE i.id = :id'), array('id'=>$id));
+            //dd($estado);
 
             foreach ($estado as $item) {
-                if ($item->status == 'DEACTIVATE') {
+                //dd($item->status);
+        
+               if ($item->status == 'DEACTIVATE') {
                     DB::select(DB::raw('UPDATE inicios set status ="ACTIVE" WHERE id  = :id'), array('id'=>$id));
                 }else if ($item->status == 'ACTIVE') {
                     DB::select(DB::raw('UPDATE inicios set status ="DEACTIVATE" WHERE id  = :id'), array('id'=>$id));

@@ -3,16 +3,7 @@
 @section('content')
 
 <section class="full-width pageContent">
-    <section class="full-width header-well">
-        <div class="full-width header-well-icon">
-            <i class="zmdi zmdi-accounts"></i>
-        </div>
-        <div class="full-width header-well-text">
-            <p class="text-condensedLight">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde aut nulla accusantium minus corporis accusamus fuga harum natus molestias necessitatibus.
-            </p>
-        </div>
-    </section>
+   
     <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
         <div class="mdl-tabs__tab-bar">
             <a href="#tabNewClient" class="mdl-tabs__tab is-active">Nuevo</a>
@@ -30,21 +21,34 @@
                                 @csrf
                                 <h5 class="text-condensedLight">Datos Matricula</h5>
 
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                    <label class="text-condensedLight" for="emailClient">Ingrese PDF</label>
+                                    <input name="pdf" class="mdl-textfield__input" type="file"  id="NameClient">
+                                    @error('pdf')
+                                        <p style="color: red;">{{$message}}</p>
+                                    @enderror
+                                </div>
+
+
                                 <div class="mdl-textfield mdl-js-textfield">
                                     <select name="empresa_id" id="empresa_select" class="mdl-textfield__input">
                                         <option  selected >Seleccione la Empresa</option>
 
                                         @foreach ($empresa as $item)
                                                 <option value="{{$item->id}}">{{$item->nombre}}</option>
+                                               
                                         @endforeach
+                                        @error('empresa_id')
+                                            <p style="color: red;">{{$message}}</p>
+                                        @enderror
                                        
                                     </select>
+                                    
                                 </div>
 
                                 
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                     <input placeholder="Ruc" disabled id="ruc" class="mdl-textfield__input" type="text" id="emailClient" >
-                                    <span class="mdl-textfield__error">Invalid E-mail</span>
                                 </div>
 
                                 <div class="mdl-textfield mdl-js-textfield">
@@ -52,13 +56,19 @@
                                         <option selected >Seleccione el accesor</option>
                                      
                                     </select>
+                                    @error('asesor_id')
+                                        <p style="color: red;">{{$message}}</p>
+                                    @enderror
                                 </div>
 
                                 <div class="mdl-textfield mdl-js-textfield">
                                     <select name="cliente_id" id="cliente_select" class="mdl-textfield__input">
-                                        <option id="hola" >Seleccione el estudiante</option>
+                                        <option  >Seleccione el estudiante</option>
                                       
                                     </select>
+                                    @error('cliente_id')
+                                        <p style="color: red;">{{$message}}</p>
+                                    @enderror
                                 </div>
 
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
@@ -67,17 +77,18 @@
                             
                                 </div>
 
-                                <input type="hidden" disabled id="carreraid" name="carrera_id">
+                                    <input id="carreraid" name="carrera_id" class="mdl-textfield__input" type="hidden" id="emailClient">
+                         
 
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                     <label class="text-condensedLight" for="emailClient">Ingrese fecha matricula</label>
                                     <input  name="fecha_matricula" class="mdl-textfield__input" type="date" id="emailClient">
+                                    @error('fecha_matricula')
+                                        <p style="color: red;">{{$message}}</p>
+                                    @enderror
                                 </div>
 
-                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                    <label class="text-condensedLight" for="emailClient">Ingrese PDF</label>
-                                    <input name="pdf" class="mdl-textfield__input" type="file"  id="NameClient">
-                                </div>
+                                
                                 
                                 <p class="text-center">
                                     <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" id="btn-addClient">
@@ -94,78 +105,42 @@
 
             <!-- inicio lista cliente -->
         <div class="mdl-tabs__panel" id="tabListClient">
+            <div class="full-width divider-menu-h"></div>
             <div class="mdl-grid">
                 <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--8-col-desktop mdl-cell--2-offset-desktop">
-                    <div class="full-width panel mdl-shadow--2dp">
-                        <div class="full-width panel-tittle bg-success text-center tittles">
-                            Lista Sobre
-                        </div>
-                        <div class="full-width panel-content">
-                            <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
-                                <thead>
-                                    <tr>
-                                        <th class="mdl-data-table__cell--non-numeric">Name</th>
-                                        <th>Code</th>
-                                        <th>Stock</th>
-                                        <th>Price</th>
-                                        <th>Options</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                   
-                                    <tr>
-                                        <td class="mdl-data-table__cell--non-numeric">Product Name</td>
-                                        <td>Product Code</td>
-                                        <td>7</td>
-                                        <td>$77</td>
-                                        <td><button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect"><i class="zmdi zmdi-more"></i></button></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="mdl-data-table__cell--non-numeric">Product Name</td>
-                                        <td>Product Code</td>
-                                        <td>7</td>
-                                        <td>$77</td>
-                                        <td><button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect"><i class="zmdi zmdi-more"></i></button></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="mdl-data-table__cell--non-numeric">Product Name</td>
-                                        <td>Product Code</td>
-                                        <td>7</td>
-                                        <td>$77</td>
-                                        <td><button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect"><i class="zmdi zmdi-more"></i></button></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="mdl-data-table__cell--non-numeric">Product Name</td>
-                                        <td>Product Code</td>
-                                        <td>7</td>
-                                        <td>$77</td>
-                                        <td><button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect"><i class="zmdi zmdi-more"></i></button></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="mdl-data-table__cell--non-numeric">Product Name</td>
-                                        <td>Product Code</td>
-                                        <td>7</td>
-                                        <td>$77</td>
-                                        <td><button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect"><i class="zmdi zmdi-more"></i></button></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="mdl-data-table__cell--non-numeric">Product Name</td>
-                                        <td>Product Code</td>
-                                        <td>7</td>
-                                        <td>$77</td>
-                                        <td><button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect"><i class="zmdi zmdi-more"></i></button></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="mdl-data-table__cell--non-numeric">Product Name</td>
-                                        <td>Product Code</td>
-                                        <td>7</td>
-                                        <td>$77</td>
-                                        <td><button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect"><i class="zmdi zmdi-more"></i></button></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
+                    <table id="example" class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
+                        <thead>
+                            <tr>
+                            
+                                <th>Empresa</th>
+                                <th>Asesor</th>
+                                <th>Cliente</th>
+                                <th>Carrera</th>
+                                <th>PDF</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($matricula as $item)
+                                <tr>
+                                    <td>{{$item->empresa}}</td>
+                                    <td>{{$item->asesor}}</td>
+                                    <td>{{$item->cliente}}</td>
+                                    <td>{{$item->carrera}}</td>
+                                    <td>
+
+                                        <a href="{{route('Download',$item->id)}}">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 512 512">
+                                                <rect width="512" height="512" fill="none" />
+                                                <path fill="black" d="M315.1 4.1v229.2h98.5L256 410.5L98.5 233.3H197V4.1C84.1 30.8 0 132 0 253c0 141.4 114.6 256 256 256s256-114.6 256-256c0-121-84.1-222.2-196.9-248.9" />
+                                            </svg>
+                                        
+                                        </a>
+                                    </td>
+                                </tr>
+                            @endforeach
+                                
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>

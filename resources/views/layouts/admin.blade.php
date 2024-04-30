@@ -10,15 +10,16 @@
 	<link rel="stylesheet" href="{{asset('SFI/css/material-design-iconic-font.min.css')}}">
 	<link rel="stylesheet" href="{{asset('SFI/css/jquery.mCustomScrollbar.css')}}">
 	<link rel="stylesheet" href="{{asset('SFI/css/main.css')}}">
-
-
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.5/css/dataTables.dataTables.css">
+  
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 	<script>window.jQuery || document.write('<script src="js/jquery-1.11.2.min.js"><\/script>')</script>
 	<script src="{{asset('SFI/js/material.min.js')}}" ></script>
 	<script src="{{asset('SFI/js/sweetalert2.min.js')}}" ></script>
 	<script src="{{asset('SFI/js/jquery.mCustomScrollbar.concat.min.js')}}" ></script>
 	<script src="{{asset('SFI/js/main.js')}}" ></script>
-    <script src="{{asset('SFI/js/validacion.js')}}" ></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://cdn.datatables.net/2.0.5/js/dataTables.js"></script>
 
 	
 </head>
@@ -125,10 +126,24 @@
 <!-- pageContent -->
 
 @yield('content')
+<script>
+    new DataTable('#example', {
+    layout: {
+        bottomEnd: {
+            paging: {
+                boundaryNumbers: false
+            }
+        }
+    }
+});
+</script>
 
 <script type="text/javascript">
 
+    
+
      $(document).ready(function(){
+        
                     var nombreCarrera = document.getElementById('nombreCarrera');
                     var idCarrera = document.getElementById('carreraid');
 
@@ -173,8 +188,6 @@
                              success:function(data){
                                 console.log(data);
                                     miSelect.innerHTML = '';
-                                    nombreCarrera.innerHTML = '';
-                                    idCarrera.innerHTML = '';
                                
                                     for (let i = 0; i < data.length; i++) {
                                       const nuevaOpcion = document.createElement('option');
@@ -224,8 +237,7 @@
                                 //miSelect.textContent = ""; // Limpiar el contenido previo del select
 
                                     miSelect.innerHTML = '';
-                                    nombreCarrera.innerHTML = '';
-                                    idCarrera.innerHTML = '';
+    
                                     for (let i = 0; i < data.length; i++) {
                                       const nuevaOpcion = document.createElement('option');
                                       nuevaOpcion.value = data[i].id;

@@ -17,13 +17,76 @@ class ProvinciaSeeder extends Seeder
 
         $provincias = [
             [
-                'nombre'=>'Esmeraldas'
+                'nombre' => 'Azuay',
             ],
             [
-                'nombre'=>'Manabi'
+                'nombre' => 'Bolívar',
             ],
             [
-                'nombre'=>'Santo Domingo'
+                'nombre' => 'Cañar',
+            ],
+            [
+                'nombre' => 'Carchi',
+            ],
+            [
+                'nombre' => 'Chimborazo',
+            ],
+            [
+                'nombre' => 'Cotopaxi',
+            ],
+            [
+                'nombre' => 'El Oro',
+            ],
+            [
+                'nombre' => 'Esmeraldas',
+            ],
+            [
+                'nombre' => 'Galápagos',
+            ],
+            [
+                'nombre' => 'Guayas',
+            ],
+            [
+                'nombre' => 'Imbabura',
+            ],
+            [
+                'nombre' => 'Loja',
+            ],
+            [
+                'nombre' => 'Los Ríos',
+            ],
+            [
+                'nombre' => 'Manabí',
+            ],
+            [
+                'nombre' => 'Morona Santiago',
+            ],
+            [
+                'nombre' => 'Napo',
+            ],
+            [
+                'nombre' => 'Orellana',
+            ],
+            [
+                'nombre' => 'Pastaza',
+            ],
+            [
+                'nombre' => 'Pichincha',
+            ],
+            [
+                'nombre' => 'Santa Elena',
+            ],
+            [
+                'nombre' => 'Sucumbíos',
+            ],
+            [
+                'nombre' => 'Tungurahua',
+            ],
+            [
+                'nombre' => 'Zamora Chinchipe',
+            ],
+            [
+                'nombre' => 'Santo Domingo de los Tsáchilas',
             ],
         ];
 
