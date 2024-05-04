@@ -28,28 +28,37 @@
                             <form action="{{route('facultad.store')}}" method="POST">
                                 @csrf
                                 <h5 class="text-condensedLight">Datos Facultad</h5>
+
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                    <input name="titulo" class="mdl-textfield__input" type="text" pattern="-?[A-Za-záéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="NameClient">
+                                    <input value="{{old('titulo')}}" name="titulo" class="mdl-textfield__input" type="text" id="NameClient">
                                     <label class="mdl-textfield__label" for="NameClient">Titulo</label>
-                                    <span class="mdl-textfield__error">Invalid name</span>
+                                    @error('titulo')
+                                        <p style="color: red;">{{$message}}</p>
+                                    @enderror
                                 </div>
 
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                    <input name="nombreLink" class="mdl-textfield__input" type="text" pattern="-?[A-Za-záéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="NameClient">
+                                    <input value="{{old('nombreLink')}}" name="nombreLink" class="mdl-textfield__input" type="text" id="NameClient">
                                     <label class="mdl-textfield__label" for="NameClient">Nombre Boton</label>
-                                    <span class="mdl-textfield__error">Invalid name</span>
+                                    @error('nombreLink')
+                                        <p style="color: red;">{{$message}}</p>
+                                    @enderror
                                 </div>
 
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                    <input name="link" class="mdl-textfield__input" type="text" pattern="-?[A-Za-záéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="NameClient">
+                                    <input value="{{old('link')}}" name="link" class="mdl-textfield__input" type="text" id="NameClient">
                                     <label class="mdl-textfield__label" for="NameClient">Link</label>
-                                    <span class="mdl-textfield__error">Invalid name</span>
+                                    @error('link')
+                                        <p style="color: red;">{{$message}}</p>
+                                    @enderror
                                 </div>
 
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                    <input name="imagen" class="mdl-textfield__input" type="text" pattern="-?[A-Za-záéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="NameClient">
+                                    <input name="imagen" class="mdl-textfield__input" type="text" id="NameClient">
                                     <label class="mdl-textfield__label" for="NameClient">Imagen</label>
-                                    <span class="mdl-textfield__error">Invalid name</span>
+                                    @error('imagen')
+                                        <p style="color: red;">{{$message}}</p>
+                                    @enderror
                                 </div>
 
                                 

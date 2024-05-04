@@ -31,34 +31,67 @@
                                 <h5 class="text-condensedLight">Datos Cliente</h5>
 
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                    <input name="nombre" class="mdl-textfield__input" type="text" pattern="-?[A-Za-záéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="NameClient">
-                                    <label class="mdl-textfield__label" for="NameClient">Nombre</label>
-                                    <span class="mdl-textfield__error">Invalid name</span>
+                                    <input value="{{old('nombre_1')}}" name="nombre_1" class="mdl-textfield__input" type="text" id="NameClient">>
+                                    <label class="mdl-textfield__label" for="NameClient">Nombre 1</label>
+                                    @error('nombre_1')
+                                        <p style="color: red;">{{$message}}</p>
+                                    @enderror
                                 </div>
 
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                    <input name="cedula" class="mdl-textfield__input" type="number" pattern="-?[0-9]*(\.[0-9]+)?" id="DNIClient">
+                                    <input value="{{old('nombre_2')}}" name="nombre_2" class="mdl-textfield__input" type="text" id="NameClient">>
+                                    <label class="mdl-textfield__label" for="NameClient">Nombre 2</label>
+                                    @error('nombre_2')
+                                        <p style="color: red;">{{$message}}</p>
+                                    @enderror
+                                </div>
+
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                    <input value="{{old('apellido_1')}}" name="apellido_1" class="mdl-textfield__input" type="text" id="NameClient">>
+                                    <label class="mdl-textfield__label" for="NameClient">Apellido_1</label>
+                                    @error('apellido_1')
+                                        <p style="color: red;">{{$message}}</p>
+                                    @enderror
+                                </div>
+
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                    <input value="{{old('apellido_2')}}" name="apellido_2" class="mdl-textfield__input" type="text" id="NameClient">>
+                                    <label class="mdl-textfield__label" for="NameClient">apellido_2</label>
+                                    @error('apellido_2')
+                                        <p style="color: red;">{{$message}}</p>
+                                    @enderror
+                                </div>
+
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                    <input value="{{old('cedula')}}" name="cedula" class="mdl-textfield__input" type="text" id="NameClient">>
                                     <label class="mdl-textfield__label" for="DNIClient">Cedula</label>
-                                    <span class="mdl-textfield__error">Invalid number</span>
+                                    @error('cedula')
+                                        <p style="color: red;">{{$message}}</p>
+                                    @enderror
                                 </div>
                              
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                    <input name="telefono" class="mdl-textfield__input" type="tel" pattern="-?[0-9+()- ]*(\.[0-9]+)?" id="phoneClient">
+                                    <input value="{{old('telefono')}}" name="telefono" class="mdl-textfield__input" type="text" id="NameClient">>
                                     <label class="mdl-textfield__label" for="phoneClient">Telefono</label>
-                                    <span class="mdl-textfield__error">Invalid phone number</span>
+                                    @error('telefono')
+                                        <p style="color: red;">{{$message}}</p>
+                                    @enderror
                                 </div>
 
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                    <input name="email" class="mdl-textfield__input" type="email" id="emailClient">
+                                    <input value="{{old('email')}}" name="email" class="mdl-textfield__input" type="text" id="NameClient">>
                                     <label class="mdl-textfield__label" for="emailClient">Correo</label>
-                                    <span class="mdl-textfield__error">Invalid E-mail</span>
+                                    @error('email')
+                                        <p style="color: red;">{{$message}}</p>
+                                    @enderror
                                 </div>
 
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                     <input name="fecha_nacimiento" class="mdl-textfield__input" type="date" id="emailClient">
                                     <label class="mdl-textfield__label" for="emailClient">Ingrese fecha nacimiento</label>
-                                
-                                    <span class="mdl-textfield__error">Invalid E-mail</span>
+                                    @error('fecha_nacimiento')
+                                        <p style="color: red;">{{$message}}</p>
+                                    @enderror
                                 </div>
 
                                 <div class="mdl-textfield mdl-js-textfield">

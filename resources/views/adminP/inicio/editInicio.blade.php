@@ -27,6 +27,7 @@
                                 <h5 class="text-condensedLight">Datos Inicio</h5>
 
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                    
                                     <input value="{{$inicio->titulo}}" name="titulo" class="mdl-textfield__input" type="text" id="NameClient">
                                     <label class="mdl-textfield__label" for="NameClient">Titulo</label>
                                     @error('titulo')
@@ -37,30 +38,42 @@
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                     <input value="{{$inicio->subtitulo}}" name="subtitulo" class="mdl-textfield__input" type="text"  id="NameClient">
                                     <label class="mdl-textfield__label" for="NameClient">Subtitulo</label>
-                                    <span class="mdl-textfield__error">Invalid name</span>
+                                    @error('subtitulo')
+                                        <p style="color: red;">{{$message}}</p>
+                                    @enderror
                                 </div>
 
 
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                     <textarea name="parrafo" class="mdl-textfield__input"  id="NameClient" cols="30" rows="5">{{$inicio->parrafo}}</textarea>
                                     <label class="mdl-textfield__label" for="NameClient">Parrafo</label>
+                                    @error('parrafo')
+                                        <p style="color: red;">{{$message}}</p>
+                                    @enderror
                                 </div>
 
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                     <input value="{{$inicio->nombreLink}}" name="nombreLink" class="mdl-textfield__input" type="text"  id="NameClient">
                                     <label class="mdl-textfield__label" for="NameClient">Nombre Boton</label>
-                                    <span class="mdl-textfield__error">Invalid name</span>
+                                    @error('nombreLink')
+                                        <p style="color: red;">{{$message}}</p>
+                                    @enderror
                                 </div>
 
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                     <input value="{{$inicio->link}}" name="link" class="mdl-textfield__input" type="text" id="NameClient">
                                     <label class="mdl-textfield__label" for="NameClient">link</label>
-                   
+                                    @error('link')
+                                        <p style="color: red;">{{$message}}</p>
+                                    @enderror
                                 </div>
 
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                     <input value="{{$inicio->imagen}}" name="imagen" class="mdl-textfield__input" type="file"  id="NameClient">
                                     <label class="mdl-textfield__label" for="NameClient">imagen</label>
+                                    @error('imagen')
+                                        <p style="color: red;">{{$message}}</p>
+                                    @enderror
                                 </div>
 
                               

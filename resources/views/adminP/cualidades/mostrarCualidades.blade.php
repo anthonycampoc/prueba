@@ -30,21 +30,28 @@
                                 <h5 class="text-condensedLight">Datos Cualidades</h5>
 
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                    <input name="titulo" class="mdl-textfield__input" type="text" pattern="-?[A-Za-záéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="NameClient">
+                                    <input value="{{old('titulo')}}" name="titulo" class="mdl-textfield__input" type="text" id="NameClient">
                                     <label class="mdl-textfield__label" for="NameClient">Titulo</label>
-                                    <span class="mdl-textfield__error">Invalid name</span>
+                                    @error('titulo')
+                                        <p style="color: red;">{{$message}}</p>
+                                    @enderror
                                 </div>
 
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                    <textarea name="parrafo1" class="mdl-textfield__input" pattern="-?[A-Za-záéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="NameClient" cols="30" rows="10"></textarea>
+                                    
+                                    <textarea name="parrafo1" class="mdl-textfield__input" pattern="-?[A-Za-záéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="NameClient" cols="30" rows="10">{{old('parrafo1')}}</textarea>
                                     <label class="mdl-textfield__label" for="NameClient">Parrafo 1</label>
-                                    <span class="mdl-textfield__error">Invalid name</span>
+                                    @error('parrafo1')
+                                        <p style="color: red;">{{$message}}</p>
+                                    @enderror
                                 </div>
 
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                    <input name="imagen" class="mdl-textfield__input" type="text" pattern="-?[A-Za-záéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="NameClient">
+                                    <input value="{{old('imagen')}}" name="imagen" class="mdl-textfield__input" type="text" id="NameClient">
                                     <label class="mdl-textfield__label" for="NameClient">imagen</label>
-                                    <span class="mdl-textfield__error">Invalid name</span>
+                                    @error('imagen')
+                                        <p style="color: red;">{{$message}}</p>
+                                    @enderror
                                 </div>
 
                                 <p class="text-center">
