@@ -131,7 +131,7 @@
                             </li>
 
                             <li class="full-width">
-                                <a href="admin.html" class="full-width">
+                                <a href="{{route('roles.index')}}" class="full-width">
                                     <div class="navLateral-body-cl">
                                         <i class="zmdi zmdi-account"></i>
                                     </div>
@@ -140,16 +140,7 @@
                                     </div>
                                 </a>
                             </li>
-                            <li class="full-width">
-                                <a href="admin.html" class="full-width">
-                                    <div class="navLateral-body-cl">
-                                        <i class="zmdi zmdi-account"></i>
-                                    </div>
-                                    <div class="navLateral-body-cr hide-on-tablet">
-                                        Permisos
-                                    </div>
-                                </a>
-                            </li>
+                    
                             <li class="full-width">
                                 <a href="{{route('asesor.create')}}" class="full-width">
                                     <div class="navLateral-body-cl">

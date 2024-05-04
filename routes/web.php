@@ -36,8 +36,7 @@ Route::resource('carrera', CursosController::class)->names('carrera');
 Route::resource('asesor', AsesorController::class)->names('asesor');
 Route::resource('empresa', EmpresaController::class)->names('empresa');
 Route::resource('matricula', MatriculaController::class)->names('matricula');
-Route::resource('roles', RolController::class)->names('rol');
-Route::resource('roles', UserController::class)->names('users');
+Route::resource('rol', RolController::class)->names('roles');
 Route::get('EmpresaAsesor', [App\Http\Controllers\MatriculaController::class, 'EmpresaAsesor'])->name('EmpresaAsesor');
 Route::get('AsesorCliente', [App\Http\Controllers\MatriculaController::class, 'AsesorCliente'])->name('AsesorCliente');
 Route::get('CarreraCliente', [App\Http\Controllers\MatriculaController::class, 'CarreraCliente'])->name('CarreraCliente');
@@ -55,6 +54,10 @@ Route::get('facultadC/{id}', [App\Http\Controllers\InicioController::class, 'fac
 Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home'); // Modificado para usar el alias
+
+// Ruta para adminGeneral
+
+Route::resource('users', UserController::class)->names('users');
 
 
 
