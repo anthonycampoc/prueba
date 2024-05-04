@@ -40,16 +40,25 @@
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                     <input value="{{$contacto->telefono}}" name="telefono" class="mdl-textfield__input" type="text"  id="NameClient">
                                     <label class="mdl-textfield__label" for="NameClient">Ingrese el telefono</label>
+                                    @error('telefono')
+                                        <p style="color: red;">{{$message}}</p>
+                                    @enderror
                      
                                 </div>
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                     <input value="{{$contacto->correo}}" name="correo" class="mdl-textfield__input" type="text"  id="NameClient">
                                     <label class="mdl-textfield__label" for="NameClient">Ingrese un correo</label>
+                                    @error('correo')
+                                        <p style="color: red;">{{$message}}</p>
+                                    @enderror
                                     
                                 </div>
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                     <input value="{{$contacto->imagen}}" name="imagen" class="mdl-textfield__input" type="text"  id="NameClient">
                                     <label class="mdl-textfield__label" for="NameClient">Inserte un imagen</label>
+                                    @error('imagen')
+                                        <p style="color: red;">{{$message}}</p>
+                                    @enderror
                                 
                                 </div>
 

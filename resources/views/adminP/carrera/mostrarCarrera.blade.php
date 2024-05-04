@@ -31,26 +31,38 @@
                                 <h5 class="text-condensedLight">Datos Asesor</h5>
 
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                    <input name="nombre" class="mdl-textfield__input" type="text" pattern="-?[A-Za-záéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="NameClient">
+                                    <input value="{{old('nombre')}}" name="nombre" class="mdl-textfield__input" type="text" id="NameClient">
+                                    
                                     <label class="mdl-textfield__label" for="NameClient">Ingrese la Carrera</label>
-                                    <span class="mdl-textfield__error">Invalid name</span>
+                                    @error('nombre')
+                                        <p style="color: red;">{{$message}}</p>
+                                    @enderror
                                 </div>
 
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                    <input name="cantEstudiante" class="mdl-textfield__input" type="text" id="NameClient">
+                                    <input value="{{old('cantEstudiante')}}" name="cantEstudiante" class="mdl-textfield__input" type="text" id="NameClient">
                                     <label class="mdl-textfield__label" for="NameClient">Ingrese Cantidad de estudiante</label>
-                                    <span class="mdl-textfield__error">Invalid name</span>
+                                    @error('cantEstudiante')
+                                        <p style="color: red;">{{$message}}</p>
+                                    @enderror
                                 </div>
+
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                    <input name="duracion" class="mdl-textfield__input" type="text"  id="NameClient">
+                                    <input value="{{old('duracion')}}" name="duracion" class="mdl-textfield__input" type="text" id="NameClient">
                                     <label class="mdl-textfield__label" for="NameClient">Ingrese la Duraccion</label>
-                                    <span class="mdl-textfield__error">Invalid name</span>
+                                    @error('duracion')
+                                        <p style="color: red;">{{$message}}</p>
+                                    @enderror
                                 </div>
+
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                    <input name="imagen" class="mdl-textfield__input" type="text" pattern="-?[A-Za-záéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="NameClient">
+                                    <input value="{{old('imagen')}}" name="imagen" class="mdl-textfield__input" type="text" id="NameClient">
                                     <label class="mdl-textfield__label" for="NameClient">Ingrese imagen</label>
-                                    <span class="mdl-textfield__error">Invalid name</span>
+                                    @error('imagen')
+                                        <p style="color: red;">{{$message}}</p>
+                                    @enderror
                                 </div>
+                                
                                 <div class="mdl-textfield mdl-js-textfield">
                                     <select name="facultad_id" class="mdl-textfield__input">
                                         <option value="" disabled="" selected="">Facultad</option>

@@ -40,9 +40,12 @@
                                 </div>
 
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                    <textarea name="parrafo2" class="mdl-textfield__input" pattern="-?[A-Za-záéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="NameClient" cols="30" rows="10">{{$sobre->parrafo2}}</textarea>
+                                    <textarea name="parrafo2" class="mdl-textfield__input" id="NameClient" cols="30" rows="10">{{$sobre->parrafo2}}</textarea>
                                     <label class="mdl-textfield__label" for="NameClient">Parrafo 2</label>
-                                    <span class="mdl-textfield__error">Invalid name</span>
+                                    @error('parrafo2')
+                                        <p style="color: red;">{{$message}}</p>
+                                    @enderror
+
                                 </div>
 
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
@@ -54,9 +57,11 @@
                                 </div>
 
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                    <input value="{{$sobre->link}}"name="link" class="mdl-textfield__input" type="text" pattern="-?[A-Za-záéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="NameClient">
+                                    <input value="{{$sobre->link}}"name="link" class="mdl-textfield__input" type="text" id="NameClient">
                                     <label class="mdl-textfield__label" for="NameClient">Link</label>
-                                    <span class="mdl-textfield__error">Invalid name</span>
+                                    @error('link')
+                                        <p style="color: red;">{{$message}}</p>
+                                    @enderror
                                 </div>
 
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">

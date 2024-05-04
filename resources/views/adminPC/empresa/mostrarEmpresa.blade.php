@@ -31,15 +31,19 @@
                                 <h5 class="text-condensedLight">Empresa</h5>
 
                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                    <input name="nombre" class="mdl-textfield__input" type="text" id="NameClient">
+                                    <input value="{{old('nombre')}}" name="nombre" class="mdl-textfield__input" type="text" id="NameClient">
                                     <label class="mdl-textfield__label" for="NameClient">Nombre empresa</label>
-                                    <span class="mdl-textfield__error">Invalid name</span>
+                                    @error('nombre')
+                                        <p style="color: red;">{{$message}}</p>
+                                    @enderror
                                 </div>
 
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                    <input name="ruc" class="mdl-textfield__input" type="text" id="NameClient">
+                                    <input value="{{old('ruc')}}" name="ruc" class="mdl-textfield__input" type="text" id="NameClient">
                                     <label class="mdl-textfield__label" for="NameClient">RUC</label>
-                                    <span class="mdl-textfield__error">Invalid name</span>
+                                    @error('ruc')
+                                        <p style="color: red;">{{$message}}</p>
+                                    @enderror
                                 </div>
 
                                 <p class="text-center">
