@@ -20,7 +20,21 @@ class UserSeeder extends Seeder
             'email'=>'admin@hotmail.com',
             'password'=>bcrypt('admin'),
 
-        ]);
+        ])->assignRole('administador');
+
+        User::create([
+            'name'=>'adminasesor',
+            'email'=>'adminasesor@hotmail.com',
+            'password'=>bcrypt('admin'),
+
+        ])->assignRole('adminAsesor');
+
+        User::create([
+            'name'=>'asesor',
+            'email'=>'asesor@hotmail.com',
+            'password'=>bcrypt('admin'),
+
+        ])->assignRole('Asesor');
 
       
     }

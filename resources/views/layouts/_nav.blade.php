@@ -1,4 +1,5 @@
 	<!-- navLateral -->
+
     <section class="full-width navLateral">
         <div class="full-width navLateral-bg btn-menu"></div>
         <div class="full-width navLateral-body">
@@ -43,6 +44,9 @@
                             </div>
                             <span class="zmdi zmdi-chevron-left"></span>
                         </a>
+
+                        @can('ver.menu')
+
                         <ul class="full-width menu-principal sub-menu-options">
                             <li class="full-width">
                                 <a href="{{route('inicio.create')}}" class="full-width">
@@ -74,26 +78,7 @@
                                     </div>
                                 </a>
                             </li>
-                            <li class="full-width">
-                                <a href="{{route('facultad.create')}}" class="full-width">
-                                    <div class="navLateral-body-cl">
-                                        <i class="zmdi zmdi-label"></i>
-                                    </div>
-                                    <div class="navLateral-body-cr hide-on-tablet">
-                                        FACULTAD
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="full-width">
-                                <a href="{{route('asesor.create')}}" class="full-width">
-                                    <div class="navLateral-body-cl">
-                                        <i class="zmdi zmdi-label"></i>
-                                    </div>
-                                    <div class="navLateral-body-cr hide-on-tablet">
-                                        ASESORES
-                                    </div>
-                                </a>
-                            </li>
+                         
                             <li class="full-width">
                                 <a href="{{route('redes.create')}}" class="full-width">
                                     <div class="navLateral-body-cl">
@@ -115,17 +100,10 @@
                                     </div>
                                 </a>
                             </li>
-                            <li class="full-width">
-                                <a href="{{route('carrera.create')}}" class="full-width">
-                                    <div class="navLateral-body-cl">
-                                        <i class="zmdi zmdi-accounts"></i>
-                                    </div>
-                                    <div class="navLateral-body-cr hide-on-tablet">
-                                        Curso
-                                    </div>
-                                </a>
-                            </li>
+                        
                         </ul>
+
+                        @endcan
                     </li>
                     <li class="full-width divider-menu-h"></li>
                     <li class="full-width">
@@ -139,6 +117,19 @@
                             <span class="zmdi zmdi-chevron-left"></span>
                         </a>
                         <ul class="full-width menu-principal sub-menu-options">
+                            @can('ver.menu')
+                                
+                            <li class="full-width">
+                                <a href="{{route('users.index')}}" class="full-width">
+                                    <div class="navLateral-body-cl">
+                                        <i class="zmdi zmdi-account"></i>
+                                    </div>
+                                    <div class="navLateral-body-cr hide-on-tablet">
+                                        Usuario
+                                    </div>
+                                </a>
+                            </li>
+
                             <li class="full-width">
                                 <a href="admin.html" class="full-width">
                                     <div class="navLateral-body-cl">
@@ -159,6 +150,16 @@
                                     </div>
                                 </a>
                             </li>
+                            <li class="full-width">
+                                <a href="{{route('asesor.create')}}" class="full-width">
+                                    <div class="navLateral-body-cl">
+                                        <i class="zmdi zmdi-label"></i>
+                                    </div>
+                                    <div class="navLateral-body-cr hide-on-tablet">
+                                        Asesores
+                                    </div>
+                                </a>
+                            </li>
                     
                             <li class="full-width">
                                 <a href="{{route('cliente.index')}}" class="full-width">
@@ -167,6 +168,28 @@
                                     </div>
                                     <div class="navLateral-body-cr hide-on-tablet">
                                         Clientes
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li class="full-width">
+                                <a href="{{route('facultad.create')}}" class="full-width">
+                                    <div class="navLateral-body-cl">
+                                        <i class="zmdi zmdi-label"></i>
+                                    </div>
+                                    <div class="navLateral-body-cr hide-on-tablet">
+                                        Facultades
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li class="full-width">
+                                <a href="{{route('carrera.create')}}" class="full-width">
+                                    <div class="navLateral-body-cl">
+                                        <i class="zmdi zmdi-accounts"></i>
+                                    </div>
+                                    <div class="navLateral-body-cr hide-on-tablet">
+                                        Cursos
                                     </div>
                                 </a>
                             </li>
@@ -180,6 +203,11 @@
                                     </div>
                                 </a>
                             </li>
+                        @endcan
+                        
+                  
+                            
+                     
                             <li class="full-width">
                                 <a href="{{route('matricula.index')}}" class="full-width">
                                     <div class="navLateral-body-cl">
@@ -190,7 +218,7 @@
                                     </div>
                                 </a>
                             </li>
-
+                 
 
                             
                         </ul>

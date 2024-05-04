@@ -7,19 +7,19 @@
         <div class="mdl-tabs__tab-bar">
             <a href="#tabNewClient" class="mdl-tabs__tab is-active">Nuevo</a>
             <a href="#tabListClient" class="mdl-tabs__tab">Lista</a>
-            <a href="#tabListClient2" class="mdl-tabs__tab">Desactivados</a>
+    
         </div>
         <div class="mdl-tabs__panel is-active" id="tabNewClient">
             <div class="mdl-grid">
                 <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--8-col-desktop mdl-cell--2-offset-desktop">
                     <div class="full-width panel mdl-shadow--2dp">
                         <div class="full-width panel-tittle bg-primary text-center tittles">
-                            Inicio
+                            Rol
                         </div>
                         <div class="full-width panel-content">
                             <form action="{{route('inicio.store')}}" method="POST" enctype="multipart/form-data">
                                 @csrf
-                                <h5 class="text-condensedLight">Datos Inicio</h5>
+                                <h5 class="text-condensedLight">Datos de Roles</h5>
 
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                     <input value="{{old('titulo')}}" name="titulo" class="mdl-textfield__input" type="text" pattern="-?[A-Za-záéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="NameClient">
@@ -30,7 +30,7 @@
                                 </div>
 
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                    <input name="subtitulo" class="mdl-textfield__input" type="text" pattern="-?[A-Za-záéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="NameClient">
+                                    <input name="name" class="mdl-textfield__input" type="text" pattern="-?[A-Za-záéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="NameClient">
                                     <label class="mdl-textfield__label" for="NameClient">Subtitulo</label>
                                     <span class="mdl-textfield__error">Invalid name</span>
                                 </div>

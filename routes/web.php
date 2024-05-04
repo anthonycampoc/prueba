@@ -15,6 +15,7 @@ use App\Http\Controllers\RedesController;
 use App\Http\Controllers\SobreController;
 use App\Http\Controllers\EmpresaController;
 use App\Http\Controllers\MatriculaController;
+use App\Http\Controllers\UserController;
 
 Route::get('/', function () {
     return redirect()->route('inicio.index');
@@ -35,6 +36,7 @@ Route::resource('carrera', CursosController::class)->names('carrera');
 Route::resource('asesor', AsesorController::class)->names('asesor');
 Route::resource('empresa', EmpresaController::class)->names('empresa');
 Route::resource('matricula', MatriculaController::class)->names('matricula');
+Route::resource('roles', RolController::class)->names('rol');
 Route::get('EmpresaAsesor', [App\Http\Controllers\MatriculaController::class, 'EmpresaAsesor'])->name('EmpresaAsesor');
 Route::get('AsesorCliente', [App\Http\Controllers\MatriculaController::class, 'AsesorCliente'])->name('AsesorCliente');
 Route::get('CarreraCliente', [App\Http\Controllers\MatriculaController::class, 'CarreraCliente'])->name('CarreraCliente');
@@ -53,12 +55,6 @@ Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home'); // Modificado para usar el alias
 
-// Ruta para adminGeneral
-Route::get('/adminGeneral', [AdminGeneralController::class, 'index'])->name('adminGeneral');
-Route::resource('users', UserController::class)->names('adminGeneral.users');
-
-// Ruta para adminVendedores
-Route::get('/adminVendedores', [AdminVendedoresController::class, 'index'])->name('adminVendedores');
 
 
 
