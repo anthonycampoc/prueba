@@ -37,6 +37,7 @@ Route::resource('asesor', AsesorController::class)->names('asesor');
 Route::resource('empresa', EmpresaController::class)->names('empresa');
 Route::resource('matricula', MatriculaController::class)->names('matricula');
 Route::resource('roles', RolController::class)->names('rol');
+Route::resource('roles', UserController::class)->names('users');
 Route::get('EmpresaAsesor', [App\Http\Controllers\MatriculaController::class, 'EmpresaAsesor'])->name('EmpresaAsesor');
 Route::get('AsesorCliente', [App\Http\Controllers\MatriculaController::class, 'AsesorCliente'])->name('AsesorCliente');
 Route::get('CarreraCliente', [App\Http\Controllers\MatriculaController::class, 'CarreraCliente'])->name('CarreraCliente');
