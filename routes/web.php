@@ -16,6 +16,7 @@ use App\Http\Controllers\SobreController;
 use App\Http\Controllers\EmpresaController;
 use App\Http\Controllers\MatriculaController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\RolController;
 
 Route::get('/', function () {
     return redirect()->route('inicio.index');

@@ -28,6 +28,16 @@
                                         <p style="color: red;">{{$message}}</p>
                                     @enderror
                                 </div>
+
+                                @foreach ($permissions as $item)
+                                    <div>
+                                        <label  class="mdl-radio mdl-js-radio mdl-js-ripple-effect">
+                                            {!!Form::checkbox('permissions[]', $item->id, null,['class'=>'mdl-radio__button'])!!}
+                                            <span class="mdl-radio__label">{{$item->description}}</span>
+                                        </label>
+                                        <br><br>
+                                    </div>
+                                @endforeach
                                 
 
 
