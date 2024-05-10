@@ -21,6 +21,7 @@ class CreateAsesorsTable extends Migration
             $table->string('apellido_2');
             $table->string('cedula');
             $table->string('email')->unique();
+            $table->enum('status',['ACTIVE','DEACTIVATE'])->default('ACTIVE');
             $table->string('telefono');
             $table->string('fecha_nacimiento');
             $table->string("imagen");

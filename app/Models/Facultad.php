@@ -13,6 +13,6 @@ class Facultad extends Model
         'titulo',
         'imagen',
         'nombreLink',
-        'link',
+        'link','status'
     ];
 }

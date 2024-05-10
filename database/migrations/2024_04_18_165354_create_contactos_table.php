@@ -18,6 +18,7 @@ class CreateContactosTable extends Migration
             $table->string("direccion");
             $table->string("telefono");
             $table->string("correo");
+            $table->enum('status',['ACTIVE','DEACTIVATE'])->default('ACTIVE');
             $table->timestamps();
         });
     }

@@ -17,6 +17,7 @@ class Asesor extends Model
         'cedula',
         'email',
         'telefono',
+        'status',
         'fecha_nacimiento',
         'provincia_id',
         'canton_id',

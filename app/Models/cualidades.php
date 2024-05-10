@@ -13,5 +13,6 @@ class cualidades extends Model
         'titulo',
         'parrafo1',
         'imagen',
+        'status'
     ];
 }

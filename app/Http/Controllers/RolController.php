@@ -23,25 +23,23 @@ class RolController extends Controller
             'name'=>'required'
         ]);
 
-       // dd($request->permisos);
 
-      // $role = Role::create($request->all());
-
-      /* $role->permissions()->sync($request->permisos);
-
-        //$role->syncPermissions($request->input('permisos'));*/
 
         $permission = $request->input("permissions");
+       // dd($permission[0]);
    
-
         /*if (is_array($permission)) {
             dd("BIEN");
         }else {
             dd("MAL");
         }*/
 
+        //$data = implode(" ", $permission);
+        $data = var_dump(implode($permission));
+       // dd($data);
         $role->create($request->all());
-        $role->syncPermissions($permission);
+        $role->permissions()->sync($data);
+        //$role->syncPermissions($permission);
 
         //return redirect()->route('roles.index¨¿)->with("info","El rol se creo con exito");
 

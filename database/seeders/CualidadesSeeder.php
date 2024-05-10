@@ -18,7 +18,8 @@ class CualidadesSeeder extends Seeder
         cualidades::create([
             'titulo' => 'Liderazgo Efectivo',
             'parrafo1' => 'El liderazgo efectivo es clave para cualquier organización exitosa. Un buen líder no solo dirige, sino que también inspira y motiva al equipo',
-            'imagen' => 'img/ejemplo-liderazgo.jpg'
+            'imagen' => 'img/ejemplo-liderazgo.jpg',
+            'status' => 'ACTIVE'
         ]);
     }
 }

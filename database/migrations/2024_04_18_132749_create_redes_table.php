@@ -15,6 +15,10 @@ class CreateRedesTable extends Migration
     {
         Schema::create('redes', function (Blueprint $table) {
             $table->id();
+            $table->enum('status',['ACTIVE','DEACTIVATE'])->default('ACTIVE');
+            $table->string("nombre");
+            $table->string("link");
+            $table->string("icono");
             $table->timestamps();
         });
     }

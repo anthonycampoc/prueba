@@ -18,6 +18,7 @@ class UserSeeder extends Seeder
         User::create([
             'name'=>'admin',
             'email'=>'admin@hotmail.com',
+            'status' => 'ACTIVE',
             'password'=>bcrypt('admin'),
 
         ])->assignRole('administador');
@@ -25,6 +26,7 @@ class UserSeeder extends Seeder
         User::create([
             'name'=>'adminasesor',
             'email'=>'adminasesor@hotmail.com',
+            'status' => 'ACTIVE',
             'password'=>bcrypt('admin'),
 
         ])->assignRole('adminAsesor');
@@ -32,6 +34,7 @@ class UserSeeder extends Seeder
         User::create([
             'name'=>'asesor',
             'email'=>'asesor@hotmail.com',
+            'status' => 'ACTIVE',
             'password'=>bcrypt('admin'),
 
         ])->assignRole('Asesor');

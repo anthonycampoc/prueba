@@ -45,7 +45,7 @@
                             <span class="zmdi zmdi-chevron-left"></span>
                         </a>
 
-                        @can('ver.menu')
+                
 
                         <ul class="full-width menu-principal sub-menu-options">
                             <li class="full-width">
@@ -103,7 +103,7 @@
                         
                         </ul>
 
-                        @endcan
+                
                     </li>
                     <li class="full-width divider-menu-h"></li>
                     <li class="full-width">
@@ -117,7 +117,7 @@
                             <span class="zmdi zmdi-chevron-left"></span>
                         </a>
                         <ul class="full-width menu-principal sub-menu-options">
-                            @can('ver.menu')
+                    
                                 
                             <li class="full-width">
                                 <a href="{{route('users.index')}}" class="full-width">
@@ -194,11 +194,6 @@
                                     </div>
                                 </a>
                             </li>
-                        @endcan
-                        
-                  
-                            
-                     
                             <li class="full-width">
                                 <a href="{{route('matricula.index')}}" class="full-width">
                                     <div class="navLateral-body-cl">

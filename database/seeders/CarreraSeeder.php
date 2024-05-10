@@ -19,6 +19,7 @@ class CarreraSeeder extends Seeder
                 'nombre' => 'Ingeniería Civil',
                 'cantEstudiante' => '100',
                 'duracion' => '5',
+                'status' => 'ACTIVE',
                 'imagen' => '20240418202332.jpg',
                 'facultad_id' => '1'
             ],
@@ -26,6 +27,7 @@ class CarreraSeeder extends Seeder
                 'nombre' => 'Administración de Empresas',
                 'cantEstudiante' => '150',
                 'duracion' => '4',
+                'status' => 'ACTIVE',
                 'imagen' => '20240418202332.jpg',
                 'facultad_id' => '2'
             ],
@@ -33,6 +35,7 @@ class CarreraSeeder extends Seeder
                 'nombre' => 'Derecho',
                 'cantEstudiante' => '80',
                 'duracion' => '5',
+                'status' => 'ACTIVE',
                 'imagen' => '20240418202332.jpg',
                 'facultad_id' => '3'
             ],
@@ -40,6 +43,7 @@ class CarreraSeeder extends Seeder
                 'nombre' => 'Psicología',
                 'cantEstudiante' => '120',
                 'duracion' => '4',
+                'status' => 'ACTIVE',
                 'imagen' => '20240418202332.jpg',
                 'facultad_id' => '2'
             ],
@@ -47,6 +51,7 @@ class CarreraSeeder extends Seeder
                 'nombre' => 'Contaduría Pública',
                 'cantEstudiante' => '90',
                 'duracion' => '4',
+                'status' => 'ACTIVE',
                 'imagen' => '20240418202332.jpg',
                 'facultad_id' => '5'
             ],
@@ -55,6 +60,7 @@ class CarreraSeeder extends Seeder
                 'nombre' => 'Facultad 16',
                 'cantEstudiante' => '100',
                 'duracion' => '4',
+                'status' => 'ACTIVE',
                 'imagen' => '20240418202332.jpg',
                 'facultad_id' => '4'
             ],
@@ -63,6 +69,7 @@ class CarreraSeeder extends Seeder
                 'nombre' => 'Facultad 20',
                 'cantEstudiante' => 120,
                 'duracion' => '5',
+                'status' => 'ACTIVE',
                 'imagen' => '20240418202332.jpg',
                 'facultad_id' => '5'
             ],

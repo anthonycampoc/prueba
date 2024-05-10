@@ -14,6 +14,7 @@ class Sobre extends Model
         'parrafo2',
         'tituloLink',
         'link',
-        'imagen'
+        'imagen',
+        'status'
     ];
 }

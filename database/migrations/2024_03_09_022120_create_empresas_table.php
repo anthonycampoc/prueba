@@ -17,6 +17,7 @@ class CreateEmpresasTable extends Migration
             $table->id();
             $table->string('nombre');
             $table->string('ruc');
+            $table->enum('status',['ACTIVE','DEACTIVATE'])->default('ACTIVE');
             $table->timestamps();
         });
     }

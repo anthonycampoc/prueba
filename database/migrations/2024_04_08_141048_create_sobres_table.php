@@ -18,6 +18,7 @@ class CreateSobresTable extends Migration
             $table->text("parrafo1");
             $table->text("parrafo2");
             $table->string("tituloLink");
+            $table->enum('status',['ACTIVE','DEACTIVATE'])->default('ACTIVE');
             $table->string("link");
             $table->string("imagen");
             $table->timestamps();

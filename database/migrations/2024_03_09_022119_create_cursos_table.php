@@ -19,6 +19,7 @@ class CreateCursosTable extends Migration
             $table->string("cantEstudiante");
             $table->string("duracion");
             $table->string("imagen");
+            $table->enum('status',['ACTIVE','DEACTIVATE'])->default('ACTIVE');
             $table->unsignedBigInteger('facultad_id');
             $table->foreign('facultad_id')->references('id')->on('facultads');
             $table->timestamps();

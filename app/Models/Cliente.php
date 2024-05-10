@@ -19,6 +19,8 @@ class Cliente extends Model
         'apellido_2',
         'cedula',
         'email',
+        'estado',
+        'matriculado',
         'telefono',
         'fecha_nacimiento',
         'provincia_id',

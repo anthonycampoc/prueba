@@ -21,10 +21,12 @@ class EmpresaSeeder extends Seeder
             [
                 'nombre' => 'CRUZ ROJA',
                 'ruc' => '1234567895',
+                'status' => 'ACTIVE'
             ],
             [
                 'nombre' => 'CERTICURSA',
                 'ruc' => '1234567893',
+                'status' => 'ACTIVE'
             ],
         ];
 

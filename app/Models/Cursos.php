@@ -14,7 +14,8 @@ class Cursos extends Model
         'cantEstudiante',
         'duracion',
         'facultad_id',
-        'imagen'
+        'imagen',
+        'status'
         
     ];
 }

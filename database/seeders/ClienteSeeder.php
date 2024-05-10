@@ -29,6 +29,8 @@ class ClienteSeeder extends Seeder
                 'apellido_1' => $faker->lastName,
                 'apellido_2' => $faker->lastName,
                 'cedula' => $faker->unique()->randomNumber(8),
+                'estado' => 'ACTIVE',
+                'matriculado' => 'ACTIVE',
                 'email' => $faker->safeEmail,
                 'telefono' => $faker->phoneNumber,
                 'fecha_nacimiento' => $faker->date('Y-m-d'),

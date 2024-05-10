@@ -29,6 +29,7 @@ class AsesorSeeder extends Seeder
                 'apellido_2' => $faker->lastName,
                 'cedula' => $faker->unique()->randomNumber(8),
                 'email' => $faker->safeEmail,
+                'status' => 'ACTIVE',
                 'telefono' => $faker->phoneNumber,
                 'fecha_nacimiento' => $faker->date('Y-m-d'),
                 'imagen' => 'team-4.jpg', // Replace with actual image path

@@ -18,6 +18,7 @@ class CreateCualidadesTable extends Migration
             $table->text("titulo");
             $table->text("parrafo1");
             $table->string("imagen");
+            $table->enum('status',['ACTIVE','DEACTIVATE'])->default('ACTIVE');
             $table->timestamps();
         });
     }

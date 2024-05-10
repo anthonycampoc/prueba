@@ -16,6 +16,7 @@ class CreateFacultadsTable extends Migration
         Schema::create('facultads', function (Blueprint $table) {
             $table->id();
             $table->string("titulo");
+            $table->enum('status',['ACTIVE','DEACTIVATE'])->default('ACTIVE');
             $table->string("imagen");
             $table->string("nombreLink");
             $table->string("link");

@@ -20,7 +20,8 @@ class SobreSeeder extends Seeder
             'tituloLink' => 'Leer más',
             'link' => 'http://127.0.0.1:8000',
             // Asegúrate de tener una columna 'imagen' en tu modelo si planeas usarla
-            'imagen' => 'ruta/a/tu/imagen.jpg'
+            'imagen' => 'ruta/a/tu/imagen.jpg',
+            'status' => 'ACTIVE'
         ]);
     }
 }

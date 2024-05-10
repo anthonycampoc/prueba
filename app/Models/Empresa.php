@@ -11,6 +11,7 @@ class Empresa extends Model
     protected $fillable =[
         'nombre',
         'ruc',
+        'status'
         
         
     ];
