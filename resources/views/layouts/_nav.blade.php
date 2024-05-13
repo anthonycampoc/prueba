@@ -51,7 +51,7 @@
                             <li class="full-width">
                                 <a href="{{route('inicio.create')}}" class="full-width">
                                     <div class="navLateral-body-cl">
-                                        <i class="zmdi zmdi-balance"></i>
+                                        <i class="zmdi zmdi-plus"></i>
                                     </div>
                                     <div class="navLateral-body-cr hide-on-tablet">
                                         INICIO
@@ -61,7 +61,7 @@
                             <li class="full-width">
                                 <a href="{{route('sobre.create')}}" class="full-width">
                                     <div class="navLateral-body-cl">
-                                        <i class="zmdi zmdi-truck"></i>
+                                        <i class="zmdi zmdi-star-outline"></i>
                                     </div>
                                     <div class="navLateral-body-cr hide-on-tablet">
                                         SOBRE
@@ -71,7 +71,7 @@
                             <li class="full-width">
                                 <a href="{{route('cualidad.create')}}" class="full-width">
                                     <div class="navLateral-body-cl">
-                                        <i class="zmdi zmdi-card"></i>
+                                        <i class="zmdi zmdi-circle-o"></i>
                                     </div>
                                     <div class="navLateral-body-cr hide-on-tablet">
                                         CUALIDADES
@@ -82,7 +82,7 @@
                             <li class="full-width">
                                 <a href="{{route('redes.create')}}" class="full-width">
                                     <div class="navLateral-body-cl">
-                                        <i class="zmdi zmdi-label"></i>
+                                        <i class="zmdi zmdi-globe"></i>
                                     </div>
                                     <div class="navLateral-body-cr hide-on-tablet">
                                         Redes Sociales
@@ -93,7 +93,7 @@
                             <li class="full-width">
                                 <a href="{{route('contacto.create')}}" class="full-width">
                                     <div class="navLateral-body-cl">
-                                        <i class="zmdi zmdi-label"></i>
+                                        <i class="zmdi zmdi-accounts-outline"></i>
                                     </div>
                                     <div class="navLateral-body-cr hide-on-tablet">
                                         Contacto

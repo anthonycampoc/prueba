@@ -80,7 +80,7 @@
                     <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
                         <div class="service-item text-center pt-3">
                             <div class="p-4">
-                                <i class="fa fa-3x fa-graduation-cap text-primary mb-4"></i>
+                                <i class="{{$item->imagen}} text-primary mb-4"></i>
                                 <h5 class="mb-3">{{$item->titulo}}</h5>
                                 <p>{{$item->parrafo1}}</p>
                             </div>
@@ -209,10 +209,11 @@
                     <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>{{$contacto->telefono}}</p>
                     <p class="mb-2"><i class="fa fa-envelope me-3"></i>{{$contacto->correo}}</p>
                     <div class="d-flex pt-2">
-                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
-                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
-                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
+                        @foreach ($redes as $item)
+                        <a class="btn btn-outline-light btn-social" href="{{$item->link}}"><i class="{{$item->icono}}"></i></a>
+                        @endforeach
+                    
+             
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">

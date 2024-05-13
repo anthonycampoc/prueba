@@ -1,8 +1,6 @@
 <?php
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AdminGeneralController;
-use App\Http\Controllers\AdminVendedoresController;
 use App\Http\Controllers\AsesorController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\ContactoController;
@@ -44,7 +42,10 @@ Route::get('CarreraCliente', [App\Http\Controllers\MatriculaController::class, '
 Route::get('Download/{id}', [App\Http\Controllers\MatriculaController::class, 'Download'])->name('Download');
 Route::get('Ruc', [App\Http\Controllers\MatriculaController::class, 'Ruc'])->name('Ruc');
 Route::get('CantonCliente', [App\Http\Controllers\ClienteController::class, 'CantonCliente'])->name('CantonCliente');
+//RUTAS DE ESTADOS 
 Route::get('estadoInico/{id}', [App\Http\Controllers\InicioController::class, 'EstadoIncio'])->name('inicio.estado');
+Route::get('EstadoCualidad/{id}', [App\Http\Controllers\CualidadesController::class, 'EstadoCualidad'])->name('cualidad.estado');
+Route::get('EstadoRedes/{id}', [App\Http\Controllers\RedesController::class, 'EstadoRedes'])->name('redes.estado');
 
 //RUTAS PAGINA WEB
 Route::get('nosotros', [App\Http\Controllers\InicioController::class, 'nosotros'])->name('nosotros');

@@ -1,63 +1,47 @@
 @extends('layouts.admin')
 
 @section('content')
-
 <section class="full-width pageContent">
-   
     <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
         <div class="mdl-tabs__tab-bar">
             <a href="#tabNewClient" class="mdl-tabs__tab is-active">Actualizar</a>
-  
         </div>
         <div class="mdl-tabs__panel is-active" id="tabNewClient">
             <div class="mdl-grid">
                 <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--8-col-desktop mdl-cell--2-offset-desktop">
                     <div class="full-width panel mdl-shadow--2dp">
                         <div class="full-width panel-tittle bg-primary text-center tittles">
-                            Sobre Nosotros
+                            Cualidades
                         </div>
                         <div class="full-width panel-content">
-                            <form action="{{route('sobre.update', $sobre->id)}}" method="POST" enctype="multipart/form-data">
+                            <form action="{{route('cualidad.update', $cualidad->id)}}" method="POST">
                                 @csrf
                                 @method('PUT')
-                                <h5 class="text-condensedLight">Actualizar Sobre Nosotros</h5>
+                                <h5 class="text-condensedLight">Datos Cualidades</h5>
 
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                    <textarea name="parrafo1" class="mdl-textfield__input"  id="NameClient" cols="10" rows="2">{{$sobre->parrafo1}}</textarea>
-                                    <label class="mdl-textfield__label" for="NameClient">Parrafo 2</label>
+                                    <input value="{{$cualidad->titulo}}" name="titulo" class="mdl-textfield__input" type="text" id="NameClient">
+                                    <label class="mdl-textfield__label" for="NameClient">Titulo</label>
+                                    @error('titulo')
+                                        <p style="color: red;">{{$message}}</p>
+                                    @enderror
+                                </div>
+
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                    
+                                    <textarea name="parrafo1" class="mdl-textfield__input"  id="NameClient" cols="10" rows="2">{{$cualidad->parrafo1}}</textarea>
+                                    <label class="mdl-textfield__label" for="NameClient">Parrafo 1</label>
                                     @error('parrafo1')
                                         <p style="color: red;">{{$message}}</p>
                                     @enderror
                                 </div>
 
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                    <textarea name="parrafo2" class="mdl-textfield__input" id="NameClient" cols="10" rows="2">{{$sobre->parrafo2}}</textarea>
-                                    <label class="mdl-textfield__label" for="NameClient">Parrafo 2</label>
-                                    @error('parrafo2')
+                                    <input value="{{$cualidad->imagen}}" name="imagen" class="mdl-textfield__input" type="text" id="NameClient">
+                                    <label class="mdl-textfield__label" for="NameClient">imagen</label>
+                                    @error('imagen')
                                         <p style="color: red;">{{$message}}</p>
                                     @enderror
-
-                                </div>
-
-                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                    <input value="{{$sobre->tituloLink}}" name="tituloLink" class="mdl-textfield__input" type="text"  id="NameClient">
-                                    <label class="mdl-textfield__label" for="NameClient">Nombre Boton</label>
-                                    @error('tituloLink')
-                                        <p style="color: red;">{{$message}}</p>
-                                    @enderror
-                                </div>
-
-                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                    <input value="{{$sobre->link}}"name="link" class="mdl-textfield__input" type="text" id="NameClient">
-                                    <label class="mdl-textfield__label" for="NameClient">Link</label>
-                                    @error('link')
-                                        <p style="color: red;">{{$message}}</p>
-                                    @enderror
-                                </div>
-
-                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                    <input value="{{$sobre->imagen}}" name="imagen" class="mdl-textfield__input" type="file"  id="NameClient">
-                                    <label class="mdl-textfield__label" for="NameClient">imagen</label> 
                                 </div>
 
                                 <p class="text-center">
@@ -75,9 +59,6 @@
                 </div>
             </div>
         </div>
-
-        
     </div>
 </section>
-
 @endsection

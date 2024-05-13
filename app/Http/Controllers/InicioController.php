@@ -7,6 +7,7 @@ use App\Models\Contacto;
 use App\Models\cualidades;
 use App\Models\Facultad;
 use App\Models\Inicio;
+use App\Models\Redes;
 use App\Models\Sobre;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Http\Request;
@@ -17,18 +18,19 @@ class InicioController extends Controller
     public function index(){
         $inicio = DB::select("SELECT * FROM inicios WHERE status ='ACTIVE'");
         $sobre = Sobre::where('id', 1)->firstOrFail();
-        $cualidad = cualidades::all();
+        $cualidad = DB::select("SELECT * FROM cualidades WHERE status ='ACTIVE'");
+        $redes = DB::select("SELECT * FROM redes WHERE status ='ACTIVE'");
         $facultad = Facultad::all();
         $asesor = Asesor::all();
         $contacto = Contacto::where('id', 1)->firstOrFail();
-       //dd($inicio);
-        return view('layouts.page', compact('inicio','sobre','cualidad','facultad','asesor','contacto'));
+
+        return view('layouts.page', compact('inicio','sobre','cualidad','facultad','asesor','contacto', 'redes'));
     }
 
     public function nosotros(){
         $sobre = Sobre::where('id', 1)->firstOrFail();
         $contacto = Contacto::where('id', 1)->firstOrFail();
-        $cualidad = cualidades::all();
+        $cualidad = DB::select("SELECT * FROM cualidades WHERE status ='ACTIVE'");
         $asesor = Asesor::all();
         return view('layouts.sobre', compact('sobre','cualidad','asesor','contacto'));
     }
@@ -110,11 +112,8 @@ class InicioController extends Controller
 
     public function EstadoIncio($id){
             $estado = DB::select(DB::raw('SELECT i.status from inicios i WHERE i.id = :id'), array('id'=>$id));
-            //dd($estado);
 
             foreach ($estado as $item) {
-                //dd($item->status);
-        
                if ($item->status == 'DEACTIVATE') {
                     DB::select(DB::raw('UPDATE inicios set status ="ACTIVE" WHERE id  = :id'), array('id'=>$id));
                 }else if ($item->status == 'ACTIVE') {
