@@ -13,4 +13,8 @@ class Canton extends Model
         'nombre',
         'provincia_id'
     ];
+
+    public function asesor(){
+        return $this->hasMany(asesor::class);
+    }
 }

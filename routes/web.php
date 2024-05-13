@@ -46,6 +46,8 @@ Route::get('CantonCliente', [App\Http\Controllers\ClienteController::class, 'Can
 Route::get('estadoInico/{id}', [App\Http\Controllers\InicioController::class, 'EstadoIncio'])->name('inicio.estado');
 Route::get('EstadoCualidad/{id}', [App\Http\Controllers\CualidadesController::class, 'EstadoCualidad'])->name('cualidad.estado');
 Route::get('EstadoRedes/{id}', [App\Http\Controllers\RedesController::class, 'EstadoRedes'])->name('redes.estado');
+Route::get('EstadoRedes/{id}', [App\Http\Controllers\RedesController::class, 'EstadoRedes'])->name('redes.estado');
+Route::get('EstadoAsesor/{id}', [App\Http\Controllers\AsesorController::class, 'EstadoAsesor'])->name('asesor.estado');
 
 //RUTAS PAGINA WEB
 Route::get('nosotros', [App\Http\Controllers\InicioController::class, 'nosotros'])->name('nosotros');

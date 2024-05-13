@@ -6,7 +6,7 @@
     <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
         <div class="mdl-tabs__tab-bar">
             <a href="#tabNewClient" class="mdl-tabs__tab is-active">Nuevo</a>
-            <a href="#tabListClient" class="mdl-tabs__tab">Lista</a>
+            <a href="#tabListClient" class="mdl-tabs__tab">Activados</a>
             <a href="#tabListClient2" class="mdl-tabs__tab">Desactivados</a>
         </div>
         <div class="mdl-tabs__panel is-active" id="tabNewClient">

@@ -12,4 +12,8 @@ class Provincia extends Model
     protected $fillabel=[
         'nombre'
     ];
+
+    public function asesor(){
+        return $this->hasMany(asesor::class);
+    }
 }

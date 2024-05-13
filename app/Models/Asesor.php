@@ -25,4 +25,16 @@ class Asesor extends Model
         'link',
         'empresa_id'
     ];
+
+    public function provincia(){
+        return $this->belongsTo(provincia::class);
+    }
+
+    public function canton(){
+        return $this->belongsTo(canton::class);
+    }
+
+    public function empresa(){
+        return $this->belongsTo(empresa::class);
+    }
 }

@@ -15,4 +15,8 @@ class Empresa extends Model
         
         
     ];
+
+    public function asesor(){
+        return $this->hasMany(asesor::class);
+    }
 }
