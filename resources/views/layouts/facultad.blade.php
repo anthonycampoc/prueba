@@ -127,10 +127,9 @@
                     <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>{{$contacto->telefono}}</p>
                     <p class="mb-2"><i class="fa fa-envelope me-3"></i>{{$contacto->correo}}</p>
                     <div class="d-flex pt-2">
-                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
-                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
-                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
+                        @foreach ($redes as $item)
+                        <a class="btn btn-outline-light btn-social" href="{{$item->link}}"><i class="{{$item->icono}}"></i></a>
+                        @endforeach
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">

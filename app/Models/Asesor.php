@@ -37,4 +37,8 @@ class Asesor extends Model
     public function empresa(){
         return $this->belongsTo(empresa::class);
     }
+
+    public function estudiante(){
+        return $this->hasMany(Cliente::class);
+    }
 }

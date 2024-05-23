@@ -104,7 +104,7 @@
                 </div>
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
                     <h6 class="section-title bg-white text-start text-primary pe-3">SOBRE NOSOTROS</h6>
-                    <h1 class="mb-4">Welcome to eLEARNING</h1>
+                    <h1 class="mb-4">ITECSUR</h1>
                     <p class="mb-4">{{$sobre->parrafo1}}</p>
                     <p class="mb-4">{{$sobre->parrafo2}}</p>
                    
@@ -120,8 +120,8 @@
     <div class="container-xxl py-5">
         <div class="container">
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                <h6 class="section-title bg-white text-center text-primary px-3">Courses</h6>
-                <h1 class="mb-5">Popular Courses</h1>
+
+                <h1 class="mb-5">Facultades</h1>
             </div>
             <div class="row g-4 justify-content-center">
                 @foreach ($facultad as $item)
@@ -130,7 +130,7 @@
                         <div class="position-relative overflow-hidden">
                             <img class="img-fluid" src="{{asset('imagen/'.$item->imagen)}}" alt="">
                             <div class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4">
-                                <a href="#" class="flex-shrink-0 btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 0 0 30px;">{{$item->nombreLink}}</a>
+                                <a href="#" class="flex-shrink-0 btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 0 0 30px;">Mas Informacion</a>
                                 <a href="{{ route('facultad',$item->id) }}" class="flex-shrink-0 btn btn-sm btn-primary px-3" style="border-radius: 0 30px 30px 0;">Carreras</a>
                             </div>
                         </div>
@@ -158,8 +158,8 @@
     <div class="container-xxl py-5">
         <div class="container">
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                <h6 class="section-title bg-white text-center text-primary px-3">Instructors</h6>
-                <h1 class="mb-5">Expert Instructors</h1>
+                <h6 class="section-title bg-white text-center text-primary px-3">Asesores</h6>
+                <h1 class="mb-5">Asesores Academicos</h1>
             </div>
             <div class="row g-4">
                 @foreach ($asesor as $item)
@@ -174,7 +174,7 @@
                             </div>
                         </div>
                         <div class="text-center p-4">
-                            <h5 class="mb-0">{{$item->nombres}} {{$item->apellidos}}</h5>
+                            <h5 class="mb-0">{{$item->nombre_1}} {{$item->apellido_1}}</h5>
                             
                         </div>
                     </div>
@@ -212,8 +212,6 @@
                         @foreach ($redes as $item)
                         <a class="btn btn-outline-light btn-social" href="{{$item->link}}"><i class="{{$item->icono}}"></i></a>
                         @endforeach
-                    
-             
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">

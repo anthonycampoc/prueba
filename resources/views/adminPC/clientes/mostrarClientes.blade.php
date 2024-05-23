@@ -3,35 +3,26 @@
 @section('content')
 
 <section class="full-width pageContent">
-    <section class="full-width header-well">
-        <div class="full-width header-well-icon">
-            <i class="zmdi zmdi-accounts"></i>
-        </div>
-        <div class="full-width header-well-text">
-            <p class="text-condensedLight">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde aut nulla accusantium minus corporis accusamus fuga harum natus molestias necessitatibus.
-            </p>
-        </div>
-    </section>
+   
     <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
         <div class="mdl-tabs__tab-bar">
             <a href="#tabNewClient" class="mdl-tabs__tab is-active">Nuevo</a>
-            <a href="#tabListClient" class="mdl-tabs__tab">Lista</a>
+            <a href="#tabListClient" class="mdl-tabs__tab">Lista de estudiantes</a>
         </div>
         <div class="mdl-tabs__panel is-active" id="tabNewClient">
             <div class="mdl-grid">
                 <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--8-col-desktop mdl-cell--2-offset-desktop">
                     <div class="full-width panel mdl-shadow--2dp">
                         <div class="full-width panel-tittle bg-primary text-center tittles">
-                            Crear Cliente
+                            Crear Estudiante
                         </div>
                         <div class="full-width panel-content">
                             <form action="{{ route('cliente.store') }}" method="POST">
                                 @csrf
-                                <h5 class="text-condensedLight">Datos Cliente</h5>
+                                <h5 class="text-condensedLight">Datos del estudiante</h5>
 
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                    <input value="{{old('nombre_1')}}" name="nombre_1" class="mdl-textfield__input" type="text" id="NameClient">>
+                                    <input value="{{old('nombre_1')}}" name="nombre_1" class="mdl-textfield__input" type="text" id="NameClient">
                                     <label class="mdl-textfield__label" for="NameClient">Nombre 1</label>
                                     @error('nombre_1')
                                         <p style="color: red;">{{$message}}</p>
@@ -39,7 +30,7 @@
                                 </div>
 
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                    <input value="{{old('nombre_2')}}" name="nombre_2" class="mdl-textfield__input" type="text" id="NameClient">>
+                                    <input value="{{old('nombre_2')}}" name="nombre_2" class="mdl-textfield__input" type="text" id="NameClient">
                                     <label class="mdl-textfield__label" for="NameClient">Nombre 2</label>
                                     @error('nombre_2')
                                         <p style="color: red;">{{$message}}</p>
@@ -47,7 +38,7 @@
                                 </div>
 
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                    <input value="{{old('apellido_1')}}" name="apellido_1" class="mdl-textfield__input" type="text" id="NameClient">>
+                                    <input value="{{old('apellido_1')}}" name="apellido_1" class="mdl-textfield__input" type="text" id="NameClient">
                                     <label class="mdl-textfield__label" for="NameClient">Apellido_1</label>
                                     @error('apellido_1')
                                         <p style="color: red;">{{$message}}</p>
@@ -55,7 +46,7 @@
                                 </div>
 
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                    <input value="{{old('apellido_2')}}" name="apellido_2" class="mdl-textfield__input" type="text" id="NameClient">>
+                                    <input value="{{old('apellido_2')}}" name="apellido_2" class="mdl-textfield__input" type="text" id="NameClient">
                                     <label class="mdl-textfield__label" for="NameClient">apellido_2</label>
                                     @error('apellido_2')
                                         <p style="color: red;">{{$message}}</p>
@@ -63,7 +54,7 @@
                                 </div>
 
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                    <input value="{{old('cedula')}}" name="cedula" class="mdl-textfield__input" type="text" id="NameClient">>
+                                    <input value="{{old('cedula')}}" name="cedula" class="mdl-textfield__input" type="text" id="NameClient">
                                     <label class="mdl-textfield__label" for="DNIClient">Cedula</label>
                                     @error('cedula')
                                         <p style="color: red;">{{$message}}</p>
@@ -71,7 +62,7 @@
                                 </div>
                              
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                    <input value="{{old('telefono')}}" name="telefono" class="mdl-textfield__input" type="text" id="NameClient">>
+                                    <input value="{{old('telefono')}}" name="telefono" class="mdl-textfield__input" type="text" id="NameClient">
                                     <label class="mdl-textfield__label" for="phoneClient">Telefono</label>
                                     @error('telefono')
                                         <p style="color: red;">{{$message}}</p>
@@ -79,7 +70,7 @@
                                 </div>
 
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                    <input value="{{old('email')}}" name="email" class="mdl-textfield__input" type="text" id="NameClient">>
+                                    <input value="{{old('email')}}" name="email" class="mdl-textfield__input" type="text" id="NameClient">
                                     <label class="mdl-textfield__label" for="emailClient">Correo</label>
                                     @error('email')
                                         <p style="color: red;">{{$message}}</p>
@@ -87,8 +78,8 @@
                                 </div>
 
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                    <label class="text-condensedLight" for="emailClient">Ingrese fecha nacimiento</label>
                                     <input name="fecha_nacimiento" class="mdl-textfield__input" type="date" id="emailClient">
-                                    <label class="mdl-textfield__label" for="emailClient">Ingrese fecha nacimiento</label>
                                     @error('fecha_nacimiento')
                                         <p style="color: red;">{{$message}}</p>
                                     @enderror
@@ -96,7 +87,7 @@
 
                                 <div class="mdl-textfield mdl-js-textfield">
                                     <select name="provincia_id" id="provincia_select" class="mdl-textfield__input">
-                                        <option value="" disabled="" selected="">Provincia</option>
+                                        <option>Seleccione la Provincia</option>
                                         @foreach ($provincia as $item)
                                             <option value="{{$item->id}}">{{$item->nombre}}</option>
                                         @endforeach
@@ -105,7 +96,7 @@
 
                                 <div class="mdl-textfield mdl-js-textfield">
                                     <select name="canton_id" id="canton_select"  class="mdl-textfield__input">
-                                
+                                        <option>Seleccione la Canton</option>
             
                                     </select>
                                 </div>
@@ -123,7 +114,7 @@
                                   
                                 <div class="mdl-textfield mdl-js-textfield">
                                     <select name="carrera_id" class="mdl-textfield__input">
-                                        <option value="" disabled="" selected="">Carrera</option>
+                                        <option value="" disabled="" selected="">Seleccione la Carrera</option>
                                                 @foreach ($carrera as $item)
                                                     <option value="{{$item->id}}">{{$item->nombre}}</option>
                                                 @endforeach
@@ -147,37 +138,43 @@
         <div class="mdl-tabs__panel" id="tabListClient">
             <div class="mdl-grid">
                 <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--8-col-desktop mdl-cell--2-offset-desktop">
-                    <div class="full-width panel mdl-shadow--2dp">
-                        <div class="full-width panel-tittle bg-success text-center tittles">
-                            Lista Cliente
-                        </div>
-                        <div class="full-width panel-content">
-                            <form action="#">
-                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
-                                    <label class="mdl-button mdl-js-button mdl-button--icon" for="searchClient">
-                                        <i class="zmdi zmdi-search"></i>
-                                    </label>
-                                    <div class="mdl-textfield__expandable-holder">
-                                        <input class="mdl-textfield__input" type="text" id="searchClient">
-                                        <label class="mdl-textfield__label"></label>
-                                    </div>
-                                </div>
-                            </form>
-                            <div class="mdl-list">
-                                @foreach ($clientes as $item)
-                                    <div class="mdl-list__item mdl-list__item--two-line">
-                                        <span class="mdl-list__item-primary-content">
-                                            <i class="zmdi zmdi-account mdl-list__item-avatar"></i>
-                                            <span>{{$item->nombre}}</span>
-                                            <span class="mdl-list__item-sub-title">{{$item->cedula}}</span>
-                                        </span>
-                                        <a class="mdl-list__item-secondary-action" href="#!"><i class="zmdi zmdi-more"></i></a>
-                                    </div>
-                                    <li class="full-width divider-menu-h"></li>
-                                @endforeach
-                            </div>
-                        </div>
-                    </div>
+                    <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
+                        <thead>
+                            <tr>
+                            
+                                <th>Nombre y apellido</th>
+                                <th>Cedula</th>
+                                <th>Correo</th>
+                                <th>Telefono</th>
+                                <th>Estado de matricula</th>
+
+                                <th colspan="2">Options</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($clientes as $item)
+                                <tr>
+                                    <td>{{$item->nombre_1}} {{$item->apellido_1}}</td>
+                                    <td>{{$item->cedula}}</td>
+                                    <td>{{$item->email}}</td>
+                                    <td>{{$item->telefono}}</td>
+                                    <td>{{$item->matriculado}}</td>
+                                    <td>
+                                        
+                                    <a title="EDITAR"  class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" href="{{route('cliente.edit', $item->id)}}">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 384 384">
+                                            <rect width="384" height="384" fill="none" />
+                                            <path fill="black" d="M0 304L236 68l80 80L80 384H0zM378 86l-39 39l-80-80l39-39q6-6 15-6t15 6l50 50q6 6 6 15t-6 15" />
+                                        </svg>
+                                    </a>
+                            
+                                    </td>
+                                </tr>
+                            @endforeach
+                        
+                        
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>

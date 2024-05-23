@@ -28,4 +28,20 @@ class Cliente extends Model
         'asesor_id',
         'carrera_id'
     ];
+
+    public function provincia(){
+        return $this->belongsTo(provincia::class);
+    }
+
+    public function canton(){
+        return $this->belongsTo(canton::class);
+    }
+
+    public function asesor(){
+        return $this->belongsTo(asesor::class);
+    }
+
+    public function carrera(){
+        return $this->belongsTo(Cursos::class);
+    }
 }

@@ -17,7 +17,7 @@
                             Contacto
                         </div>
                         <div class="full-width panel-content">
-                            <form action="{{route('contacto.update',$contacto->id)}}" method="POST">
+                            <form action="{{route('contacto.update',$contacto->id)}}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 @method('PUT')
                                 <h5 class="text-condensedLight">Datos Contacto</h5>
@@ -43,6 +43,14 @@
                                         <p style="color: red;">{{$message}}</p>
                                     @enderror
                                     
+                                </div>
+
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                    <label class="text-condensedLight" for="NameClient">Inserta una imagen</label>
+                                    <input   name="imagen" class="mdl-textfield__input" type="file" id="NameClient">
+                                    @error('imagen')
+                                        <p style="color: red;">{{$message}}</p>
+                                    @enderror
                                 </div>
 
                                 <p class="text-center">

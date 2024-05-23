@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Empresa; // Asegúrate de importar el modelo Empresa
+use Illuminate\Support\Facades\DB;
 
 class EmpresaController extends Controller
 {
@@ -12,8 +13,9 @@ class EmpresaController extends Controller
     // Mostrar el formulario para crear una nueva empresa
     public function create()
     {
-        $empresa = Empresa::all();
-        return view('adminPC.empresa.mostrarEmpresa', compact('empresa'));
+        $empresaA =  DB::select("SELECT * FROM empresas WHERE status ='ACTIVE'"); //trae los datos que tiene su estado activado
+        $empresaD =  DB::select("SELECT * FROM empresas WHERE status ='DEACTIVATE'");
+        return view('adminPC.empresa.mostrarEmpresa', compact('empresaA', 'empresaD'));
     }
 
     // Almacenar una nueva empresa en la base de datos
@@ -42,21 +44,29 @@ class EmpresaController extends Controller
     {
         $request->validate([
             'nombre' => 'required',
-            'ruc' => 'required|unique:empresa,ruc,' . $empresa->id,
-            // Agrega más validaciones si son necesarias
+            'ruc' => 'required'
+            
         ]);
-
         $empresa->update($request->all());
-        return redirect()->route('empresa.index')
-                        ->with('success', 'Empresa actualizada con éxito.');
+       
+        return redirect()->route('empresa.create');
+                     
     }
 
-    // Eliminar una empresa de la base de datos
-    public function destroy(Empresa $empresa)
-    {
-        $empresa->delete();
-        return redirect()->route('empresa.index')
-                        ->with('success', 'Empresa eliminada con éxito.');
+    public function EstadoEmpresa($id){
+        $estado = DB::select(DB::raw('SELECT e.status from  empresas  e WHERE e.id = :id'), array('id'=>$id));
+
+        foreach ($estado as $item) {
+           if ($item->status == 'DEACTIVATE') {
+                DB::select(DB::raw('UPDATE empresas set status ="ACTIVE" WHERE id  = :id'), array('id'=>$id));
+            }else if ($item->status == 'ACTIVE') {
+                DB::select(DB::raw('UPDATE empresas set status ="DEACTIVATE" WHERE id  = :id'), array('id'=>$id));
+            }
+        }
+        return redirect()->back();
+
     }
+
+  
 }
 

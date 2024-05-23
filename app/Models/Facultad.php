@@ -12,7 +12,6 @@ class Facultad extends Model
     protected $fillable = [
         'titulo',
         'imagen',
-        'nombreLink',
-        'link','status'
+        'status'
     ];
 }

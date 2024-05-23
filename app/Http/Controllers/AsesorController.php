@@ -23,15 +23,19 @@ class AsesorController extends Controller
 
     public function edit($id){
         $asesor = Asesor::findOrFail($id);
+        $idProvincia = DB::select(DB::raw('SELECT provincia_id from asesors WHERE id = :id'), array('id'=>$id));
+        foreach ($idProvincia as $item) {
+            $canton =  DB::select(DB::raw('SELECT c.id, c.nombre from cantons c JOIN provincias p on p.id = c.provincia_id WHERE p.id = :id'), array('id'=>$item->provincia_id));
+        }
         $empresa = Empresa::all();
         $provincia = Provincia::all();
-        return view('adminP.asesor.editAsesor1', compact('asesor','empresa','provincia'));
+        return view('adminP.asesor.editAsesor', compact('asesor','empresa','provincia', 'canton'));
     }
 
-    public function update(Request $request, Asesor $asesorA){
+    public function update(Request $request){
 
-        dd($request);
-       /* $request->validate([
+       //dd($request);
+        $request->validate([
             'nombre_1' => 'required',
             'nombre_2' => 'required',
             'apellido_1' => 'required',
@@ -43,24 +47,21 @@ class AsesorController extends Controller
             'provincia_id' => 'required',
             'canton_id' => 'required',
             'empresa_id' => 'required',
-        ]);*/
+        ]);
 
-        //$asesor = $request->all();
-
-       /* if($imagen = $request->file('imagen')){
+        if($imagen = $request->file('imagen')){
             $ruta = 'imagen/';
             $nombreI = date('YmdHis').".".$imagen->getClientOriginalExtension();
             $imagen->move($ruta, $nombreI);
-            $asesor['imagen'] = "$nombreI";
+            $updateimg = "$nombreI";
+        }else {
+            $updateimg = $request->imagen2;
         }
 
-        $link = 'https://wa.me/593'.$asesor['telefono'].'?text=HOLA%20TE%20COMUNICAS%20CON%20'.$asesor['nombre_1'].'%20'.$asesor['apellido_1'].'%20TU%20ASESOR%20ACEDEMICO,%20COMO%20TE%20PUEDO%20AYUDAR';
-        $asesor['link'] = $link;*/
-
-        $asesorA->update($request->all());
+        $link = 'https://wa.me/593'.$request['telefono'].'?text=HOLA%20TE%20COMUNICAS%20CON%20'.$request['nombre_1'].'%20'.$request['apellido_1'].'%20TU%20ASESOR%20ACEDEMICO,%20COMO%20TE%20PUEDO%20AYUDAR';
+        DB::select(DB::raw('UPDATE asesors set nombre_1 =:nombre, nombre_2 = :nombre2, apellido_1 = :apellido1, apellido_2 = :apellido2, cedula = :cedula, email = :email, telefono =:telefono, imagen =:imagen, link=:link, provincia_id=:provincia, canton_id=:canton, empresa_id=:empresa WHERE id  = :id'), array('id'=>$request->id, 'nombre'=>$request->nombre_1,'nombre2'=>$request->nombre_2, 'apellido1'=>$request->apellido_1, 'apellido2'=>$request->apellido_2, 'cedula'=>$request->cedula,'email'=>$request->email, 'telefono'=>$request->telefono, 'imagen'=>$updateimg, 'link'=>$link, 'provincia'=>$request->provincia_id,'canton'=>$request->canton_id, 'empresa'=>$request->empresa_id));
 
         return redirect()->route('asesor.create');
-
 
     }
 

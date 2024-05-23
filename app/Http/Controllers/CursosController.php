@@ -22,4 +22,13 @@ class CursosController extends Controller
         return redirect()->back();
 
     }
+
+    public function edit($id){
+
+    }
+
+    public function EstadoCarrera($id){
+
+
+    }
 }

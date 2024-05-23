@@ -18,8 +18,6 @@ class CreateFacultadsTable extends Migration
             $table->string("titulo");
             $table->enum('status',['ACTIVE','DEACTIVATE'])->default('ACTIVE');
             $table->string("imagen");
-            $table->string("nombreLink");
-            $table->string("link");
             $table->timestamps();
         });
     }

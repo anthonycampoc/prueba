@@ -20,8 +20,8 @@ class InicioController extends Controller
         $sobre = Sobre::where('id', 1)->firstOrFail();
         $cualidad = DB::select("SELECT * FROM cualidades WHERE status ='ACTIVE'");
         $redes = DB::select("SELECT * FROM redes WHERE status ='ACTIVE'");
-        $facultad = Facultad::all();
-        $asesor = Asesor::all();
+        $facultad = DB::select("SELECT * FROM facultads WHERE status ='ACTIVE'");
+        $asesor = DB::select("SELECT * FROM asesors WHERE status ='ACTIVE'");
         $contacto = Contacto::where('id', 1)->firstOrFail();
 
         return view('layouts.page', compact('inicio','sobre','cualidad','facultad','asesor','contacto', 'redes'));
@@ -31,8 +31,9 @@ class InicioController extends Controller
         $sobre = Sobre::where('id', 1)->firstOrFail();
         $contacto = Contacto::where('id', 1)->firstOrFail();
         $cualidad = DB::select("SELECT * FROM cualidades WHERE status ='ACTIVE'");
-        $asesor = Asesor::all();
-        return view('layouts.sobre', compact('sobre','cualidad','asesor','contacto'));
+        $asesor = DB::select("SELECT * FROM asesors WHERE status ='ACTIVE'");
+        $redes = DB::select("SELECT * FROM redes WHERE status ='ACTIVE'");
+        return view('layouts.sobre', compact('sobre','cualidad','asesor','contacto','redes'));
     }
     
     public function cursos(){
@@ -41,7 +42,8 @@ class InicioController extends Controller
         INNER JOIN facultads f on f.id = c.facultad_id');
         $facultad = Facultad::all();
         $contacto = Contacto::where('id', 1)->firstOrFail();
-        return view('layouts.curso', compact('facultad','contacto','carrera'));
+        $redes = DB::select("SELECT * FROM redes WHERE status ='ACTIVE'");
+        return view('layouts.curso', compact('facultad','contacto','carrera','redes'));
     }
 
     public function facultadC($id){
@@ -54,16 +56,18 @@ class InicioController extends Controller
         $nombre = DB::select(DB::raw('SELECT f.titulo
         FROM cursos c 
         INNER JOIN facultads f on f.id = c.facultad_id where f.id = :id LIMIT 1'), array('id'=>$id));
+         $redes = DB::select("SELECT * FROM redes WHERE status ='ACTIVE'");
 
         //dd($nombre);
         $contacto = Contacto::where('id', 1)->firstOrFail();
-        return view('layouts.facultad', compact('facultadc','contacto','nombre'));
+        return view('layouts.facultad', compact('facultadc','contacto','nombre', 'redes'));
         //    $products = DB::select( DB::raw('SELECT * FROM products WHERE id >= :from AND id <= :to; '), array('from'=>$de,'to'=>$hasta));
     }
 
     public function comunicate(){
         $contacto = Contacto::where('id', 1)->firstOrFail();
-        return view('layouts.contacto', compact('contacto'));
+        $redes = DB::select("SELECT * FROM redes WHERE status ='ACTIVE'");
+        return view('layouts.contacto', compact('contacto','redes'));
     }
     public function create(){
     

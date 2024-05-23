@@ -84,6 +84,7 @@
                                         <p style="color: red;">{{$message}}</p>
                                     @enderror
                                 </div>
+                                
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                     <label class="text-condensedLight" for="emailClient">Ingrese fecha nacimiento</label>
                                     <input value="{{old('fecha_nacimiento')}}" name="fecha_nacimiento" class="mdl-textfield__input" type="date" id="emailClient">

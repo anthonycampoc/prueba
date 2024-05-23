@@ -13,5 +13,6 @@ class Contacto extends Model
         'direccion',
         'telefono',
         'correo',
+        'imagen'
     ];
 }

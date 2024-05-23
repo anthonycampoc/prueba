@@ -19,7 +19,7 @@
                                 @csrf
                                 @method('PUT')
                                 <h5 class="text-condensedLight">Datos Asesor</h5>
-
+                                <input type="hidden" name="id" value="{{$asesor->id}}">
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                     <input  value="{{$asesor->nombre_1}}" name="nombre_1" class="mdl-textfield__input" type="text"  id="NameClient">
                                     <label class="mdl-textfield__label" for="NameClient">Ingrese su primero nombre</label>
@@ -78,7 +78,7 @@
 
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                     <label class="text-condensedLight" for="NameClient">Inserta una imagen</label>
-                                    <input value="{{old('imagen')}}"  name="imagen" class="mdl-textfield__input" type="file" id="NameClient">
+                                    <input value="{{$asesor->imagen}}"  name="imagen" class="mdl-textfield__input" type="file" id="NameClient">
                                     @error('imagen')
                                         <p style="color: red;">{{$message}}</p>
                                     @enderror
@@ -91,8 +91,7 @@
                                     @enderror
                                 </div>
                                 
-                                <input name="link" type="hidden">
-
+                                <input type="hidden" value="{{$asesor->imagen}}" name="imagen2">
                                 <div class="mdl-textfield mdl-js-textfield">
                                     <select name="provincia_id" id="provincia_select" class="mdl-textfield__input">
                                         <option>Seleccione la Provincia</option>
@@ -114,6 +113,13 @@
                                 <div class="mdl-textfield mdl-js-textfield">
                                     <select name="canton_id" id="canton_select"  class="mdl-textfield__input">
                                         <option >Seleccione el canton</option>
+                                        @foreach ($canton as $item)
+                                                 <option value="{{$item->id}}"
+                                                    @if ($item->id == $asesor->canton->id)
+                                                    selected
+                                                    @endif
+                                                >{{$item->nombre}}</option>
+                                        @endforeach
                                     </select>
                                     @error('canton_id')
                                         <p style="color: red;">{{$message}}</p>

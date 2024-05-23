@@ -8,6 +8,7 @@ use App\Models\Asesor;
 use App\Models\Canton;
 use App\Models\Cursos;
 use App\Models\Provincia;
+use Illuminate\Support\Facades\DB;
 
 class ClienteController extends Controller
 {
@@ -24,22 +25,25 @@ class ClienteController extends Controller
     // Mostrar el formulario para crear un nuevo cliente
     public function create()
     {
+        
         return view('clientes.crearClientes');
     }
 
     // Almacenar un nuevo cliente en la base de datos
     public function store(Request $request)
     {
-        $request->validate([
+       // dd($request);
+        
+        /*$request->validate([
             'nombres' => 'required',
             'cedula' => 'required|unique:clientes,cedula',
             'email' => 'required|email|unique:clientes,email',
             'telefono' => 'required',
-            /*'fecha_nacimiento' => 'required|date',
+            'fecha_nacimiento' => 'required|date',
             'provincia' => 'required',
             'canton' => 'required',
-            'parroquia' => 'required',*/
-        ]);
+            'parroquia' => 'required',
+        ]);*/
 
         Cliente::create($request->all());
         return redirect()->back()
@@ -53,26 +57,22 @@ class ClienteController extends Controller
     }
 
     // Mostrar el formulario para editar un cliente existente
-    public function edit(Cliente $cliente)
+    public function edit($id)
     {
-        
-        return view('clientes.editarCliente', compact('cliente'));
+        $cliente = Cliente::findOrFail($id);
+        $idProvincia = DB::select(DB::raw('SELECT provincia_id from clientes WHERE id = :id'), array('id'=>$id));
+        foreach ($idProvincia as $item) {
+            $canton =  DB::select(DB::raw('SELECT c.id, c.nombre from cantons c JOIN provincias p on p.id = c.provincia_id WHERE p.id = :id'), array('id'=>$item->provincia_id));
+        }
+        $provincia = Provincia::all();
+        $carrera = Cursos::all();
+        $asesores = Asesor::all();
+        return view('adminPC.clientes.editarCliente', compact('cliente','provincia','carrera', 'asesores', 'canton'));
     }
 
     // Actualizar un cliente en la base de datos
     public function update(Request $request, Cliente $cliente)
     {
-        $request->validate([
-            'nombre' => 'required',
-            'cedula' => 'required|unique:clientes,cedula,' . $cliente->id,
-            'email' => 'required|email|unique:clientes,email,' . $cliente->id,
-            'telefono' => 'required',
-            /*'fecha_nacimiento',
-            'provincia',
-            'canton',
-            'parroquia',*/
-        ]);
-
         $cliente->update($request->all());
         return redirect()->route('cliente.index')
                         ->with('success', 'Cliente actualizado con éxito.');

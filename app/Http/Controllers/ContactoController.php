@@ -15,8 +15,16 @@ class ContactoController extends Controller
     }
 
     public function update(Request $request,Contacto $contacto){
+        $contacto2 = $request->all();
+        if($imagen = $request->file('imagen')){
+            $ruta = 'imagen/';
+            $nombreI = date('YmdHis').".".$imagen->getClientOriginalExtension();
+            $imagen->move($ruta, $nombreI);
+            $contacto2['imagen'] = "$nombreI";
+        }
 
-        $contacto->update($request->all());
+            $contacto->update($contacto2);
+
         return redirect()->back();
     }
 

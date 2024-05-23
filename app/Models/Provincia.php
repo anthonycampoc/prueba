@@ -16,4 +16,8 @@ class Provincia extends Model
     public function asesor(){
         return $this->hasMany(asesor::class);
     }
+
+    public function estudiante(){
+        return $this->hasMany(Cliente::class);
+    }
 }

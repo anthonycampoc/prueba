@@ -3,20 +3,12 @@
 @section('content')
 
 <section class="full-width pageContent">
-    <section class="full-width header-well">
-        <div class="full-width header-well-icon">
-            <i class="zmdi zmdi-accounts"></i>
-        </div>
-        <div class="full-width header-well-text">
-            <p class="text-condensedLight">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde aut nulla accusantium minus corporis accusamus fuga harum natus molestias necessitatibus.
-            </p>
-        </div>
-    </section>
+
     <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
         <div class="mdl-tabs__tab-bar">
             <a href="#tabNewClient" class="mdl-tabs__tab is-active">Nuevo</a>
-            <a href="#tabListClient" class="mdl-tabs__tab">Lista</a>
+            <a href="#tabListClient" class="mdl-tabs__tab">Activiado</a>
+            <a href="#tabListClient2" class="mdl-tabs__tab">Desactivado</a>
         </div>
         <div class="mdl-tabs__panel is-active" id="tabNewClient">
             <div class="mdl-grid">
@@ -28,7 +20,7 @@
                         <div class="full-width panel-content">
                             <form action="{{route('empresa.store')}}" method="POST">
                                 @csrf
-                                <h5 class="text-condensedLight">Empresa</h5>
+                                <h5 class="text-condensedLight">Datos Empresa</h5>
 
                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                     <input value="{{old('nombre')}}" name="nombre" class="mdl-textfield__input" type="text" id="NameClient">
@@ -63,38 +55,93 @@
         <div class="mdl-tabs__panel" id="tabListClient">
             <div class="mdl-grid">
                 <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--8-col-desktop mdl-cell--2-offset-desktop">
-                    <div class="full-width panel mdl-shadow--2dp">
-                        <div class="full-width panel-tittle bg-success text-center tittles">
-                            Lista Sobre
-                        </div>
-                        <div class="full-width panel-content">
-                            <form action="#">
-                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
-                                    <label class="mdl-button mdl-js-button mdl-button--icon" for="searchClient">
-                                        <i class="zmdi zmdi-search"></i>
-                                    </label>
-                                    <div class="mdl-textfield__expandable-holder">
-                                        <input class="mdl-textfield__input" type="text" id="searchClient">
-                                        <label class="mdl-textfield__label"></label>
-                                    </div>
-                                </div>
-                            </form>
-                            <div class="mdl-list">
-                                @foreach ($empresa as $item)
-                                    <div class="mdl-list__item mdl-list__item--two-line">
-                                        <span class="mdl-list__item-primary-content">
-                                            <i class="zmdi zmdi-account mdl-list__item-avatar"></i>
-                                            <span>{{$item->nombre}}</span>
-                                            <span class="mdl-list__item-sub-title">{{$item->ruc}}</span>
-                                        </span>
-                                        <a class="mdl-list__item-secondary-action" href="#!"><i class="zmdi zmdi-more"></i></a>
-                                    </div>
-                                    <li class="full-width divider-menu-h"></li>
-                                @endforeach
-                              
-                            </div>
-                        </div>
-                    </div>
+                    <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
+                        <thead>
+                            <tr>
+                            
+                                <th>Nombre</th>
+                                <th>Ruc</th>
+                                <th colspan="2">Options</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($empresaA as $item)
+                                <tr>
+                                    <td>{{$item->nombre}}</td>
+                                    <td>{{$item->ruc}}</td>
+                                
+                                    <td>
+                                    
+                                        <a title="ESTADO"  class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" href="{{route('empresa.estado', $item->id)}}">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+                                                <rect width="24" height="24" fill="none" />
+                                                <path fill="black" d="M21 10.12h-6.78l2.74-2.82c-2.73-2.7-7.15-2.8-9.88-.1a6.887 6.887 0 0 0 0 9.8c2.73 2.7 7.15 2.7 9.88 0c1.36-1.35 2.04-2.92 2.04-4.9h2c0 1.98-.88 4.55-2.64 6.29c-3.51 3.48-9.21 3.48-12.72 0c-3.5-3.47-3.53-9.11-.02-12.58a8.987 8.987 0 0 1 12.65 0L21 3zM12.5 8v4.25l3.5 2.08l-.72 1.21L11 13V8z" />
+                                            </svg>
+                                        </a>
+                                        <hr>
+                                        
+                                    <a title="EDITAR"  class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" href="{{route('empresa.edit', $item->id)}}">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 384 384">
+                                            <rect width="384" height="384" fill="none" />
+                                            <path fill="black" d="M0 304L236 68l80 80L80 384H0zM378 86l-39 39l-80-80l39-39q6-6 15-6t15 6l50 50q6 6 6 15t-6 15" />
+                                        </svg>
+                                    </a>
+                            
+                                    </td>
+                                </tr>
+                            @endforeach
+                        
+                        
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+            <!-- fin lista cliente -->
+
+                      <!-- inicio lista cliente -->
+        <div class="mdl-tabs__panel" id="tabListClient2">
+            <div class="mdl-grid">
+                <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--8-col-desktop mdl-cell--2-offset-desktop">
+                    <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
+                        <thead>
+                            <tr>
+                            
+                                <th>Nombre</th>
+                                <th>Ruc</th>
+                                <th colspan="2">Options</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($empresaD as $item)
+                                <tr>
+                                    <td>{{$item->nombre}}</td>
+                                    <td>{{$item->ruc}}</td>
+                                
+                                    <td>
+                                    
+                                        <a title="ESTADO"  class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" href="{{route('empresa.estado', $item->id)}}">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+                                                <rect width="24" height="24" fill="none" />
+                                                <path fill="black" d="M21 10.12h-6.78l2.74-2.82c-2.73-2.7-7.15-2.8-9.88-.1a6.887 6.887 0 0 0 0 9.8c2.73 2.7 7.15 2.7 9.88 0c1.36-1.35 2.04-2.92 2.04-4.9h2c0 1.98-.88 4.55-2.64 6.29c-3.51 3.48-9.21 3.48-12.72 0c-3.5-3.47-3.53-9.11-.02-12.58a8.987 8.987 0 0 1 12.65 0L21 3zM12.5 8v4.25l3.5 2.08l-.72 1.21L11 13V8z" />
+                                            </svg>
+                                        </a>
+                                        <hr>
+                                        
+                                    <a title="EDITAR"  class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" href="{{route('empresa.edit', $item->id)}}">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 384 384">
+                                            <rect width="384" height="384" fill="none" />
+                                            <path fill="black" d="M0 304L236 68l80 80L80 384H0zM378 86l-39 39l-80-80l39-39q6-6 15-6t15 6l50 50q6 6 6 15t-6 15" />
+                                        </svg>
+                                    </a>
+                            
+                                    </td>
+                                </tr>
+                            @endforeach
+                        
+                        
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>

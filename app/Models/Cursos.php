@@ -18,4 +18,8 @@ class Cursos extends Model
         'status'
         
     ];
+
+    public function estudiante(){
+        return $this->hasMany(Cliente::class);
+    }
 }
