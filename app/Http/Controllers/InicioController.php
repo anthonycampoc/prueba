@@ -15,6 +15,10 @@ use Illuminate\Support\Facades\DB;
 
 class InicioController extends Controller
 {
+    public function __construct(){
+        $this->middleware('can:crear.inicio')->only('create');
+    }
+
     public function index(){
         $inicio = DB::select("SELECT * FROM inicios WHERE status ='ACTIVE'");
         $sobre = Sobre::where('id', 1)->firstOrFail();

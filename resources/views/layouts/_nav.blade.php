@@ -4,7 +4,7 @@
         <div class="full-width navLateral-bg btn-menu"></div>
         <div class="full-width navLateral-body">
             <div class="full-width navLateral-body-logo text-center tittles">
-                <i class="zmdi zmdi-close btn-menu"></i> Inventory 
+                <i class="zmdi zmdi-close btn-menu"></i>  ITECSUR 
             </div>
             <figure class="full-width" style="height: 77px;">
                 <div class="navLateral-body-cl">
@@ -12,26 +12,16 @@
                 </div>
                 <figcaption class="navLateral-body-cr hide-on-tablet">
                     <span>
-                        Full Name Admin<br>
-                        <small>Admin</small>
+                        <br>
                     </span>
                 </figcaption>
             </figure>
             <div class="full-width tittles navLateral-body-tittle-menu">
-                <i class="zmdi zmdi-desktop-mac"></i><span class="hide-on-tablet">&nbsp; DASHBOARD</span>
+                <i class="zmdi zmdi-desktop-mac"></i><span class="hide-on-tablet">&nbsp; PANEL DE CONTROL</span>
             </div>
             <nav class="full-width">
                 <ul class="full-width list-unstyle menu-principal">
-                    <li class="full-width">
-                        <a href="home.html" class="full-width">
-                            <div class="navLateral-body-cl">
-                                <i class="zmdi zmdi-view-dashboard"></i>
-                            </div>
-                            <div class="navLateral-body-cr hide-on-tablet">
-                                HOME
-                            </div>
-                        </a>
-                    </li>
+                 
 
                     <li class="full-width divider-menu-h"></li>
                     <li class="full-width">
@@ -44,9 +34,6 @@
                             </div>
                             <span class="zmdi zmdi-chevron-left"></span>
                         </a>
-
-                
-
                         <ul class="full-width menu-principal sub-menu-options">
                             <li class="full-width">
                                 <a href="{{route('inicio.create')}}" class="full-width">
@@ -112,7 +99,7 @@
                                 <i class="zmdi zmdi-face"></i>
                             </div>
                             <div class="navLateral-body-cr hide-on-tablet">
-                                Administracion Estudiantes
+                                Administracion Instituto
                             </div>
                             <span class="zmdi zmdi-chevron-left"></span>
                         </a>

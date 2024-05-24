@@ -51,6 +51,7 @@ Route::get('EstadoAsesor/{id}', [App\Http\Controllers\AsesorController::class, '
 Route::get('EstadoFacultad/{id}', [App\Http\Controllers\FacultadController::class, 'EstadoFacultad'])->name('facultad.estado');
 Route::get('EstadoCarrera/{id}', [App\Http\Controllers\CursosController::class, 'EstadoCarrera'])->name('carrera.estado');
 Route::get('EstadoEmpresa/{id}', [App\Http\Controllers\EmpresaController::class, 'EstadoEmpresa'])->name('empresa.estado');
+Route::get('EstadoCarrera/{id}', [App\Http\Controllers\CursosController::class, 'EstadoCarrera'])->name('carrera.estado');
 
 //RUTAS PAGINA WEB
 Route::get('nosotros', [App\Http\Controllers\InicioController::class, 'nosotros'])->name('nosotros');

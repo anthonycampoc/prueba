@@ -14,4 +14,8 @@ class Facultad extends Model
         'imagen',
         'status'
     ];
+
+    public function carrera(){
+        return $this->hasMany(Cursos::class);
+    }
 }

@@ -11,7 +11,9 @@ use Illuminate\Support\Facades\DB;
 
 class AsesorController extends Controller
 {
-    //
+    public function __construct(){
+        $this->middleware('can:crear.asesor')->only('create');
+    }
 
     public function create(){
         $asesorA =  DB::select("SELECT * FROM asesors WHERE status ='ACTIVE'"); //trae los datos que tiene su estado activado

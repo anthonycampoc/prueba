@@ -9,7 +9,9 @@ use Illuminate\Support\Facades\Schema;
 
 class SobreController extends Controller
 {
-    //
+    public function __construct(){
+        $this->middleware('can:editar.sobre')->only('create');
+    }
 
     public function create(){
         $sobre = Sobre::where('id', 1)->firstOrFail();

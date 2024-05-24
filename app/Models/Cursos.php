@@ -22,4 +22,8 @@ class Cursos extends Model
     public function estudiante(){
         return $this->hasMany(Cliente::class);
     }
+
+    public function facultad(){
+        return $this->belongsTo(facultad::class);
+    }
 }
