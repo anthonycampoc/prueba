@@ -8,7 +8,9 @@ use Illuminate\Http\Request;
 
 class RolController extends Controller
 {
-    //
+    public function __construct(){
+        $this->middleware('can:crear.rol')->only('index');
+    }
 
     public function index(){
 
@@ -17,33 +19,46 @@ class RolController extends Controller
 
     }
 
-    public function store(Request $request, Role $role){
+   /* public function store2(Request $request, Role $role){
 
         $request->validate([
             'name'=>'required'
         ]);
 
-
-
         $permission = $request->input("permissions");
-       // dd($permission[0]);
-   
-        /*if (is_array($permission)) {
-            dd("BIEN");
-        }else {
-            dd("MAL");
-        }*/
-
-        //$data = implode(" ", $permission);
         $data = var_dump(implode($permission));
-       // dd($data);
         $role->create($request->all());
         $role->permissions()->sync($data);
-        //$role->syncPermissions($permission);
+    
+    }*/
 
-        //return redirect()->route('roles.index¨¿)->with("info","El rol se creo con exito");
+    /*public function store(Request $request, Role $role){
+        $request->validate([
+            'name' => 'required'
+        ]);
+    
+        $permissions = $request->input("permissions");
+        dd($permissions);
+        // Asumiendo que $permissions es un array y quieres convertirlo en una cadena
+        // para almacenar en la base de datos o realizar alguna otra operación.
+        $data = implode(' ', $permissions); // Une los elementos del array con comas.
+    
+        $role = $role->create($request->all()); // Crea el rol y obtiene la instancia creada.
+        $role->permissions()->sync($data); // Sincroniza las permisos con el rol.
+    
+        // ... resto del código
+    }*/
 
-            
+    public function store(Request $request, Role $role){
+        $request->validate([
+            'name' => 'required'
+        ]);
 
+        //dd($request->input('permissions'));
+    
+        $role = Role::create(['name' => $request->input('name')]);
+        $role->syncPermissions($request->input('permissions'));
+
+        return redirect()->back();
     }
 }

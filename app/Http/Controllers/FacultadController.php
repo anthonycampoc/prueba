@@ -8,6 +8,9 @@ use Illuminate\Support\Facades\DB;
 
 class FacultadController extends Controller
 {
+    public function __construct(){
+        $this->middleware('can:crear.facultad')->only('create');
+    }
     public function create(){
 
         $facultadA =  DB::select("SELECT * FROM facultads WHERE status ='ACTIVE'"); //trae los datos que tiene su estado activado

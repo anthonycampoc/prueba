@@ -1,8 +1,8 @@
 /node_modules
 /public/hot
 /public/storage
-/public/archivos
-/public/imgagen
+/public/archivos/
+/public/imgagen/
 /storage/*.key
 /vendor
 .env

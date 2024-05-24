@@ -36,11 +36,15 @@ class RoleSeeder extends Seeder
        Permission::create(['name'=>'editar.rol', 'description'=>'editar Rol'])->syncRoles([$roleAdminGeneral]);
    
 
-       
        Permission::create(['name'=>'crear.cualidades', 'description'=>'crear nueva cualidad'])->syncRoles([$roleAdminGeneral]);
        Permission::create(['name'=>'editar.cualidades','description'=>'editar cualidad'])->syncRoles([$roleAdminGeneral]);
        Permission::create(['name'=>'ver.cualidades', 'description'=>'ver cualidad'])->syncRoles([$roleAdminGeneral]);
        Permission::create(['name'=>'desactivar.cualidades','description'=>'desactivar cualidad'])->syncRoles([$roleAdminGeneral]);
+
+       Permission::create(['name'=>'crear.empresa', 'description'=>'crear nueva empresa'])->syncRoles([$roleAdminGeneral]);
+       Permission::create(['name'=>'editar.empresa','description'=>'editar empresa'])->syncRoles([$roleAdminGeneral]);
+       Permission::create(['name'=>'ver.empresa', 'description'=>'ver empresa'])->syncRoles([$roleAdminGeneral]);
+       Permission::create(['name'=>'desactivar.empresa','description'=>'desactivar empresa'])->syncRoles([$roleAdminGeneral]);
 
        Permission::create(['name'=>'editar.sobre', 'description'=>'editar Sobre Nosotros'])->syncRoles([$roleAdminGeneral]);
 
@@ -74,11 +78,10 @@ class RoleSeeder extends Seeder
         Permission::create(['name'=>'desactivar.usuario','description'=>'desactivar usuario'])->syncRoles([$roleAdminGeneral]);
       
         Permission::create(['name'=>'crear.matricula','description'=>' crear matricula'])->syncRoles([$roleAdminGeneral,$roleVendedores]);
-        Permission::create(['name'=>'ver.matricula','description'=>' visualizar matricula'])->syncRoles([$roleAdminGeneral,$roleAdminAsesor]);
+        Permission::create(['name'=>'ver.matricula','description'=>' visualizar matricula'])->syncRoles([$roleAdminGeneral,$roleAdminAsesor,$roleVendedores]);
 
-        
-        Permission::create(['name'=>'crear.cliente','description'=>' crear cliente'])->syncRoles([$roleAdminGeneral,$roleVendedores]);
-        Permission::create(['name'=>'editar.cliente','description'=>' editar cliente'])->syncRoles([$roleAdminGeneral]);
+        Permission::create(['name'=>'crear.cliente','description'=>' crear cliente'])->syncRoles([$roleAdminGeneral,$roleVendedores,$roleAdminAsesor]);
+        Permission::create(['name'=>'editar.cliente','description'=>' editar cliente'])->syncRoles([$roleAdminGeneral,$roleAdminAsesor]);
         Permission::create(['name'=>'ver.cliente','description'=>' ver cliente'])->syncRoles([$roleAdminGeneral]);
         Permission::create(['name'=>'desactivar.cliente','description'=>' desactivar cliente'])->syncRoles([$roleAdminGeneral]);
         

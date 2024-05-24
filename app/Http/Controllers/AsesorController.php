@@ -42,13 +42,14 @@ class AsesorController extends Controller
             'nombre_2' => 'required',
             'apellido_1' => 'required',
             'apellido_2' => 'required',
-            'cedula' => 'required',
-            'email' => 'required',
-            'telefono' => 'required',
+            'cedula' => 'required|digits:10',
+            'email' => 'required|email',
+            'telefono' => 'required|digits:9',
             'fecha_nacimiento' => 'required|date',
             'provincia_id' => 'required',
             'canton_id' => 'required',
             'empresa_id' => 'required',
+   
         ]);
 
         if($imagen = $request->file('imagen')){
@@ -68,25 +69,28 @@ class AsesorController extends Controller
     }
 
     public function store(Request $request){
-
+  
         $nameComplete = $request->nombre_1." ".$request->apellido_1;
-
-       // dd($nameComplete);
         
         $request->validate([
             'nombre_1' => 'required',
             'nombre_2' => 'required',
             'apellido_1' => 'required',
             'apellido_2' => 'required',
-            'cedula' => 'required|unique:asesors,cedula',
+            'cedula' => 'required|digits:10|unique:asesors,cedula',
             'email' => 'required|email|unique:asesors,email',
-            'telefono' => 'required|unique:asesors,telefono',
+            'telefono' => 'required|unique:asesors,telefono|regex:/^[1-9][0-9]{8}$/',
             'imagen' => 'required',
             'fecha_nacimiento' => 'required|date',
             'provincia_id' => 'required',
             'canton_id' => 'required',
             'empresa_id' => 'required',
         ]);
+
+    
+
+
+      
 
         $asesor = $request->all();
 

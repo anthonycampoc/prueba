@@ -12,6 +12,10 @@ use Illuminate\Support\Facades\DB;
 
 class ClienteController extends Controller
 {
+
+    public function __construct(){
+        $this->middleware('can:crear.cliente')->only('create');
+    }
     // Mostrar la lista de clientes
     public function index()
     {
@@ -34,16 +38,22 @@ class ClienteController extends Controller
     {
        // dd($request);
         
-        /*$request->validate([
-            'nombres' => 'required',
-            'cedula' => 'required|unique:clientes,cedula',
+        $request->validate([
+            'nombre_1' => 'required',
+            'nombre_2' => 'required',
+            'apellido_1' => 'required',
+            'apellido_2' => 'required',
+            'cedula' => 'required|digits:10|unique:clientes,cedula',
             'email' => 'required|email|unique:clientes,email',
-            'telefono' => 'required',
+            'telefono' => 'required||digits:10|unique:clientes,telefono',
             'fecha_nacimiento' => 'required|date',
-            'provincia' => 'required',
-            'canton' => 'required',
-            'parroquia' => 'required',
-        ]);*/
+            'provincia_id' => 'required',
+            'canton_id' => 'required',
+            'asesor_id' => 'required',
+            'carrera_id' => 'required',
+
+            
+        ]);
 
         Cliente::create($request->all());
         return redirect()->back()
@@ -73,6 +83,21 @@ class ClienteController extends Controller
     // Actualizar un cliente en la base de datos
     public function update(Request $request, Cliente $cliente)
     {
+        $request->validate([
+            'nombre_1' => 'required',
+            'nombre_2' => 'required',
+            'apellido_1' => 'required',
+            'apellido_2' => 'required',
+            'cedula' => 'required|digits:10',
+            'email' => 'required|email',
+            'telefono' => 'required||digits:10',
+            'fecha_nacimiento' => 'required|date',
+            'provincia_id' => 'required',
+            'canton_id' => 'required',
+            'asesor_id' => 'required',
+            'carrera_id' => 'required',
+        ]);
+
         $cliente->update($request->all());
         return redirect()->route('cliente.index')
                         ->with('success', 'Cliente actualizado con éxito.');

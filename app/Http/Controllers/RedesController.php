@@ -8,7 +8,9 @@ use Illuminate\Support\Facades\DB;
 
 class RedesController extends Controller
 {
-    //
+    public function __construct(){
+        $this->middleware('can:crear.redes')->only('create');
+    }
 
     public function create(){
         $redesA =  DB::select("SELECT * FROM redes WHERE status ='ACTIVE'"); //trae los datos que tiene su estado activado

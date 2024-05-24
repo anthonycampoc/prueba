@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>eLEARNING - eLearning HTML Template</title>
+    <title>itecsurcosta</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -49,12 +49,11 @@
     <div class="container py-5">
         <div class="row justify-content-center">
             <div class="col-lg-10 text-center">
-                <h1 class="display-3 text-white animated slideInDown">Courses</h1>
+                <h1 class="display-3 text-white animated slideInDown">Facultad</h1>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb justify-content-center">
-                        <li class="breadcrumb-item"><a class="text-white" href="#">Home</a></li>
-                        <li class="breadcrumb-item"><a class="text-white" href="#">Pages</a></li>
-                        <li class="breadcrumb-item text-white active" aria-current="page">Courses</li>
+                        <li class="breadcrumb-item"><a class="text-white" href="{{route('inicio.index')}}">Inicio</a></li>
+                        <li class="breadcrumb-item text-white active" aria-current="page">Facultad</li>
                     </ol>
                 </nav>
             </div>
@@ -80,8 +79,7 @@
                     <div class="position-relative overflow-hidden">
                         <img class="img-fluid" src="{{asset('imagen/'.$item->imagen)}}" alt="">
                         <div class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4">
-                            <a href="#" class="flex-shrink-0 btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 0 0 30px;">Read More</a>
-                            <a href="#" class="flex-shrink-0 btn btn-sm btn-primary px-3" style="border-radius: 0 30px 30px 0;">Join Now</a>
+                      
                         </div>
                     </div>
                     <div class="text-center p-4 pb-0">
@@ -132,29 +130,6 @@
                         @endforeach
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
-                    <h4 class="text-white mb-3">Gallery</h4>
-                    <div class="row g-2 pt-2">
-                        <div class="col-4">
-                            <img class="img-fluid bg-light p-1" src="{{asset('page/img/course-1.jpg')}}" alt="">
-                        </div>
-                        <div class="col-4">
-                            <img class="img-fluid bg-light p-1" src="{{asset('page/img/course-2.jpg')}}" alt="">
-                        </div>
-                        <div class="col-4">
-                            <img class="img-fluid bg-light p-1" src="{{asset('page/img/course-3.jpg')}}" alt="">
-                        </div>
-                        <div class="col-4">
-                            <img class="img-fluid bg-light p-1" src="{{asset('page/img/course-2.jpg')}}" alt="">
-                        </div>
-                        <div class="col-4">
-                            <img class="img-fluid bg-light p-1" src="{{asset('page/img/course-3.jpg')}}" alt="">
-                        </div>
-                        <div class="col-4">
-                            <img class="img-fluid bg-light p-1" src="{{asset('page/img/course-1.jpg')}}" alt="">
-                        </div>
-                    </div>
-                </div>
               
             </div>
         </div>
@@ -162,7 +137,7 @@
             <div class="copyright">
                 <div class="row">
                     <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                        &copy; <a class="border-bottom" href="{{ route('inicio.index') }}">CERTICURSA</a>, DERECHOS REVERSADOS.
+                        &copy; <a class="border-bottom" href="{{ route('inicio.index') }}">ITECSURCOSTA</a>, DERECHOS REVERSADOS.
                     </div>
                    
                 </div>

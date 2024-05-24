@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>eLEARNING - eLearning HTML Template</title>
+    <title>itecsurcosta</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -51,12 +51,11 @@
     <div class="container py-5">
         <div class="row justify-content-center">
             <div class="col-lg-10 text-center">
-                <h1 class="display-3 text-white animated slideInDown">About Us</h1>
+                <h1 class="display-3 text-white animated slideInDown">Sobre Nosotros</h1>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb justify-content-center">
-                        <li class="breadcrumb-item"><a class="text-white" href="#">Home</a></li>
-                        <li class="breadcrumb-item"><a class="text-white" href="#">Pages</a></li>
-                        <li class="breadcrumb-item text-white active" aria-current="page">About</li>
+                        <li class="breadcrumb-item"><a class="text-white" href="{{ route('inicio.index')}}">Inicio</a></li>
+                        <li class="breadcrumb-item text-white active" aria-current="page">Nosotros</li>
                     </ol>
                 </nav>
             </div>
@@ -91,14 +90,14 @@
     <div class="container-xxl py-5">
         <div class="container">
             <div class="row g-5">
-                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s" style="min-height: 400px;">
+                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s" style="min-height: 600px;">
                     <div class="position-relative h-100">
                         <img class="img-fluid position-absolute w-100 h-100" src="{{asset('imagen/'.$sobre->imagen)}}" alt="" style="object-fit: cover;">
                     </div>
                 </div>
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
                     <h6 class="section-title bg-white text-start text-primary pe-3">SOBRE NOSOTROS</h6>
-                    <h1 class="mb-4">Welcome to eLEARNING</h1>
+                    <h1 class="mb-4">ITECSUR</h1>
                     <p class="mb-4">{{$sobre->parrafo1}}</p>
                     <p class="mb-4">{{$sobre->parrafo2}}</p>
                    
@@ -114,8 +113,8 @@
     <div class="container-xxl py-5">
         <div class="container">
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                <h6 class="section-title bg-white text-center text-primary px-3">Instructors</h6>
-                <h1 class="mb-5">Expert Instructors</h1>
+                <h6 class="section-title bg-white text-center text-primary px-3">Asesores</h6>
+                <h1 class="mb-5">Asesores Academicos</h1>
             </div>
             <div class="row g-4">
                 @foreach ($asesor as $item)
@@ -198,9 +197,8 @@
             <div class="copyright">
                 <div class="row">
                     <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                        &copy; <a class="border-bottom" href="{{ route('inicio.index') }}">CERTICURSA</a>, DERECHOS REVERSADOS.
+                        &copy; <a class="border-bottom" href="{{ route('inicio.index') }}">ITECSURCOSTA</a>, DERECHOS REVERSADOS.
                     </div>
-                   
                 </div>
             </div>
         </div>

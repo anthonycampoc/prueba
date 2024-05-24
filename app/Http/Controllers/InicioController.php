@@ -43,7 +43,7 @@ class InicioController extends Controller
     public function cursos(){
         $carrera = DB::select('SELECT f.titulo AS nombref, c.cantEstudiante,c.duracion, c.nombre, c.imagen 
         FROM cursos c 
-        INNER JOIN facultads f on f.id = c.facultad_id');
+        INNER JOIN facultads f on f.id = c.facultad_id WHERE c.status = "ACTIVE" ');
         $facultad = Facultad::all();
         $contacto = Contacto::where('id', 1)->firstOrFail();
         $redes = DB::select("SELECT * FROM redes WHERE status ='ACTIVE'");
@@ -55,7 +55,7 @@ class InicioController extends Controller
         $facultadc = DB::select(DB::raw('SELECT f.titulo AS nombref, c.imagen,
         c.cantEstudiante,c.duracion, c.nombre 
         FROM cursos c 
-        INNER JOIN facultads f on f.id = c.facultad_id where f.id = :id'), array('id'=>$id));
+        INNER JOIN facultads f on f.id = c.facultad_id where f.id = :id and c.status = "ACTIVE" '), array('id'=>$id));
         //dd($facultadc);
         $nombre = DB::select(DB::raw('SELECT f.titulo
         FROM cursos c 

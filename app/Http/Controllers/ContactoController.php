@@ -7,7 +7,9 @@ use Illuminate\Http\Request;
 
 class ContactoController extends Controller
 {
-    //
+    public function __construct(){
+        $this->middleware('can:editar.contacto')->only('create');
+    }
 
     public function create(){
        $contacto = Contacto::where('id', 1)->firstOrFail();

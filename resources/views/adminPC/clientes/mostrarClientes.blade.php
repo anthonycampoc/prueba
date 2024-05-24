@@ -7,7 +7,10 @@
     <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
         <div class="mdl-tabs__tab-bar">
             <a href="#tabNewClient" class="mdl-tabs__tab is-active">Nuevo</a>
-            <a href="#tabListClient" class="mdl-tabs__tab">Lista de estudiantes</a>
+            @can('editar.cliente')
+                <a href="#tabListClient" class="mdl-tabs__tab">Lista de estudiantes</a>
+            @endcan
+          
         </div>
         <div class="mdl-tabs__panel is-active" id="tabNewClient">
             <div class="mdl-grid">

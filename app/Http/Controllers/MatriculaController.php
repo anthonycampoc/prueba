@@ -12,7 +12,9 @@ use Illuminate\Support\Facades\DB;
 
 class MatriculaController extends Controller
 {
-    //
+    public function __construct(){
+        $this->middleware('can:crear.matricula')->only('index');
+    }
 
     public function index(){
         $matricula = DB::select('SELECT m.id AS id, m.pdf AS archivo, em.nombre AS empresa, ase.nombre_1 AS asesor, cli.nombre_1 AS cliente, cur.nombre AS carrera 
@@ -28,9 +30,20 @@ class MatriculaController extends Controller
     public function store(Request $request){
 
         //dd($request->cliente_id);
-        
+
+       $datoE =  DB::select(DB::raw('SELECT * FROM clientes WHERE id=:id'), array('id'=>$request->cliente_id));
+      
+
+       $nombre = "";$apellido = ""; $cedula="";
+
+       foreach ($datoE as $item) {
+             $nombre = $item->nombre_1;
+             $apellido = $item->apellido_1;
+             $cedula = $item->cedula;
+       }
+      // dd($nombre,$apellido,$cedula);
         $request->validate([
-            'pdf' => 'required|mimetypes:application/pdf|max:1024', 
+            'pdf' => 'required|mimetypes:application/pdf|max:4024', 
             'empresa_id' => 'required', 
             'asesor_id' => 'required', 
             'cliente_id' => 'required', 
@@ -40,12 +53,12 @@ class MatriculaController extends Controller
         $fileM = $request->all();
         if($file = $request->file('pdf')){
             $ruta = 'archivos/';
-            $nombreI = date('YmdHis').".".$file->getClientOriginalExtension();
+            $nombreI = $nombre."_".$apellido."_".$cedula.".".$file->getClientOriginalExtension();
             $file->move($ruta, $nombreI);
             $fileM ['pdf'] = "$nombreI";
         }
         
-        DB::select(DB::raw('UPDATE clientes set status ="ACTIVE" WHERE id  = :id'), array('id'=>$request->cliente_id));
+        DB::select(DB::raw('UPDATE clientes set matriculado ="ACTIVE" WHERE id  = :id'), array('id'=>$request->cliente_id));
         Matricula::create($fileM);
         return redirect()->back();
     }
@@ -59,7 +72,7 @@ class MatriculaController extends Controller
         //$data = Cliente::select('nombre_1','apellido_1','id')->where('asesor_id', $request->id)->take(100)->get();
         $data = DB::select(DB::raw('SELECT cli.nombre_1, cli.id from clientes cli 
         INNER JOIN asesors ase ON cli.asesor_id = ase.id 
-        WHERE ase.id = :id and cli.status = "DEACTIVATE"'), array("id"=>$request->id));
+        WHERE ase.id = :id and cli.matriculado = "DEACTIVATE"'), array("id"=>$request->id));
         return response()->json($data);
     }
 

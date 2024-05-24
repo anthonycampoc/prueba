@@ -9,13 +9,15 @@ use Illuminate\Support\Facades\DB;
 
 class CursosController extends Controller
 {
-    //
+    public function __construct(){
+        $this->middleware('can:crear.carrera')->only('create');
+    }
 
     public function create(){
        // $carreraA = Cursos::all();
         $carreraA =  DB::select("SELECT * FROM cursos WHERE status ='ACTIVE'"); //trae los datos que tiene su estado activado
         $carreraD =  DB::select("SELECT * FROM cursos WHERE status ='DEACTIVATE'");
-        $facultad = Facultad::all();
+        $facultad =  DB::select("SELECT * FROM facultads WHERE status ='ACTIVE'");
         return view('adminP.carrera.mostrarCarrera', compact('carreraD','carreraA', 'facultad'));
     }
 
@@ -44,7 +46,7 @@ class CursosController extends Controller
 
     public function edit($id){
         $carrera = Cursos::findOrFail($id);
-        $facultad = Facultad::all();
+        $facultad = DB::select("SELECT * FROM facultads WHERE status ='ACTIVE'");
          return view("AdminP.carrera.editarCarrera", compact("carrera",'facultad'));
 
     }

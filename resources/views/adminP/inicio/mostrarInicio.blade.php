@@ -55,7 +55,7 @@
                                 </div>
 
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                <input value="{{old('link')}}" name="link" class="mdl-textfield__input" type="text" id="NameClient">>
+                                <input value="{{old('link')}}" name="link" class="mdl-textfield__input" type="text" id="NameClient">
                                     <label class="mdl-textfield__label" for="NameClient">link</label>
                                     @error('link')
                                         <p style="color: red;">{{$message}}</p>
@@ -63,7 +63,7 @@
                                 </div>
 
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                <input value="{{old('imagen')}}" name="imagen" class="mdl-textfield__input" type="text" id="NameClient">>
+                                <input value="{{old('imagen')}}" name="imagen" class="mdl-textfield__input" type="file" id="NameClient">
                                     
                                     <label class="mdl-textfield__label" for="NameClient">imagen</label>
                                     @error('imagen')
@@ -114,7 +114,7 @@
                                     <td>{{$item->subtitulo}}</td>
                                     <td><textarea disabled cols="30" rows="5">{{$item->parrafo}}</textarea></td>
                                     <td>{{$item->nombreLink}}</td>
-                                    <td>{{$item->link}}</td>
+                                    <td><textarea disabled cols="30" rows="5">{{$item->link}}</textarea></td>
                                     <td><img width="100px" height="50px" src="{{asset('imagen/'.$item->imagen)}}" ></td>
                                 
                                     <td>

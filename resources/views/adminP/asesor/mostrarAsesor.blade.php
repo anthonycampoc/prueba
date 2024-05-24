@@ -6,8 +6,11 @@
     <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
         <div class="mdl-tabs__tab-bar">
             <a href="#tabNewClient" class="mdl-tabs__tab is-active">Nuevo</a>
-            <a href="#tabListClient" class="mdl-tabs__tab">Activados</a>
-            <a href="#tabListClient2" class="mdl-tabs__tab">Desactivados</a>
+            @can('editar.asesor')
+                <a href="#tabListClient" class="mdl-tabs__tab">Activados</a>
+                <a href="#tabListClient2" class="mdl-tabs__tab">Desactivados</a>
+            @endcan
+         
         </div>
         <div class="mdl-tabs__panel is-active" id="tabNewClient">
             <div class="mdl-grid">
@@ -71,7 +74,7 @@
 
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                     <input value="{{old('telefono')}}" name="telefono" class="mdl-textfield__input" type="text" id="NameClient">
-                                    <label class="mdl-textfield__label" for="NameClient">Ingrese su telefono</label>
+                                    <label class="mdl-textfield__label" for="NameClient">Ingrese su telefono(No incluya el 0)</label>
                                     @error('telefono')
                                         <p style="color: red;">{{$message}}</p>
                                     @enderror

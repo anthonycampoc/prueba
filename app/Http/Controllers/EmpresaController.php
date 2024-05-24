@@ -8,7 +8,9 @@ use Illuminate\Support\Facades\DB;
 
 class EmpresaController extends Controller
 {
-    
+    public function __construct(){
+        $this->middleware('can:crear.empresa')->only('create');
+    }
 
     // Mostrar el formulario para crear una nueva empresa
     public function create()

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>eLEARNING - eLearning HTML Template</title>
+    <title>itecsurcosta</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -59,8 +59,8 @@
                                 <h5 class="text-primary text-uppercase mb-3 animated slideInDown">{{$item->titulo}}</h5>
                                 <h1 class="display-3 text-white animated slideInDown">{{$item->subtitulo}}</h1>
                                 <p class="fs-5 text-white mb-4 pb-2">{{$item->parrafo}}</p>
-                                <a href="" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">{{$item->nombreLink}}</a>
-                                <a href="" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Join Now</a>
+                                <a href="{{$item->link}}" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">{{$item->nombreLink}}</a>
+                               
                             </div>
                         </div>
                     </div>
@@ -97,7 +97,7 @@
     <div class="container-xxl py-5">
         <div class="container">
             <div class="row g-5">
-                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s" style="min-height: 400px;">
+                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s" style="min-height: 600px;">
                     <div class="position-relative h-100">
                         <img class="img-fluid position-absolute w-100 h-100" src="{{asset('imagen/'.$sobre->imagen)}}" alt="" style="object-fit: cover;">
                     </div>
@@ -120,8 +120,9 @@
     <div class="container-xxl py-5">
         <div class="container">
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <h6 class="section-title bg-white text-center text-primary px-3">Facultades</h6>
 
-                <h1 class="mb-5">Facultades</h1>
+                <h1 class="mb-5"> </h1>
             </div>
             <div class="row g-4 justify-content-center">
                 @foreach ($facultad as $item)
@@ -214,29 +215,7 @@
                         @endforeach
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
-                    <h4 class="text-white mb-3">Gallery</h4>
-                    <div class="row g-2 pt-2">
-                        <div class="col-4">
-                            <img class="img-fluid bg-light p-1" src="{{asset('page/img/course-1.jpg')}}" alt="">
-                        </div>
-                        <div class="col-4">
-                            <img class="img-fluid bg-light p-1" src="{{asset('page/img/course-2.jpg')}}" alt="">
-                        </div>
-                        <div class="col-4">
-                            <img class="img-fluid bg-light p-1" src="{{asset('page/img/course-3.jpg')}}" alt="">
-                        </div>
-                        <div class="col-4">
-                            <img class="img-fluid bg-light p-1" src="{{asset('page/img/course-2.jpg')}}" alt="">
-                        </div>
-                        <div class="col-4">
-                            <img class="img-fluid bg-light p-1" src="{{asset('page/img/course-3.jpg')}}" alt="">
-                        </div>
-                        <div class="col-4">
-                            <img class="img-fluid bg-light p-1" src="{{asset('page/img/course-1.jpg')}}" alt="">
-                        </div>
-                    </div>
-                </div>
+               
               
             </div>
         </div>
@@ -244,7 +223,7 @@
             <div class="copyright">
                 <div class="row">
                     <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                        &copy; <a class="border-bottom" href="{{ route('inicio.index') }}">CERTICURSA</a>, DERECHOS REVERSADOS.
+                        &copy; <a class="border-bottom" href="{{ route('inicio.index') }}">ITECSURCOSTA</a>, DERECHOS REVERSADOS.
                     </div>
                    
                 </div>
