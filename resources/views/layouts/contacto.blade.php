@@ -52,7 +52,7 @@
                         <h1 class="display-3 text-white animated slideInDown">Contacto</h1>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb justify-content-center">
-                                <li class="breadcrumb-item"><a class="text-white" href="{{ route('inicio.index')}}">Inicio</a></li>
+                                <li class="breadcrumb-item"><a class="text-white" href="{{ route('index')}}">Inicio</a></li>
                                 <li class="breadcrumb-item text-white active" aria-current="page">Contacto</li>
                             </ol>
                         </nav>
@@ -146,7 +146,7 @@
             <div class="copyright">
                 <div class="row">
                     <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                        &copy; <a class="border-bottom" href="{{ route('inicio.index') }}">ITECSURCOSTA</a>, DERECHOS REVERSADOS.
+                        &copy; <a class="border-bottom" href="{{ route('index') }}">ITECSURCOSTA</a>, DERECHOS REVERSADOS.
                     </div>
                    
                 </div>

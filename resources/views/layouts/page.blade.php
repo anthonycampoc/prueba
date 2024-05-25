@@ -211,7 +211,7 @@
                     <p class="mb-2"><i class="fa fa-envelope me-3"></i>{{$contacto->correo}}</p>
                     <div class="d-flex pt-2">
                         @foreach ($redes as $item)
-                        <a class="btn btn-outline-light btn-social" href="{{$item->link}}"><i class="{{$item->icono}}"></i></a>
+                        <a class="btn btn-outline-light btn-social" href="{{$item->link}}"><i class="{{$item->icono}} " aria-hidden="true"></i></a>
                         @endforeach
                     </div>
                 </div>
@@ -223,7 +223,7 @@
             <div class="copyright">
                 <div class="row">
                     <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                        &copy; <a class="border-bottom" href="{{ route('inicio.index') }}">ITECSURCOSTA</a>, DERECHOS REVERSADOS.
+                        &copy; <a class="border-bottom" href="{{ route('index') }}">ITECSURCOSTA</a>, DERECHOS REVERSADOS.
                     </div>
                    
                 </div>

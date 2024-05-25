@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\DB;
 class CualidadesController extends Controller
 {
     public function __construct(){
-        $this->middleware('can:crear.cualidad')->only('create');
+        $this->middleware('can:crear.cualidades')->only('create');
     }
 
     public function create(){
