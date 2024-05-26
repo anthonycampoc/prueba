@@ -6,7 +6,7 @@
    
     <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
         <div class="mdl-tabs__tab-bar">
-            <a href="#tabNewAdmin" class="mdl-tabs__tab is-active">Usurios</a>
+            <a href="#tabNewAdmin" class="mdl-tabs__tab is-active">Usuarios</a>
     
         </div>
         <div class="mdl-tabs__panel is-active" id="tabNewAdmin">
@@ -34,11 +34,12 @@
                                         <td>
 
 
-                                            <a title="EDITAR"  class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" href="{{route('users.edit', $item->id)}}">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 384 384">
-                                                    <rect width="384" height="384" fill="none" />
-                                                    <path fill="black" d="M0 304L236 68l80 80L80 384H0zM378 86l-39 39l-80-80l39-39q6-6 15-6t15 6l50 50q6 6 6 15t-6 15" />
-                                                </svg>
+                                            <a title="EDITAR"  href="{{route('users.edit', $item->id)}}">
+                                                <lord-icon
+                                                src="https://cdn.lordicon.com/depeqmsz.json"
+                                                trigger="click"
+                                                style="width:30px;height:30px">
+                                            </lord-icon>
                                             </a>
                                         </td>
                                      </tr>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Spatie\Permission\Models\Role;
 use Illuminate\Http\Request;
+use Auth;
 
 class UserController extends Controller
 {
@@ -18,8 +19,9 @@ class UserController extends Controller
     }
     public function index()
     {
+        $nombreUsuario = Auth::user()->name;
         $users = User::all();
-        return view('adminPC.usuarios.mostrarUsuario', compact('users'));
+        return view('adminPC.usuarios.mostrarUsuario', compact('users','nombreUsuario'));
     }
 
     /**
@@ -63,9 +65,10 @@ class UserController extends Controller
     public function edit($id)
     {
         //dd($id);
+        $nombreUsuario = Auth::user()->name;
         $users = User::where('id', $id)->firstOrFail();
         $roles = Role::all();
-        return view('adminPC.usuarios.editUsuario',compact('users','roles'));
+        return view('adminPC.usuarios.editUsuario',compact('users','roles','nombreUsuario'));
     }
 
     /**

@@ -4,7 +4,12 @@
         <div class="full-width navLateral-bg btn-menu"></div>
         <div class="full-width navLateral-body">
             <div class="full-width navLateral-body-logo text-center tittles">
-                <i class="zmdi zmdi-close btn-menu"></i>  ITECSUR 
+                <a href="{{route('home')}}">
+                    <img width="110px" height="55px" class="itecsur" src="{{asset('SFI/assets/img/ITECSURLOGO2.png')}}" >
+                </a>
+            
+
+             
             </div>
             <figure class="full-width" style="height: 77px;">
                 <div class="navLateral-body-cl">
@@ -12,7 +17,7 @@
                 </div>
                 <figcaption class="navLateral-body-cr hide-on-tablet">
                     <span>
-                        <br>
+                      {{$nombreUsuario}}  <br>
                     </span>
                 </figcaption>
             </figure>
@@ -27,7 +32,12 @@
                     <li class="full-width">
                         <a href="#!" class="full-width btn-subMenu">
                             <div class="navLateral-body-cl">
-                                <i class="zmdi zmdi-case"></i>
+                                <lord-icon
+                                    src="https://cdn.lordicon.com/fkaukecx.json"
+                                    trigger="loop"
+                                    delay="2000"
+                                    style="width:20px;height:20px">
+                                </lord-icon>
                             </div>
                             <div class="navLateral-body-cr hide-on-tablet">
                                 Administracion Pagina Web
@@ -38,7 +48,12 @@
                             <li class="full-width">
                                 <a href="{{route('inicio.create')}}" class="full-width">
                                     <div class="navLateral-body-cl">
-                                        <i class="zmdi zmdi-plus"></i>
+                                        <lord-icon
+                                        src="https://cdn.lordicon.com/yixbkspi.json"
+                                        trigger="loop"
+                                        delay="500"
+                                        style="width:20px;height:20px">
+                                    </lord-icon>
                                     </div>
                                     <div class="navLateral-body-cr hide-on-tablet">
                                         INICIO
@@ -48,7 +63,12 @@
                             <li class="full-width">
                                 <a href="{{route('sobre.create')}}" class="full-width">
                                     <div class="navLateral-body-cl">
-                                        <i class="zmdi zmdi-star-outline"></i>
+                                        <lord-icon
+                                            src="https://cdn.lordicon.com/dupxuoaa.json"
+                                            trigger="loop"
+                                            delay="500"
+                                            style="width:20px;height:20px">
+                                        </lord-icon>
                                     </div>
                                     <div class="navLateral-body-cr hide-on-tablet">
                                         SOBRE
@@ -58,7 +78,12 @@
                             <li class="full-width">
                                 <a href="{{route('cualidad.create')}}" class="full-width">
                                     <div class="navLateral-body-cl">
-                                        <i class="zmdi zmdi-circle-o"></i>
+                                        <lord-icon
+                                        src="https://cdn.lordicon.com/hcxrqqeo.json"
+                                        trigger="loop"
+                                        delay="500"
+                                        style="width:20px;height:20px">
+                                    </lord-icon>
                                     </div>
                                     <div class="navLateral-body-cr hide-on-tablet">
                                         CUALIDADES
@@ -69,7 +94,12 @@
                             <li class="full-width">
                                 <a href="{{route('redes.create')}}" class="full-width">
                                     <div class="navLateral-body-cl">
-                                        <i class="zmdi zmdi-globe"></i>
+                                        <lord-icon
+                                        src="https://cdn.lordicon.com/hbzwsetw.json"
+                                        trigger="loop"
+                                        delay="500"
+                                        style="width:20px;height:20px">
+                                    </lord-icon>
                                     </div>
                                     <div class="navLateral-body-cr hide-on-tablet">
                                         Redes Sociales
@@ -80,7 +110,12 @@
                             <li class="full-width">
                                 <a href="{{route('contacto.create')}}" class="full-width">
                                     <div class="navLateral-body-cl">
-                                        <i class="zmdi zmdi-accounts-outline"></i>
+                                        <lord-icon
+                                        src="https://cdn.lordicon.com/hrjifpbq.json"
+                                        trigger="loop"
+                                        delay="500"
+                                        style="width:20px;height:20px">
+                                    </lord-icon>
                                     </div>
                                     <div class="navLateral-body-cr hide-on-tablet">
                                         Contacto
@@ -96,7 +131,12 @@
                     <li class="full-width">
                         <a href="#!" class="full-width btn-subMenu">
                             <div class="navLateral-body-cl">
-                                <i class="zmdi zmdi-face"></i>
+                                <lord-icon
+                                src="https://cdn.lordicon.com/fkaukecx.json"
+                                trigger="loop"
+                                delay="2000"
+                                style="width:20px;height:20px">
+                                </lord-icon>
                             </div>
                             <div class="navLateral-body-cr hide-on-tablet">
                                 Administracion Instituto
@@ -109,7 +149,12 @@
                             <li class="full-width">
                                 <a href="{{route('users.index')}}" class="full-width">
                                     <div class="navLateral-body-cl">
-                                        <i class="zmdi zmdi-account"></i>
+                                        <lord-icon
+                                        src="https://cdn.lordicon.com/ozckswtv.json"
+                                        trigger="loop"
+                                            delay="500"
+                                        style="width:20px;height:20px">
+                                    </lord-icon>
                                     </div>
                                     <div class="navLateral-body-cr hide-on-tablet">
                                         Usuario
@@ -120,7 +165,12 @@
                             <li class="full-width">
                                 <a href="{{route('roles.index')}}" class="full-width">
                                     <div class="navLateral-body-cl">
-                                        <i class="zmdi zmdi-account"></i>
+                                        <lord-icon
+                                            src="https://cdn.lordicon.com/jgnvfzqg.json"
+                                            trigger="loop"
+                                            delay="500"
+                                            style="width:20px;height:20px">
+                                        </lord-icon>
                                     </div>
                                     <div class="navLateral-body-cr hide-on-tablet">
                                         Roles
@@ -131,18 +181,45 @@
                             <li class="full-width">
                                 <a href="{{route('asesor.create')}}" class="full-width">
                                     <div class="navLateral-body-cl">
-                                        <i class="zmdi zmdi-label"></i>
+                                        <lord-icon
+                                            src="https://cdn.lordicon.com/iazmohzf.json"
+                                            trigger="loop"
+                                            delay="500"
+                                            style="width:20px;height:20px">
+                                        </lord-icon>
                                     </div>
                                     <div class="navLateral-body-cr hide-on-tablet">
                                         Asesores
                                     </div>
                                 </a>
                             </li>
+                            @can('admin.asesor')
+                                <li class="full-width">
+                                    <a href="{{route('asesor.admin')}}" class="full-width">
+                                        <div class="navLateral-body-cl">
+                                            <lord-icon
+                                                src="https://cdn.lordicon.com/iazmohzf.json"
+                                                trigger="loop"
+                                                delay="500"
+                                                style="width:20px;height:20px">
+                                            </lord-icon>
+                                        </div>
+                                        <div class="navLateral-body-cr hide-on-tablet">
+                                            Administrador Asesores
+                                        </div>
+                                    </a>
+                                </li>
+                            @endcan
                     
                             <li class="full-width">
                                 <a href="{{route('cliente.index')}}" class="full-width">
                                     <div class="navLateral-body-cl">
-                                        <i class="zmdi zmdi-accounts"></i>
+                                        <lord-icon
+                                        src="https://cdn.lordicon.com/hrjifpbq.json"
+                                        trigger="loop"
+                                        delay="500"
+                                        style="width:20px;height:20px">
+                                    </lord-icon>
                                     </div>
                                     <div class="navLateral-body-cr hide-on-tablet">
                                         Estudiante
@@ -153,7 +230,12 @@
                             <li class="full-width">
                                 <a href="{{route('facultad.create')}}" class="full-width">
                                     <div class="navLateral-body-cl">
-                                        <i class="zmdi zmdi-label"></i>
+                                        <lord-icon
+                                        src="https://cdn.lordicon.com/mjcariee.json"
+                                        trigger="loop"
+                                        delay="500"
+                                        style="width:20px;height:20px">
+                                    </lord-icon>
                                     </div>
                                     <div class="navLateral-body-cr hide-on-tablet">
                                         Facultades
@@ -164,7 +246,12 @@
                             <li class="full-width">
                                 <a href="{{route('carrera.create')}}" class="full-width">
                                     <div class="navLateral-body-cl">
-                                        <i class="zmdi zmdi-accounts"></i>
+                                        <lord-icon
+                                            src="https://cdn.lordicon.com/omiqopzf.json"
+                                            trigger="loop"
+                                            delay="500"
+                                            style="width:20px;height:20px">
+                                        </lord-icon>
                                     </div>
                                     <div class="navLateral-body-cr hide-on-tablet">
                                         Carrera
@@ -174,7 +261,12 @@
                             <li class="full-width">
                                 <a href="{{route('empresa.create')}}" class="full-width">
                                     <div class="navLateral-body-cl">
-                                        <i class="zmdi zmdi-accounts"></i>
+                                        <lord-icon
+                                        src="https://cdn.lordicon.com/wmwqvixz.json"
+                                        trigger="loop"
+                                        delay="2000"
+                                        style="width:20px;height:20px">
+                                    </lord-icon>
                                     </div>
                                     <div class="navLateral-body-cr hide-on-tablet">
                                         Empresas
@@ -184,7 +276,12 @@
                             <li class="full-width">
                                 <a href="{{route('matricula.index')}}" class="full-width">
                                     <div class="navLateral-body-cl">
-                                        <i class="zmdi zmdi-accounts"></i>
+                                        <lord-icon
+                                                        src="https://cdn.lordicon.com/rwtswsap.json"
+                                                        trigger="loop"
+                                                        delay="500"
+                                                        style="width:20px;height:20px">
+                                                    </lord-icon>
                                     </div>
                                     <div class="navLateral-body-cr hide-on-tablet">
                                         Matricula

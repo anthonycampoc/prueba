@@ -3,11 +3,6 @@
 @section('content')
 
 <section class="full-width pageContent">
-    <section class="full-width header-well">
-        <div class="full-width header-well-icon">
-            <i class="zmdi zmdi-accounts"></i>
-        </div>
-    </section>
     <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
         <div class="mdl-tabs__tab-bar">
             <a href="#tabNewClient" class="mdl-tabs__tab is-active">Actualizar</a>

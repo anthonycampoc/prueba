@@ -19,6 +19,7 @@
 	<script src="{{asset('SFI/js/sweetalert2.min.js')}}" ></script>
 	<script src="{{asset('SFI/js/jquery.mCustomScrollbar.concat.min.js')}}" ></script>
 	<script src="{{asset('SFI/js/main.js')}}" ></script>
+    <script src="https://cdn.lordicon.com/lordicon.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
     <script src="https://cdn.datatables.net/2.0.5/js/dataTables.js"></script>
 
@@ -35,14 +36,14 @@
             <ul class="list-unstyle">
                 <li class="btn-exit" id="btn-exit">
                     <i class="zmdi zmdi-power"></i>
-                    <div class="mdl-tooltip" for="btn-exit">LogOut</div>
+                    <div class="mdl-tooltip" for="btn-exit">Cerrar Seccion</div>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                         @csrf
                     </form>
                 </li>
                 
               
-                <li class="text-condensedLight noLink" ><small>User Name</small></li>
+                <li class="text-condensedLight noLink" ><small> {{$nombreUsuario}}</small></li>
                 <li class="noLink">
                     <figure>
                         <img src="{{asset('SFI/assets/img/avatar-male.png')}}" alt="Avatar" class="img-responsive">

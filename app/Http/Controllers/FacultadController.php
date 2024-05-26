@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Facultad;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Auth;
 
 class FacultadController extends Controller
 {
@@ -12,10 +13,11 @@ class FacultadController extends Controller
         $this->middleware('can:crear.facultad')->only('create');
     }
     public function create(){
+        $nombreUsuario = Auth::user()->name;
 
         $facultadA =  DB::select("SELECT * FROM facultads WHERE status ='ACTIVE'"); //trae los datos que tiene su estado activado
         $facultadD =  DB::select("SELECT * FROM facultads WHERE status ='DEACTIVATE'"); //trae l
-        return view('adminP.facultad.mostrarFacultad', compact('facultadA','facultadD'));
+        return view('adminP.facultad.mostrarFacultad', compact('facultadA','facultadD','nombreUsuario'));
     }
 
     public function store(Request $request){
@@ -36,9 +38,9 @@ class FacultadController extends Controller
     }
 
     public function edit($id){
-
+        $nombreUsuario = Auth::user()->name;
         $facultad = Facultad::findOrFail($id);
-        return view('adminP.facultad.editFacultad',compact('facultad'));
+        return view('adminP.facultad.editFacultad',compact('facultad','nombreUsuario'));
 
     }
 

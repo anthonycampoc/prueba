@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\cualidades;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Auth;
 
 class CualidadesController extends Controller
 {
@@ -13,9 +14,10 @@ class CualidadesController extends Controller
     }
 
     public function create(){
+        $nombreUsuario = Auth::user()->name;
         $cualidadA =  DB::select("SELECT * FROM cualidades WHERE status ='ACTIVE'"); //trae los datos que tiene su estado activado
         $cualidadD =  DB::select("SELECT * FROM cualidades WHERE status ='DEACTIVATE'"); //trae los datos que tiene su estado desactivado
-        return view('adminP.cualidades.mostrarCualidades',compact('cualidadA','cualidadD') );
+        return view('adminP.cualidades.mostrarCualidades',compact('cualidadA','cualidadD','nombreUsuario') );
     }
 
     public function store(Request $request){
@@ -24,8 +26,9 @@ class CualidadesController extends Controller
     }
 
     public function edit($id){
+        $nombreUsuario = Auth::user()->name;
         $cualidad = cualidades::findOrFail($id);
-        return view('adminP.cualidades.editCualidad', compact('cualidad'));
+        return view('adminP.cualidades.editCualidad', compact('cualidad','nombreUsuario'));
     }
 
     public function update(Request $request, cualidades $cualidad){

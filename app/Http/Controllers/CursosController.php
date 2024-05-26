@@ -6,6 +6,7 @@ use App\Models\Cursos;
 use App\Models\Facultad;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Auth;
 
 class CursosController extends Controller
 {
@@ -15,10 +16,11 @@ class CursosController extends Controller
 
     public function create(){
        // $carreraA = Cursos::all();
+        $nombreUsuario = Auth::user()->name;
         $carreraA =  DB::select("SELECT * FROM cursos WHERE status ='ACTIVE'"); //trae los datos que tiene su estado activado
         $carreraD =  DB::select("SELECT * FROM cursos WHERE status ='DEACTIVATE'");
         $facultad =  DB::select("SELECT * FROM facultads WHERE status ='ACTIVE'");
-        return view('adminP.carrera.mostrarCarrera', compact('carreraD','carreraA', 'facultad'));
+        return view('adminP.carrera.mostrarCarrera', compact('carreraD','carreraA', 'facultad','nombreUsuario'));
     }
 
     public function store(Request $request){
@@ -45,9 +47,10 @@ class CursosController extends Controller
     }
 
     public function edit($id){
+        $nombreUsuario = Auth::user()->name;
         $carrera = Cursos::findOrFail($id);
         $facultad = DB::select("SELECT * FROM facultads WHERE status ='ACTIVE'");
-         return view("AdminP.carrera.editarCarrera", compact("carrera",'facultad'));
+         return view("AdminP.carrera.editarCarrera", compact("carrera",'facultad','nombreUsuario'));
 
     }
 

@@ -12,6 +12,8 @@ use App\Models\Sobre;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Auth;
+
 
 class InicioController extends Controller
 {
@@ -20,10 +22,12 @@ class InicioController extends Controller
     }
 
     public function create(){
+        $usuario = Auth::user();
+        $nombreUsuario = $usuario->name;
     
         $inicioA =  DB::select("SELECT * FROM inicios WHERE status ='ACTIVE'"); //trae los datos que tiene su estado activado
         $inicioD =  DB::select("SELECT * FROM inicios WHERE status ='DEACTIVATE'"); //trae los datos que tiene su estado desactivado
-        return view('adminP.inicio.mostrarInicio',compact('inicioA','inicioD') );
+        return view('adminP.inicio.mostrarInicio',compact('inicioA','inicioD','nombreUsuario') );
     }
 
     public function store(Request $request){
@@ -46,7 +50,9 @@ class InicioController extends Controller
 
     public function edit($id){
         $inicio = Inicio::findOrFail($id);
-        return view('adminP.inicio.editInicio', compact('inicio'));
+        $usuario = Auth::user();
+        $nombreUsuario = $usuario->name;
+        return view('adminP.inicio.editInicio', compact('inicio','nombreUsuario'));
     }
 
     public function update( Request $request, Inicio $inicio){

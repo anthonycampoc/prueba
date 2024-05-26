@@ -9,21 +9,29 @@ use App\Models\Canton;
 use App\Models\Cursos;
 use App\Models\Provincia;
 use Illuminate\Support\Facades\DB;
+use Auth;
 
 class ClienteController extends Controller
 {
 
     public function __construct(){
-        $this->middleware('can:crear.cliente')->only('create');
+        $this->middleware('can:crear.cliente')->only('index');
     }
     // Mostrar la lista de clientes
     public function index()
     {
-        $clientes = Cliente::all();
-        $asesores = Asesor::all();
-        $carrera = Cursos::all();
+        $usuario = Auth::user();
+        $nombreUsuario = $usuario->name;
+        $clientes =  DB::select("SELECT cu.nombre AS carrera, ase.nombre_1 AS Anombre, ase.apellido_1 AS Aapellido,  c.nombre AS canton, p.nombre AS provincia,a.id, a.nombre_1, a.apellido_1, a.cedula, a.email,a.matriculado,a.telefono FROM clientes a 
+        INNER JOIN provincias p on a.provincia_id = p.id 
+        INNER JOIN cantons c on c.id = a.canton_id 
+        INNER JOIN cursos cu on cu.id = a.carrera_id 
+        INNER JOIN asesors ase on ase.id = a.asesor_id"); //trae los datos que tiene su estado activado
+        $asesores = DB::select("SELECT * FROM asesors WHERE status ='ACTIVE' and adminAsesor = '2'");
+        $carrera = DB::select("SELECT * FROM cursos WHERE status ='ACTIVE'");
         $provincia = Provincia::all();
-        return view('adminPC.clientes.mostrarClientes', compact('clientes', 'asesores','carrera', 'provincia'));
+        
+        return view('adminPC.clientes.mostrarClientes', compact('clientes', 'asesores','carrera', 'provincia','nombreUsuario'));
     }
 
     // Mostrar el formulario para crear un nuevo cliente
@@ -69,6 +77,8 @@ class ClienteController extends Controller
     // Mostrar el formulario para editar un cliente existente
     public function edit($id)
     {
+        $usuario = Auth::user();
+        $nombreUsuario = $usuario->name;
         $cliente = Cliente::findOrFail($id);
         $idProvincia = DB::select(DB::raw('SELECT provincia_id from clientes WHERE id = :id'), array('id'=>$id));
         foreach ($idProvincia as $item) {
@@ -76,8 +86,8 @@ class ClienteController extends Controller
         }
         $provincia = Provincia::all();
         $carrera = Cursos::all();
-        $asesores = Asesor::all();
-        return view('adminPC.clientes.editarCliente', compact('cliente','provincia','carrera', 'asesores', 'canton'));
+        $asesores = DB::select("SELECT * FROM asesors WHERE status ='ACTIVE' and adminAsesor = '2'");
+        return view('adminPC.clientes.editarCliente', compact('cliente','provincia','carrera', 'asesores', 'canton', 'nombreUsuario'));
     }
 
     // Actualizar un cliente en la base de datos

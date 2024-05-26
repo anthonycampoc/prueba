@@ -8,6 +8,7 @@ use App\Models\Provincia;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Auth;
 
 class AsesorController extends Controller
 {
@@ -16,22 +17,34 @@ class AsesorController extends Controller
     }
 
     public function create(){
-        $asesorA =  DB::select("SELECT * FROM asesors WHERE status ='ACTIVE'"); //trae los datos que tiene su estado activado
-        $asesorD =  DB::select("SELECT * FROM asesors WHERE status ='DEACTIVATE'"); //trae los datos que tiene su estado desactivado
-        $empresa = Empresa::all();
+        $nombreUsuario = Auth::user()->name;
+        $asesorA =  DB::select("SELECT c.nombre AS canton, p.nombre AS provincia,a.id, a.nombre_1, a.apellido_1, a.cedula,a.email,a.imagen,a.telefono FROM asesors a INNER JOIN provincias p on a.provincia_id=p.id INNER JOIN cantons c on c.id = a.canton_id WHERE a.status ='ACTIVE' and a.adminAsesor = '2'"); //trae los datos que tiene su estado activado
+        $asesorD =  DB::select("SELECT * FROM asesors WHERE status ='DEACTIVATE' and adminAsesor = '2'"); //trae los datos que tiene su estado desactivado
+        $empresa = DB::select("SELECT * FROM empresas WHERE status ='ACTIVE'");
         $provincia = Provincia::all();
-        return view("adminP.asesor.mostrarAsesor", compact('asesorA','asesorD', 'empresa','provincia'));
+        return view("adminP.asesor.mostrarAsesor", compact('asesorA','asesorD', 'empresa','provincia','nombreUsuario'));
+    }
+
+    public function CreateAdmin(){
+        $nombreUsuario = Auth::user()->name;
+        $asesorA =  DB::select("SELECT c.nombre AS canton, p.nombre AS provincia,a.id, a.nombre_1, a.apellido_1, a.cedula,a.email,a.imagen,a.telefono FROM asesors a INNER JOIN provincias p on a.provincia_id=p.id INNER JOIN cantons c on c.id = a.canton_id WHERE a.status ='ACTIVE' and a.adminAsesor = '1'"); //trae los datos que tiene su estado activado
+        $asesorD =  DB::select("SELECT * FROM asesors WHERE status ='DEACTIVATE' and adminAsesor = '1'"); //trae los datos que tiene su estado desactivado
+        $empresa = DB::select("SELECT * FROM empresas WHERE status ='ACTIVE'");
+        $provincia = Provincia::all();
+        return view("adminP.asesor.adminAsesor.mostrarAsesor", compact('asesorA','asesorD', 'empresa','provincia','nombreUsuario'));
+
     }
 
     public function edit($id){
+        $nombreUsuario = Auth::user()->name;
         $asesor = Asesor::findOrFail($id);
         $idProvincia = DB::select(DB::raw('SELECT provincia_id from asesors WHERE id = :id'), array('id'=>$id));
         foreach ($idProvincia as $item) {
             $canton =  DB::select(DB::raw('SELECT c.id, c.nombre from cantons c JOIN provincias p on p.id = c.provincia_id WHERE p.id = :id'), array('id'=>$item->provincia_id));
         }
-        $empresa = Empresa::all();
+        $empresa = DB::select("SELECT * FROM empresas WHERE status ='ACTIVE'");
         $provincia = Provincia::all();
-        return view('adminP.asesor.editAsesor', compact('asesor','empresa','provincia', 'canton'));
+        return view('adminP.asesor.editAsesor', compact('asesor','empresa','provincia', 'canton','nombreUsuario'));
     }
 
     public function update(Request $request){

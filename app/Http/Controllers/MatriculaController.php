@@ -9,7 +9,7 @@ use App\Models\Empresa;
 use App\Models\Matricula;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
+use Auth;
 class MatriculaController extends Controller
 {
     public function __construct(){
@@ -17,6 +17,7 @@ class MatriculaController extends Controller
     }
 
     public function index(){
+        $nombreUsuario = Auth::user()->name;
         $matricula = DB::select('SELECT m.id AS id, m.pdf AS archivo, em.nombre AS empresa, ase.nombre_1 AS asesor, cli.nombre_1 AS cliente, cur.nombre AS carrera 
         from matriculas m 
         INNER JOIN empresas em on em.id = m.empresa_id 
@@ -24,7 +25,7 @@ class MatriculaController extends Controller
         INNER JOIN clientes cli on cli.id = m.cliente_id 
         INNER JOIN cursos cur on cur.id = m.carrera_id');
         $empresa = Empresa::all();
-        return view('adminPC.matricula.mostrarMatricula', compact('matricula', 'empresa'));
+        return view('adminPC.matricula.mostrarMatricula', compact('matricula', 'empresa','nombreUsuario'));
     }
 
     public function store(Request $request){

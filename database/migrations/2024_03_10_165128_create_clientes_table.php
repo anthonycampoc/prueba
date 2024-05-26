@@ -20,7 +20,7 @@ class CreateClientesTable extends Migration
             $table->string('apellido_1');
             $table->string('apellido_2');
             $table->string('cedula');
-            $table->string('email')->unique();
+            $table->string('email');
             $table->string('telefono');
             $table->date('fecha_nacimiento');
             $table->enum('estado',['ACTIVE','DEACTIVATE'])->default('ACTIVE');

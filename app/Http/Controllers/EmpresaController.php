@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Empresa; // Asegúrate de importar el modelo Empresa
 use Illuminate\Support\Facades\DB;
+use Auth;
 
 class EmpresaController extends Controller
 {
@@ -15,9 +16,10 @@ class EmpresaController extends Controller
     // Mostrar el formulario para crear una nueva empresa
     public function create()
     {
+        $nombreUsuario = Auth::user()->name;
         $empresaA =  DB::select("SELECT * FROM empresas WHERE status ='ACTIVE'"); //trae los datos que tiene su estado activado
         $empresaD =  DB::select("SELECT * FROM empresas WHERE status ='DEACTIVATE'");
-        return view('adminPC.empresa.mostrarEmpresa', compact('empresaA', 'empresaD'));
+        return view('adminPC.empresa.mostrarEmpresa', compact('empresaA', 'empresaD','nombreUsuario'));
     }
 
     // Almacenar una nueva empresa en la base de datos
@@ -38,7 +40,8 @@ class EmpresaController extends Controller
     public function edit($id)
     {
         $empresa = Empresa::findOrFail($id);
-        return view('adminPC.empresa.editarEmpresa', compact('empresa'));
+        $nombreUsuario = Auth::user()->name;
+        return view('adminPC.empresa.editarEmpresa', compact('empresa','nombreUsuario'));
     }
 
     // Actualizar una empresa en la base de datos

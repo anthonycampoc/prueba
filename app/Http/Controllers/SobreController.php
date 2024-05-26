@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use App\Models\Sobre;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Schema;
+use Auth;
 
 class SobreController extends Controller
 {
@@ -14,8 +15,9 @@ class SobreController extends Controller
     }
 
     public function create(){
+        $nombreUsuario = Auth::user()->name;
         $sobre = Sobre::where('id', 1)->firstOrFail();
-        return view('adminP.sobre.mostrarSobre',compact('sobre') );
+        return view('adminP.sobre.mostrarSobre',compact('sobre','nombreUsuario') );
     }
 
     public function update(Request $request, Sobre $sobre){
@@ -37,11 +39,5 @@ class SobreController extends Controller
 
         $sobre->update($sobre1);
         return redirect()->back();
-    }
-
-    // Método para mostrar el formulario de edición
-    public function edit($id){
-        $sobre = Sobre::find($id);
-        return view('adminP.sobre.editarSobre', compact('sobre'));
     }
 }

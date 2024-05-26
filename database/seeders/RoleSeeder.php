@@ -69,6 +69,7 @@ class RoleSeeder extends Seeder
 
        
         Permission::create(['name'=>'crear.asesor' , 'description'=>'crear nuevo asesor'])->syncRoles([$roleAdminGeneral,$roleAdminAsesor]);
+        Permission::create(['name'=>'admin.asesor' , 'description'=>'crear nuevo Administraor de Asesor'])->syncRoles([$roleAdminGeneral]);
         Permission::create(['name'=>'editar.asesor' , 'description'=>'editar asesor'])->syncRoles([$roleAdminGeneral,$roleAdminAsesor]);
         Permission::create(['name'=>'ver.asesor', 'description'=>'ver asesor'])->syncRoles([$roleAdminGeneral,$roleAdminAsesor]);
         Permission::create(['name'=>'desactivar.asesor', 'description'=>'desactivar asesor'])->syncRoles([$roleAdminGeneral,$roleAdminAsesor]);

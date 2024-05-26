@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Contacto;
 use Illuminate\Http\Request;
-
+use Auth;
 class ContactoController extends Controller
 {
     public function __construct(){
@@ -12,8 +12,9 @@ class ContactoController extends Controller
     }
 
     public function create(){
+        $nombreUsuario = Auth::user()->name;
        $contacto = Contacto::where('id', 1)->firstOrFail();
-       return view('adminP.contacto.mostrarContacto', compact('contacto'));
+       return view('adminP.contacto.mostrarContacto', compact('contacto','nombreUsuario'));
     }
 
     public function update(Request $request,Contacto $contacto){

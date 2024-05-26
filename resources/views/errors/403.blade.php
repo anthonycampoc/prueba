@@ -6,7 +6,7 @@
    
     <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
         
-        <td><img class="itecsur" src="{{asset('imagen/20240522224050.png')}}" ></td>
+        <td><img class="itecsur" src="{{asset('SFI/assets/img/LOGO.png')}}" ></td>
      
     </div>
 </section>

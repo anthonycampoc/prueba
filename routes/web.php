@@ -29,29 +29,30 @@ Route::resource('contacto', ContactoController::class)->names('contacto')->middl
 Route::resource('redes', RedesController::class)->names('redes')->middleware('auth');
 
 //RUTAS ADMINISTRATIVAS
-Route::resource('clientes', ClienteController::class)->names('cliente')->middleware('auth');;
-Route::resource('facultad', FacultadController::class)->names('facultad')->middleware('auth');;
-Route::resource('carrera', CursosController::class)->names('carrera')->middleware('auth');;
-Route::resource('asesor', AsesorController::class)->names('asesor')->middleware('auth');;
-Route::resource('empresa', EmpresaController::class)->names('empresa')->middleware('auth');;
-Route::resource('matricula', MatriculaController::class)->names('matricula')->middleware('auth');;
-Route::resource('rol', RolController::class)->names('roles')->middleware('auth');;
-Route::get('EmpresaAsesor', [App\Http\Controllers\MatriculaController::class, 'EmpresaAsesor'])->name('EmpresaAsesor')->middleware('auth');;
-Route::get('AsesorCliente', [App\Http\Controllers\MatriculaController::class, 'AsesorCliente'])->name('AsesorCliente')->middleware('auth');;
-Route::get('CarreraCliente', [App\Http\Controllers\MatriculaController::class, 'CarreraCliente'])->name('CarreraCliente')->middleware('auth');;
-Route::get('Download/{id}', [App\Http\Controllers\MatriculaController::class, 'Download'])->name('Download')->middleware('auth');;
+Route::resource('clientes', ClienteController::class)->names('cliente')->middleware('auth');
+Route::resource('facultad', FacultadController::class)->names('facultad')->middleware('auth');
+Route::resource('carrera', CursosController::class)->names('carrera')->middleware('auth');
+Route::resource('asesor', AsesorController::class)->names('asesor')->middleware('auth');
+Route::get('adminAsesor', [App\Http\Controllers\AsesorController::class, 'CreateAdmin'])->name('asesor.admin')->middleware('auth');
+Route::resource('empresa', EmpresaController::class)->names('empresa')->middleware('auth');
+Route::resource('matricula', MatriculaController::class)->names('matricula')->middleware('auth');
+Route::resource('rol', RolController::class)->names('roles')->middleware('auth');
+Route::get('EmpresaAsesor', [App\Http\Controllers\MatriculaController::class, 'EmpresaAsesor'])->name('EmpresaAsesor')->middleware('auth');
+Route::get('AsesorCliente', [App\Http\Controllers\MatriculaController::class, 'AsesorCliente'])->name('AsesorCliente')->middleware('auth');
+Route::get('CarreraCliente', [App\Http\Controllers\MatriculaController::class, 'CarreraCliente'])->name('CarreraCliente')->middleware('auth');
+Route::get('Download/{id}', [App\Http\Controllers\MatriculaController::class, 'Download'])->name('Download')->middleware('auth');
 Route::get('Ruc', [App\Http\Controllers\MatriculaController::class, 'Ruc'])->name('Ruc');
-Route::get('CantonCliente', [App\Http\Controllers\ClienteController::class, 'CantonCliente'])->name('CantonCliente')->middleware('auth');;
+Route::get('CantonCliente', [App\Http\Controllers\ClienteController::class, 'CantonCliente'])->name('CantonCliente')->middleware('auth');
 //RUTAS DE ESTADOS 
-Route::get('estadoInico/{id}', [App\Http\Controllers\InicioController::class, 'EstadoIncio'])->name('inicio.estado')->middleware('auth');;
-Route::get('EstadoCualidad/{id}', [App\Http\Controllers\CualidadesController::class, 'EstadoCualidad'])->name('cualidad.estado')->middleware('auth');;
-Route::get('EstadoRedes/{id}', [App\Http\Controllers\RedesController::class, 'EstadoRedes'])->name('redes.estado')->middleware('auth');;
-Route::get('EstadoRedes/{id}', [App\Http\Controllers\RedesController::class, 'EstadoRedes'])->name('redes.estado')->middleware('auth');;
-Route::get('EstadoAsesor/{id}', [App\Http\Controllers\AsesorController::class, 'EstadoAsesor'])->name('asesor.estado')->middleware('auth');;
-Route::get('EstadoFacultad/{id}', [App\Http\Controllers\FacultadController::class, 'EstadoFacultad'])->name('facultad.estado')->middleware('auth');;
-Route::get('EstadoCarrera/{id}', [App\Http\Controllers\CursosController::class, 'EstadoCarrera'])->name('carrera.estado')->middleware('auth');;
-Route::get('EstadoEmpresa/{id}', [App\Http\Controllers\EmpresaController::class, 'EstadoEmpresa'])->name('empresa.estado')->middleware('auth');;
-Route::get('EstadoCarrera/{id}', [App\Http\Controllers\CursosController::class, 'EstadoCarrera'])->name('carrera.estado')->middleware('auth');;
+Route::get('estadoInico/{id}', [App\Http\Controllers\InicioController::class, 'EstadoIncio'])->name('inicio.estado')->middleware('auth');
+Route::get('EstadoCualidad/{id}', [App\Http\Controllers\CualidadesController::class, 'EstadoCualidad'])->name('cualidad.estado')->middleware('auth');
+Route::get('EstadoRedes/{id}', [App\Http\Controllers\RedesController::class, 'EstadoRedes'])->name('redes.estado')->middleware('auth');
+Route::get('EstadoRedes/{id}', [App\Http\Controllers\RedesController::class, 'EstadoRedes'])->name('redes.estado')->middleware('auth');
+Route::get('EstadoAsesor/{id}', [App\Http\Controllers\AsesorController::class, 'EstadoAsesor'])->name('asesor.estado')->middleware('auth');
+Route::get('EstadoFacultad/{id}', [App\Http\Controllers\FacultadController::class, 'EstadoFacultad'])->name('facultad.estado')->middleware('auth');
+Route::get('EstadoCarrera/{id}', [App\Http\Controllers\CursosController::class, 'EstadoCarrera'])->name('carrera.estado')->middleware('auth');
+Route::get('EstadoEmpresa/{id}', [App\Http\Controllers\EmpresaController::class, 'EstadoEmpresa'])->name('empresa.estado')->middleware('auth');
+Route::get('EstadoCarrera/{id}', [App\Http\Controllers\CursosController::class, 'EstadoCarrera'])->name('carrera.estado')->middleware('auth');
 
 //RUTAS PAGINA WEB
 Route::get('inicio', [App\Http\Controllers\PaginaController::class, 'index'])->name('index');
@@ -62,7 +63,7 @@ Route::get('facultadC/{id}', [App\Http\Controllers\PaginaController::class, 'fac
 
 Auth::routes();
 
-Route::get('/home', [HomeController::class, 'index'])->name('home'); // Modificado para usar el alias
+Route::get('/home', [HomeController::class, 'index'])->name('home')->middleware('auth'); // Modificado para usar el alias
 
 // Ruta para adminGeneral
 

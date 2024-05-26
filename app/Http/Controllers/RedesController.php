@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Redes;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
+use Auth;
 class RedesController extends Controller
 {
     public function __construct(){
@@ -13,9 +13,10 @@ class RedesController extends Controller
     }
 
     public function create(){
+        $nombreUsuario = Auth::user()->name;
         $redesA =  DB::select("SELECT * FROM redes WHERE status ='ACTIVE'"); //trae los datos que tiene su estado activado
         $redesD =  DB::select("SELECT * FROM redes WHERE status ='DEACTIVATE'"); //trae los datos que tiene su estado desactivado
-        return view('adminP.redes.mostrarRedes', compact('redesA', 'redesD'));
+        return view('adminP.redes.mostrarRedes', compact('redesA', 'redesD','nombreUsuario'));
     }
 
     public function store(Request $request){
@@ -24,8 +25,9 @@ class RedesController extends Controller
     }
 
     public function edit($id){
+        $nombreUsuario = Auth::user()->name;
         $redes = Redes::findOrFail($id);
-        return view('adminP.redes.editRedes', compact('redes'));
+        return view('adminP.redes.editRedes', compact('redes','nombreUsuario'));
     }
 
     public function update(Request $request){

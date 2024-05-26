@@ -16,28 +16,28 @@ class UserSeeder extends Seeder
     {
         //
         User::create([
-            'name'=>'admin',
-            'email'=>'admin@hotmail.com',
+            'name'=>'Administrador',
+            'email'=>'admin@itecsurcosta.com',
             'status' => 'ACTIVE',
-            'password'=>bcrypt('admin'),
+            'password'=>bcrypt('A1T3cs4rc0sT4@'),
 
         ])->assignRole('administador');
 
         User::create([
-            'name'=>'adminasesor',
-            'email'=>'adminasesor@hotmail.com',
+            'name'=>'Finanzas',
+            'email'=>'finanzas@itecsurcosta.com',
             'status' => 'ACTIVE',
-            'password'=>bcrypt('admin'),
+            'password'=>bcrypt('F1T3cs4rc0sT4@'),
 
-        ])->assignRole('adminAsesor');
+        ])->assignRole('administador');
 
         User::create([
-            'name'=>'asesor',
-            'email'=>'asesor@hotmail.com',
+            'name'=>'Marketing',
+            'email'=>'marketing@itecsurcosta.com',
             'status' => 'ACTIVE',
-            'password'=>bcrypt('admin'),
+            'password'=>bcrypt('M1T3cs4rc0sT4@'),
 
-        ])->assignRole('Asesor');
+        ])->assignRole('administador');
 
       
     }

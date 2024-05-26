@@ -141,7 +141,7 @@
         <div class="mdl-tabs__panel" id="tabListClient">
             <div class="mdl-grid">
                 <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--8-col-desktop mdl-cell--2-offset-desktop">
-                    <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
+                    <table id="example" class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
                         <thead>
                             <tr>
                             
@@ -149,9 +149,11 @@
                                 <th>Cedula</th>
                                 <th>Correo</th>
                                 <th>Telefono</th>
+                                <th>Provincia</th>
+                                <th>Canton</th>
+                                <th>Asesor</th>
                                 <th>Estado de matricula</th>
-
-                                <th colspan="2">Options</th>
+                                <th>Options</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -161,14 +163,18 @@
                                     <td>{{$item->cedula}}</td>
                                     <td>{{$item->email}}</td>
                                     <td>{{$item->telefono}}</td>
+                                    <td>{{$item->provincia}}</td>
+                                    <td>{{$item->canton}}</td>
+                                    <td>{{$item->Anombre}} {{$item->Aapellido}}</td>
                                     <td>{{$item->matriculado}}</td>
                                     <td>
                                         
-                                    <a title="EDITAR"  class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" href="{{route('cliente.edit', $item->id)}}">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 384 384">
-                                            <rect width="384" height="384" fill="none" />
-                                            <path fill="black" d="M0 304L236 68l80 80L80 384H0zM378 86l-39 39l-80-80l39-39q6-6 15-6t15 6l50 50q6 6 6 15t-6 15" />
-                                        </svg>
+                                    <a title="EDITAR"   href="{{route('cliente.edit', $item->id)}}">
+                                        <lord-icon
+                                        src="https://cdn.lordicon.com/depeqmsz.json"
+                                        trigger="click"
+                                        style="width:30px;height:30px">
+                                    </lord-icon>
                                     </a>
                             
                                     </td>

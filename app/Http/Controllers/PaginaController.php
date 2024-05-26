@@ -22,7 +22,7 @@ class PaginaController extends Controller
         $cualidad = DB::select("SELECT * FROM cualidades WHERE status ='ACTIVE'");
         $redes = DB::select("SELECT * FROM redes WHERE status ='ACTIVE'");
         $facultad = DB::select("SELECT * FROM facultads WHERE status ='ACTIVE'");
-        $asesor = DB::select("SELECT * FROM asesors WHERE status ='ACTIVE'");
+        $asesor = DB::select("SELECT * FROM asesors WHERE status ='ACTIVE'and adminAsesor = '2'");
         $contacto = Contacto::where('id', 1)->firstOrFail();
 
         return view('layouts.page', compact('inicio','sobre','cualidad','facultad','asesor','contacto', 'redes'));
@@ -32,7 +32,7 @@ class PaginaController extends Controller
         $sobre = Sobre::where('id', 1)->firstOrFail();
         $contacto = Contacto::where('id', 1)->firstOrFail();
         $cualidad = DB::select("SELECT * FROM cualidades WHERE status ='ACTIVE'");
-        $asesor = DB::select("SELECT * FROM asesors WHERE status ='ACTIVE'");
+        $asesor = DB::select("SELECT * FROM asesors WHERE status ='ACTIVE' and adminAsesor = '2'");
         $redes = DB::select("SELECT * FROM redes WHERE status ='ACTIVE'");
         return view('layouts.sobre', compact('sobre','cualidad','asesor','contacto','redes'));
     }

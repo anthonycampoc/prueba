@@ -24,9 +24,9 @@ class DatabaseSeeder extends Seeder
         $this->call(ContactoSeeder::class);
         $this->call(ProvinciaSeeder::class);
         $this->call(CantonSeeder::class);
-        $this->call(FacultadSeeder::class);
-        $this->call(CarreraSeeder::class);
-       // $this->call(AsesorSeeder::class);
+        //$this->call(FacultadSeeder::class);
+        //$this->call(CarreraSeeder::class);
+        //$this->call(AsesorSeeder::class);
         //$this->call(ClienteSeeder::class);
    
        
